@@ -3,11 +3,11 @@ class CreateProducts < ActiveRecord::Migration[5.2]
     create_table :products do |t|
       
     	t.integer :genre_id
-    	t.string :name, :null
+    	t.string :name
     	t.text :content
-    	t.string :image_id, :null
-    	t.intger :price, :null
-    	t.boolean :selling_status
+    	t.string :image_id
+    	t.intger :price
+    	t.boolean :selling_status, :default => false
     	t.datetime :created_at
     	t.datetime :update_at
 
