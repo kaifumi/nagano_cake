@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
     	t.string :name
     	t.text :content
     	t.string :image_id
-    	t.intger :price
+    	t.integer :price
     	t.boolean :selling_status, :default => false
     	t.datetime :created_at
     	t.datetime :update_at
