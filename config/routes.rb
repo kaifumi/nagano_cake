@@ -15,12 +15,13 @@ Rails.application.routes.draw do
 
 
     namespace :admin do
+        root "admin#top"
         resources :products
         resources :genres, only: [:index, :create, :edit, :update, :destroy]
         resources :orders, only: [:index, :show, :update]
         resources :customers, only: [:index, :show, :edit, :update]
     end
-    get "/admin/top" => "admin/admins#top"
+    
 
 
 end 
