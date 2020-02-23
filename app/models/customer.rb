@@ -58,8 +58,8 @@ class Customer < ApplicationRecord
 	acts_as_paranoid
 	# 論理削除
 
-	has_many :cart_product, dependent: :destroy
-	has_many :order, dependent: :destroy
-	has_many :delivery, dependent: :destroy
+	has_many :cart_products, dependent: :destroy
+	has_many :orders, dependent: :destroy
+	has_many :deliveries, dependent: :destroy
 
 end
