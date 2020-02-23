@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :customers
     namespace :customer do
         resources :orders, only: [:new, :show, :create, :index]
         resources :customers, only: [:show, :edit, :update,:destroy]

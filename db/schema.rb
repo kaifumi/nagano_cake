@@ -10,11 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_22_103527) do
+ActiveRecord::Schema.define(version: 2020_02_22_121050) do
+
+  create_table "cart_products", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "product_id"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "genres", force: :cascade do |t|
     t.string "type"
     t.boolean "sell_activated", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "payment_option"
+    t.integer "transaction_status"
+    t.integer "delivery_price", default: 800
+    t.integer "total_price"
+    t.string "postal_code"
+    t.text "address"
+    t.string "receiver"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
