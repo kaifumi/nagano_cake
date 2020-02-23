@@ -6,7 +6,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* 10登録情報 */
+// 10.登録情報
 .container {
   margin: 30px;
 }
@@ -46,6 +46,7 @@ td {
   border: 1px black solid;
   border-collapse: collapse;
   th {
+    width: 25%;
     background-color: lightgray;
   }
 }
@@ -63,4 +64,22 @@ td {
       margin-left: 10px;
     }
   }
+}
+
+// 12.会員情報編集
+.customer_edit {
+  p {
+    margin-top: 15px;
+  }
+  th {
+    width: 200px;
+  }
+}
+.registlation_info {
+  display: inline-flex;
+  margin: 10px 0 20px;
+}
+.edit_save {
+  display: inline-block;
+  margin: 10px auto;
 }
