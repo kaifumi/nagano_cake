@@ -6,9 +6,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// ボタン設定
+.btn {
+  // width: 100px;
+  margin: 10px;
+  text-align: center;
+}
+
 // 10.登録情報
 .container {
-  margin: 30px;
+  margin: 120px;
 }
 .customer_info {
   display: flex;
@@ -45,6 +52,7 @@ th,
 td {
   border: 1px black solid;
   border-collapse: collapse;
+
   th {
     width: 25%;
     background-color: lightgray;
@@ -80,6 +88,5 @@ td {
   margin: 10px 0 20px;
 }
 .edit_save {
-  display: inline-block;
-  margin: 10px auto;
+  margin-left: 300px;
 }
