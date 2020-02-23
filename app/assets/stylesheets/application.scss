@@ -15,7 +15,7 @@
 
 // 10.登録情報
 .container {
-  margin: 120px;
+  margin: 100px;
 }
 .customer_info {
   display: flex;
@@ -47,8 +47,7 @@
     margin-top: 15px;
   }
 }
-table,
-th,
+
 td {
   border: 1px black solid;
   border-collapse: collapse;
@@ -89,4 +88,9 @@ td {
 }
 .edit_save {
   margin-left: 300px;
+}
+
+// 25.会員一覧
+.customer_table th {
+  background-color: lightgray;
 }
