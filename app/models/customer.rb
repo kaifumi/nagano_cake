@@ -47,11 +47,16 @@ class Customer < ApplicationRecord
 		message: "〇〇〇-〇〇〇〇のように入力して下さい"
 	}
 
-	validates :address, presence: true,
-	validates :status, inclusion: { in: [true, false] }
+	validates :address, presence: true
+
+	validates :status,
+	inclusion: { in: [true, false] }
+
 	validates :created_at, presence: true
 	validates :updated_at, presence: true
-	validates :deleted_at, presence: true
+
+	acts_as_paranoid
+	# 論理削除
 
 	has_many :cart_product, dependent: :destroy
 	has_many :order, dependent: :destroy
