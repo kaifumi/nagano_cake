@@ -11,6 +11,36 @@
 
   <body>
 <!-- header -->
+<header>
+    <div class="container">
+      <div class="headline">
+        <%# app/assets/images %>
+        <%= image_tag "logo_transparent.png", class: "logo_img" %>
+      </div>
+
+      <%#= if user_sign_in? %>
+        <ul class="header_top">
+          <p class="head_currentuser_name">ユーザー名：<%#=customer.name%>*****</p>
+        </ul>
+
+        <ul class="nav-list">
+          <li><%= link_to customer_products_path do%><p class="nav-list-item">TOP</p><%end%></li>
+          <li><%= link_to customer_products_path do%><p class="nav-list-item">ABOUT</p><%end%></li>
+          <li><%= link_to customer_customer_path do%><p class="nav-list-item">MY PAGE</p><%end%></li>
+          <li><%= link_to customer_cart_products_path do%><p class="nav-list-item">CART</p><%end%></li>
+          <li><%= link_to destroy_user_session_path, method: :delete do%><p class="nav-list-item">LOG OUT</p><%end%></li>
+        </ul>
+
+      <%# else %>
+        <!-- <ul class="nav-list"> -->
+          <!-- <li><%#= link_to customer_products_path do%><p class="nav-list-item">TOP</p><%#end%></li> -->
+          <!-- <li><%#= link_to customer_products_path do%><p class="nav-list-item">ABOUT</p><%#end%></li> -->
+          <!-- <li><%#= link_to new_user_session_path do%><p class="nav-list-item">LOG IN</p><%#end%></li> -->
+          <!-- <li><%#= link_to new_user_registration_pat do%><p class="nav-list-item">SIGN UP</p><%#end%></li> -->
+        <!-- </ul> -->
+      <%#end%>
+    </div>
+  </header>
     <%= yield %>
   </body>
 </html>
