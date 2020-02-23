@@ -1,0 +1,85 @@
+/*
+*= require_tree .
+*= require_self
+*/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// 10.登録情報
+.container {
+  margin: 30px;
+}
+.customer_info {
+  display: flex;
+  margin: 10px 0 20px;
+  .btn {
+    margin-left: 20px;
+  }
+  p {
+    margin-top: 15px;
+  }
+}
+.delivery_address {
+  display: flex;
+  margin: 10px 0 20px;
+  .btn {
+    margin-left: 20px;
+  }
+  p {
+    margin-top: 15px;
+  }
+}
+.order_history {
+  display: flex;
+  margin: 10px 0 20px;
+  .btn {
+    margin-left: 20px;
+  }
+  p {
+    margin-top: 15px;
+  }
+}
+table,
+th,
+td {
+  border: 1px black solid;
+  border-collapse: collapse;
+  th {
+    width: 25%;
+    background-color: lightgray;
+  }
+}
+
+// 11.退会確認画面
+.withdraw {
+  margin-top: 150px;
+  text-align: center;
+  .withdraw_btn {
+    display: inline-flex;
+    .btn-primary {
+      margin-right: 10px;
+    }
+    .btn-danger {
+      margin-left: 10px;
+    }
+  }
+}
+
+// 12.会員情報編集
+.customer_edit {
+  p {
+    margin-top: 15px;
+  }
+  th {
+    width: 200px;
+  }
+}
+.registlation_info {
+  display: inline-flex;
+  margin: 10px 0 20px;
+}
+.edit_save {
+  display: inline-block;
+  margin: 10px auto;
+}
