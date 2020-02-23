@@ -21,22 +21,22 @@ class Customer < ApplicationRecord
 	validates :kana_first_name,
 	presence: true,
 	format: {
-		with: /\A[ァ-ヶｧ-ﾝﾞﾟ]+\z/,
-		message: "カタカナのみで入力して下さい"
+		with: /[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+/,
+		message: "全角カタカナのみで入力して下さい"
 		}
 
 	validates :kana_last_name,
 	presence: true,
 	format: {
-		with: /[\p{katakana}　ー－]+/,
-		message: "カタカナのみで入力して下さい"
+		with: /[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+/,
+		message: "全角カタカナのみで入力して下さい"
 		}
 
 	validates :telephone_number,
 	presence: true,
 	format: {
-		with: /\A\d{10,11}\z/,
-		message: "カタカナのみで入力して下さい"
+		with: /\A[0-9]{3}-[0-9]{4}-[0-9]{4}\z/,
+		message: "〇〇〇-〇〇〇〇-〇〇〇〇のように入力して下さい"
 		}
 
 	validates :postal_code,
