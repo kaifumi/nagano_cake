@@ -43,7 +43,7 @@ class Customer < ApplicationRecord
 	presence: true,
 	numericality: { only_interger: true },
 	format: {
-		with: /\A[0-9]{3}-[0-9]{4}\z/
+		with: /\A[0-9]{3}-[0-9]{4}\z/,
 		message: "〇〇〇-〇〇〇〇のように入力して下さい"
 	}
 
