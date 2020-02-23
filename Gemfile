@@ -70,3 +70,6 @@ gem "refile-mini_magick"
 
 #論理削除で使用
 gem 'paranoia'
+
+# ページネーション機能
+gem 'kaminari'
