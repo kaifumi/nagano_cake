@@ -4,31 +4,33 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
+# rubyの規約上、正規表現の前後は/\A～\z/で閉じる。
 	validates :first_name,
 	presence: true,
 	format: {
-		with: /^[ぁ-んァ-ン一-龥]/,
+		with: /\A^[ぁ-んァ-ン一-龥]\z/,
 		message: "	アルファベットは使用できません"
 		}
 
 	validates :last_name,
 	presence: true,
 	format: {
-		with: /^[ぁ-んァ-ン一-龥]/,
+		with: /\A^[ぁ-んァ-ン一-龥]\z/,
 		message: "アルファベットは使用できません"
 		}
 
 	validates :kana_first_name,
 	presence: true,
 	format: {
-		with: /[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+/,
+		with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
 		message: "全角カタカナのみで入力して下さい"
 		}
 
 	validates :kana_last_name,
 	presence: true,
 	format: {
-		with: /[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+/,
+		with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
 		message: "全角カタカナのみで入力して下さい"
 		}
 
