@@ -14,6 +14,9 @@ class Product < ApplicationRecord
 	validates :created_at, presence: true
 	validates :update_at, presence: true
 
+	acts_as_paranoid
+	# 論理削除
+
 	belongs_to :genre
 	has_many :order_details
 	has_many :cart_products
