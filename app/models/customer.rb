@@ -7,15 +7,15 @@ class Customer < ApplicationRecord
 	validates :first_name,
 	presence: true,
 	format: {
-		with: /\A[a-z]+\z/,
-		message: "半角のみで入力して下さい"
+		with: /^[ぁ-んァ-ン一-龥]/,
+		message: "	アルファベットは使用できません"
 		}
 
 	validates :last_name,
 	presence: true,
 	format: {
-		with: /\A[a-z]+\z/,
-		message: "半角のみで入力して下さい"
+		with: /^[ぁ-んァ-ン一-龥]/,
+		message: "アルファベットは使用できません"
 		}
 
 	validates :kana_first_name,
