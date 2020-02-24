@@ -10,9 +10,8 @@ class Product < ApplicationRecord
         message: "半角の数字のみ入力して下さい"
 	}
 	
-	validates :selling_status, inclusion: { in: [true, false] }
-	validates :created_at, presence: true
-	validates :update_at, presence: true
+	validates :selling_status,
+	inclusion: { in: [true, false] }
 
 	acts_as_paranoid
 	# 論理削除

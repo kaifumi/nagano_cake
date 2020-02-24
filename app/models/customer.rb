@@ -51,8 +51,6 @@ class Customer < ApplicationRecord
 	validates :status,
 	inclusion: { in: [true, false] }
 
-	validates :created_at, presence: true
-	validates :updated_at, presence: true
 
 	acts_as_paranoid
 	# 論理削除
