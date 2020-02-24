@@ -9,8 +9,6 @@ class Delivery < ApplicationRecord
 
 	validates :address, presence: true
 	validates :receiver, presence: true
-	validates :created_at, presence: true
-	validates :updated_at, presence: true
 
 	belongs_to :customer
 
