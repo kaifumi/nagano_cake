@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'products/new'
+    get 'products/index'
+    get 'products/show'
+    get 'products/edit'
+  end
   devise_for :customers
     namespace :customer do
         resources :orders, only: [:new, :thanks, :show, :create, :index, :purchase]
