@@ -1,6 +1,5 @@
 class Order < ApplicationRecord
 
-	customer_id
 	enum payment_option:{
 	銀行振込: 0,
 	クレジットカード: 1
@@ -19,11 +18,16 @@ class Order < ApplicationRecord
 
 	validates :postal_code,
 	numericality: { only_interger: true },
-	format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
+	format: {with: /\A[0-9]{3}-[0-9]{4}\z/,
+	message: "〇〇〇-〇〇〇〇のように入力して下さい"
+	}
 
 	validates :address, presence: true
 	validates :receiver, presence: true
 	validates :created_at, presence: true
 	validates :update_at, presence: true
+
+	has_many :order_details
+	belongs_to :customer
 
 end

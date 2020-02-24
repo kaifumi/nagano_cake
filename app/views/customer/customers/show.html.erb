@@ -4,7 +4,9 @@
     <%# 横並びするためにブロック化 %>
     <div class="customer_info">
         <p>登録情報</p>
-        <button class="btn btn-primary">編集する</button>
+        <div class="button_wrapper">
+            <%= link_to "編集する", edit_customer_customer_path, class:"btn btn-primary" %>
+        </div>
         <button class="btn btn-primary">パスワードを変更する</button>
     </div>
 
@@ -40,10 +42,10 @@
 
     <div class="delivery_address">
         <p>配送先　　</p>
-        <button class="btn btn-primary">一覧を見る</button>
+        <%= link_to "一覧を見る", customer_deliveries_path, class:"btn btn-primary" %>
     </div>
     <div class="order_history">
         <p>注文履歴　</p>
-        <button class="btn btn-primary">一覧を見る</button>
+        <%= link_to "一覧を見る", customer_orders_path, class:"btn btn-primary" %>
     </div>
 </div>

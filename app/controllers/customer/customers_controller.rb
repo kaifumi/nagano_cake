@@ -4,6 +4,7 @@ class Customer::CustomersController < ApplicationController
 	end
 
 	def edit
+		# @customer=Customer.find_by(id:params[:id])
 	end
 
 	def update
