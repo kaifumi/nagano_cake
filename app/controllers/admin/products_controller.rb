@@ -6,7 +6,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-  	@product = Product.new(product_params)
+  	@product = Product.new(products_params)
   	if @product.save
   		flash[:notice] = "商品の登録が完了しました"
   		redirect_to admin_products_path

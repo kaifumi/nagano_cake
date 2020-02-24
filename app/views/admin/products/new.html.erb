@@ -39,7 +39,7 @@
 			<!-- ジャンル選択 -->
 			<div class="form-group">
 				<lavel>ジャンル </lavel><br>
-				<%#= f.collection_select :genre_id, Genre.all, :id, :value属性の項目とは？, class: "col-xs-6" %>
+				<%= f.collection_select :genre_id, Genre.all, :id, class: "col-xs-6" %>
 				<!-- collection_selectのformfor内での使い方 => f.coection_select (:オブジェクト名),:プロパティ,:オブジェクトの配列,:value属性の項目,text --><br>
 			</div>
 
@@ -52,7 +52,7 @@
 			<!-- 販売ステータス -->
 			<div class="form-group">
 				<lavel>販売ステータス </lavel><br>
-				<%#= f.select :selling_status [["販売中", "true"], ["売切れ", "false"]], class: "col-xs-6" %>
+				<%#= f.collectiom_select :selling_status [["販売中", "true"], ["売切れ", "false"]], class: "col-xs-6" %>
 			</div>
 
 			<!-- 投稿ボタン -->
