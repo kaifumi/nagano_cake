@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="customer_edit">
+		<div class="registlation_info">
+			<p>登録情報編集　</p>
+			<button class="btn btn-danger">退会する</button>
+		</div>
+		<%# テーブル内容の書き方合ってるか不安 %>
+		<%# <%= form_for(@customer) do |f|  %>
+		<table class="table table-bordered">
+			<tbody>
+				<tr>
+					<th>氏名</th>
+
+					<td><%= text_field :last_name, :size=>"60",autofocus: true, placeholder:"山田"%>
+						<%= text_field :first_name,:size=>"60",autofocus: true, placeholder:"花子"%>
+					</td>
+				</tr>
+				<tr>
+					<th>カナ</th>
+					<td><%= text_field :kana_last_name,:size=>"60", autofocus: true, placeholder:"ヤマダ"%>
+						<%= text_field :kana_first_name,:size=>"60", autofocus: true, placeholder:"ハナコ"%>
+					</td>
+				</tr>
+				<tr>
+					<th>郵便番号</th>
+					<td><%= text_field :postal_code,:size=>"60", autofocus: true, placeholder:"郵便番号"%></td>
+				</tr>
+				<tr>
+					<th>住所</th>
+					<td><%= text_field :address,:size=>"180", autofocus: true, placeholder:"住所"%></td>
+				</tr>
+				<tr>
+					<th>電話番号</th>
+					<td><%= text_field :telephone_number, :size=>"60",autofocus: true, placeholder:"電話番号"%></td>
+				</tr>
+				<tr>
+					<th>メールアドレス</th>
+					<td><%= text_field :email, :size=>"120",autofocus: true, placeholder:"メールアドレス"%></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="edit_save">
+			<button class="btn btn-primary">編集内容を保存する</button>
+		</div>
+	</div>
+</div>
