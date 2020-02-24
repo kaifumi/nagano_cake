@@ -41,7 +41,6 @@ class Customer < ApplicationRecord
 
 	validates :postal_code,
 	presence: true,
-	numericality: { only_interger: true },
 	format: {
 		with: /\A[0-9]{3}-[0-9]{4}\z/,
 		message: "〇〇〇-〇〇〇〇のように入力して下さい"
@@ -58,8 +57,8 @@ class Customer < ApplicationRecord
 	acts_as_paranoid
 	# 論理削除
 
-	has_many :cart_product, dependent: :destroy
-	has_many :order, dependent: :destroy
-	has_many :delivery, dependent: :destroy
+	has_many :cart_products, dependent: :destroy
+	has_many :orders, dependent: :destroy
+	has_many :deliveries, dependent: :destroy
 
 end
