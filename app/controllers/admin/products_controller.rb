@@ -1,11 +1,12 @@
 class Admin::ProductsController < ApplicationController
+	PER = 10
 
   def new
   	@product = Product.new
   end
 
   def create
-  	@product = Product.new
+  	@product = Product.new(product_params)
   	if @product.save
   		flash[:notice] = "商品の登録が完了しました"
   		redirect_to admin_products_path
@@ -16,6 +17,7 @@ class Admin::ProductsController < ApplicationController
 
   def index
   	@products = Product.all
+  	@products = Product.page(params[:page]).per(PER)
   end
 
   def show

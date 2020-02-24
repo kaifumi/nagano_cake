@@ -1,7 +1,6 @@
 <!-- 商品新規登録ページ -->
 <div class="container">
 <div class="row">
-	<p class="new_product_head">商品　新規登録画面</p>
 
 	<!-- エラー文 -->
 	<%# if @user.errors.any? %>
@@ -13,33 +12,52 @@
 	    </div>
     <%# end %>
 
+	<h2 class="col-xs-offset-1 new_product_head">商品　新規登録画面</h2>
+
     <%= form_for @product, url: admin_products_path do |f| %>
 	    <!-- 商品写真登録 -->
-		<%#= f.attachment_field :image_id, placeholder: "商品画像", class: "product_new image" %>
+	    <div class="col-xs-3 col-xs-offset-1">
+	    	<div class="form-group has-icon">
+				<lavel><%= f.attachment_field :image %></lavel>
+			</div>
+		</div>
 
-		<!-- 商品名登録 -->
-		<p class="product_new name">商品名</p>
-		<p><%= f.text_field :name %></p>
+		<div class="col-xs-8">
 
-		<!-- 商品説明登録 -->
-		<p class="product_new content">商品説明</p>
-		<p><%= f.text_area :content %></p>
+			<!-- 商品名登録 -->
+			<div class="form-group">
+				<lavel>商品名</lavel><br>
+				<%= f.text_field :name, class: "col-xs-6" %><br>
+			</div>
 
-		<!-- ジャンル選択 -->
-		<p class="product_new jenre">ジャンル</p>
-		<P><%#= f.collection_select :genre_id, Genre.all, :id, :value属性の項目とは？ %></p>
-		<!-- collection_selectのformfor内での使い方 => f.coection_select (:オブジェクト名),:プロパティ,:オブジェクトの配列,:value属性の項目,text -->
+			<!-- 商品説明登録 -->
+			<div class="form-group">
+				<lavel>商品説明 </lavel><br>
+				<%= f.text_area :content, class: "col-xs-6" %><br><br>
+			</div>
 
-		<!-- 税抜価格 -->
-		<p class="product_new price">税抜価格</p>
-		<p><%= f.text_field :price %> 円</p>
+			<!-- ジャンル選択 -->
+			<div class="form-group">
+				<lavel>ジャンル </lavel><br>
+				<%#= f.collection_select :genre_id, Genre.all, :id, :value属性の項目とは？, class: "col-xs-6" %>
+				<!-- collection_selectのformfor内での使い方 => f.coection_select (:オブジェクト名),:プロパティ,:オブジェクトの配列,:value属性の項目,text --><br>
+			</div>
 
-		<!-- 販売ステータス -->
-		<p class="product_new selling_status">販売ステータス</p>
-		<p><%#= f.select :selling_status [["販売中", "true"], ["売切れ", "false"]] %></p>
+			<!-- 税抜価格 -->
+			<div class="form-group">
+				<lavel>税抜価格 </lavel><br>
+				<%= f.text_field :price, class: "col-xs-6" %><p> 円</p><br>
+			</div>
 
-		<!-- 投稿ボタン -->
-		<%= f.submit "新規投稿" do %><p class="btn btn-primary product_new"></p><%end%>
+			<!-- 販売ステータス -->
+			<div class="form-group">
+				<lavel>販売ステータス </lavel><br>
+				<%#= f.select :selling_status [["販売中", "true"], ["売切れ", "false"]], class: "col-xs-6" %>
+			</div>
+
+			<!-- 投稿ボタン -->
+			<%= f.submit "新規投稿", class:"btn btn-primary"  %>
+		</div>
 
 	<% end %>
 

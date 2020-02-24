@@ -2,6 +2,7 @@
 
 <div class="container">
 <div class="row">
+
 	<p class="show_product_head">商品　詳細画面</p>
 
     <%= attachment_image_tag @product, :image_id, :fill, 100, 100, format: 'jpeg' %>
@@ -16,10 +17,9 @@
 
     <P>販売ステータス　<%= products.selling_status, class: show_products %></P>
 
-    <div class="row">
-    	<%= link_to edit_admin_product_path do %>
-    		<p class="col-xs-12 btn btn-default glyphicon glyphicon-wrench"></p>
-        <%end%>
-    </div>
+    <%= link_to edit_admin_product_path do %>
+    	<p class="col-xs-12 btn btn-default glyphicon glyphicon-wrench"></p>
+    <%end%>
+
 </div>
 </div>
