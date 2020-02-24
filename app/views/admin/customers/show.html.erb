@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>会員詳細画面</h2><br>
+    <div class="row">
+        <div class="col-xs-2 col-xs-offset-1">
+            <p>顧客ID</p><br>
+            <p>氏名</p><br>
+            <p>フリガナ</p><br>
+            <p>郵便番号</p><br>
+            <p>住所</p><br>
+            <p>電話番号</p><br>
+            <p>メールアドレス</p><br>
+        </div>
+        <div class="col-xs-3 col-xs-offset-1">
+            <%= @customer.id %><%= @customer.status %><br>
+            <%= @customer.last_name %><%= @customer.first_name %><br>
+            <%= @customer.kana_last_name %><%= @customer.kana_first_name %><br>
+            <%= @customer.postal_code %><br>
+            <%= @customer.address %><br>
+            <%= @customer.phone_number %><br>
+            <%= @customer.email %><br>
+        <div>
+    </div>
+</div>
