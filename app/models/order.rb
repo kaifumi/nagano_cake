@@ -25,8 +25,6 @@ class Order < ApplicationRecord
 
 	validates :address, presence: true
 	validates :receiver, presence: true
-	validates :created_at, presence: true
-	validates :update_at, presence: true
 
 	has_many :order_details
 	belongs_to :customer

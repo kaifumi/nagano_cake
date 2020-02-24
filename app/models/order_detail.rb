@@ -11,8 +11,6 @@ class OrderDetail < ApplicationRecord
 		"製作完了": 3
 	}
 
-	validates :created_at, presence: true
-	validates :updated_at, presence: true
 
 	belongs_to :product
 	belongs_to :order
