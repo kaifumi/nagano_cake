@@ -14,10 +14,20 @@
                 <tbody>
                     <% @customers.each do |customer| %>
                         <tr>
-                            <td><%= customer.id %></th>
-                            <td><%= customer.last_name %> <%= customer.first_name %></td>
+                            <td><%= customer.id %></td>
+                            <td><%= link_to "#{customer.last_name} #{customer.first_name}", admin_customer_path(customer) %></td>
                             <td><%= customer.email %></td>
-                            <td><%= customer.status %></td>
+                            <td>
+                                <div class="customer_status">
+                                    <% if customer.status==true %>
+                                        <p>有効</p>
+                                    <% elsif customer.status==false %>
+                                        <p>退会済み</p>
+                                    <% else %>
+                                        <p>ンゴ</p>
+                                    <% end %>
+                                </div>
+                            </td>
                         </tr>
                     <% end %>
                     <%= paginate @customers %>
