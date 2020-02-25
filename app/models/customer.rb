@@ -4,31 +4,33 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
+# rubyの規約上、正規表現の前後は/\A～\z/で閉じる。
 	validates :first_name,
 	presence: true,
 	format: {
-		with: /\A[a-z]+\z/,
-		message: "半角のみで入力して下さい"
+		with: /\A^[ぁ-んァ-ン一-龥]\z/,
+		message: "	アルファベットは使用できません"
 		}
 
 	validates :last_name,
 	presence: true,
 	format: {
-		with: /\A[a-z]+\z/,
-		message: "半角のみで入力して下さい"
+		with: /\A^[ぁ-んァ-ン一-龥]\z/,
+		message: "アルファベットは使用できません"
 		}
 
 	validates :kana_first_name,
 	presence: true,
 	format: {
-		with: /[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+/,
+		with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
 		message: "全角カタカナのみで入力して下さい"
 		}
 
 	validates :kana_last_name,
 	presence: true,
 	format: {
-		with: /[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+/,
+		with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
 		message: "全角カタカナのみで入力して下さい"
 		}
 
@@ -39,29 +41,26 @@ class Customer < ApplicationRecord
 		message: "〇〇〇-〇〇〇〇-〇〇〇〇のように入力して下さい"
 		}
 
-	validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
 
-	# validates :postal_code,
-	# presence: true,
-	# numericality: { only_integer: true },
-	# format: {
-	# 	with: /\A[0-9]{3}-[0-9]{4}\z/,
-	# 	message: "〇〇〇-〇〇〇〇のように入力して下さい"
-	# }
+	validates :postal_code,
+	presence: true,
+	format: {
+		with: /\A[0-9]{3}-[0-9]{4}\z/,
+		message: "〇〇〇-〇〇〇〇のように入力して下さい"
+	}
+
 
 	validates :address, presence: true
 
 	validates :status,
 	inclusion: { in: [true, false] }
 
-	# validates :created_at, presence: true
-	# validates :updated_at, presence: true
 
 	acts_as_paranoid
 	# 論理削除
 
-	has_many :cart_product, dependent: :destroy
-	has_many :order, dependent: :destroy
-	has_many :delivery, dependent: :destroy
+	has_many :cart_products, dependent: :destroy
+	has_many :orders, dependent: :destroy
+	has_many :deliveries, dependent: :destroy
 
 end
