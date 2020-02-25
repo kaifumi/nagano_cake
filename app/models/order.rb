@@ -1,6 +1,8 @@
 class Order < ApplicationRecord
 
+
 	#""でキーを囲む
+
 	enum payment_option:{
 	"銀行振込": 0,
 	"クレジットカード": 1
