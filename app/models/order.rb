@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
 
-	customer_id
+	# customer_id
 	enum payment_option:{
 	銀行振込: 0,
 	クレジットカード: 1

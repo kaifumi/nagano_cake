@@ -1,7 +1,7 @@
 <div class="container">
     <h2>会員一覧画面</h2><br>
     <div class="row">
-        <div class="col-xs-8 col-xs-offset-2 customer_table">   
+        <div class="col-xs-7 col-xs-offset-1 customer_table">   
             <table class="table">
                 <thead>
                     <tr>
@@ -14,8 +14,8 @@
                 <tbody>
                     <% @customers.each do |customer| %>
                         <tr>
-                            <th><%= customer.id %></th>
-                            <td><%= customer.name %></td>
+                            <td><%= customer.id %></th>
+                            <td><%= customer.last_name %> <%= customer.first_name %></td>
                             <td><%= customer.email %></td>
                             <td><%= customer.status %></td>
                         </tr>
