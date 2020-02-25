@@ -18,10 +18,12 @@ class Customer::CustomersController < ApplicationController
 		end
 	end
 
+	#論理削除を実行
 	def destroy
+		#updateではなくdestroyを使用
 		Customer.find(params[:id]).destroy
     	flash[:success]="退会しました"
-    	redirect_to customers_url
+    	redirect_to customer_customer_url
 	end
 
 	def destroy_confirm
