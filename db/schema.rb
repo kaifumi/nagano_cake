@@ -41,6 +41,9 @@ ActiveRecord::Schema.define(version: 2020_02_24_075850) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
 
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
     t.string "first_name"
     t.string "last_name"
     t.string "kana_first_name"
@@ -66,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_075850) do
     t.string "receiver"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
 
   create_table "genres", force: :cascade do |t|
     t.string "type"
