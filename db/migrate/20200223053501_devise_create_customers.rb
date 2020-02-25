@@ -42,7 +42,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
       t.boolean :status, :default => true
       t.datetime :created_at
       t.datetime :updated_at
-      t.datetime :deleted_at
+      # t.datetime :deleted_at
 
       t.timestamps null: false
     end
