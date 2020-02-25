@@ -11,6 +11,13 @@ class Genre < ApplicationRecord
 	# attr_accessible :data, :type
 	self.inheritance_column = :_type_disabled
 
-	has_many :products
+	# validates :created_at, presence: true 
+	# validates :updated_at, presence: true
+
+	# attr_accessible :data, :type
+	self.inheritance_column = :_type_disabled
+  
+  has_many :products
+
 
 end
