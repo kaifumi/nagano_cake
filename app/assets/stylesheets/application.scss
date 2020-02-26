@@ -22,6 +22,10 @@
   // 高さを与えてjqueryや他商品を表示
   height: 1500px;
 }
+// ヘッダーの下body
+.main_container {
+  padding-top: 160px;
+}
 
 header {
   width: 100%;
@@ -43,10 +47,11 @@ header .logo_img {
 
 header .headline {
   float: left;
+  margin-left: 20px;
 }
 
 header .container {
-  width: 1080px;
+  width: 100%;
   margin: auto;
 }
 
@@ -213,9 +218,6 @@ header .container {
 }
 
 // 27.会員編集画面
-.admin_edit_table td {
-  // text-align: center;
-}
 .admin_edit_table　text_field {
   text-align: center;
 }
@@ -235,9 +237,8 @@ header .container {
   border-radius: 10px;
 }
 
-
 // jqurey　スライドショー
-#container {
+#slideshow {
   height: 300px;
   width: 100%;
   margin-top: 120px;
@@ -263,4 +264,146 @@ header .container {
   display: block;
   width: 100%;
   height: 300px;
+}
+
+// ハンバーガーメニュー
+header #nav-drawer {
+  position: relative;
+  float: left;
+}
+
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+  display: none;
+}
+
+/*アイコンのスペース*/
+#nav-open {
+  display: inline-block;
+  width: 30px;
+  height: 22px;
+  vertical-align: middle;
+}
+
+/*ハンバーガーアイコンをCSSだけで表現*/
+#nav-open span,
+#nav-open span:before,
+#nav-open span:after {
+  position: absolute;
+  height: 3px; /*線の太さ*/
+  width: 25px; /*長さ*/
+  border-radius: 3px;
+  background: #555;
+  display: block;
+  content: "";
+  cursor: pointer;
+}
+#nav-open span:before {
+  bottom: -8px;
+}
+#nav-open span:after {
+  bottom: -16px;
+}
+
+/*閉じる用の薄黒カバー*/
+#nav-close {
+  display: none; /*はじめは隠しておく*/
+  position: fixed;
+  z-index: 99;
+  top: 0; /*全体に広がるように*/
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+/*中身*/
+#nav-content {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999; /*最前面に*/
+  width: 90%; /*右側に隙間を作る（閉じるカバーを表示）*/
+  max-width: 90px; /*最大幅（調整してください）*/
+  font-size: 14px;
+  height: 100%;
+  background: #fff; /*背景色*/
+  transition: 0.3s ease-in-out; /*滑らかに表示*/
+  -webkit-transform: translateX(-105%);
+  transform: translateX(-105%); /*左に隠しておく*/
+}
+
+/*チェックが入ったらもろもろ表示*/
+#nav-input:checked ~ #nav-close {
+  display: block; /*カバーを表示*/
+  opacity: 0.8;
+}
+
+#nav-input:checked ~ #nav-content {
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%); /*中身を表示（右へスライド）*/
+  box-shadow: 6px 0 25px rgba(0, 0, 0, 0.15);
+}
+
+// ハンバーガーメニューその２
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all 0.4s;
+  box-sizing: border-box;
+}
+.menu-trigger {
+  position: relative;
+  width: 50px;
+  height: 44px;
+}
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.menu-trigger span:nth-of-type(1) {
+  top: 0;
+}
+.menu-trigger span:nth-of-type(2) {
+  top: 20px;
+}
+.menu-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+
+.menu-trigger::after {
+  position: absolute;
+  left: 0;
+  bottom: -30px;
+  content: "MENU";
+  display: block;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.4s;
+}
+.menu-trigger.active::after {
+  content: "CLOSE";
+  bottom: -25px;
+}
+.menu-trigger.active span:nth-of-type(1) {
+  -webkit-transform: translateY(20px) rotate(-45deg);
+  transform: translateY(20px) rotate(-45deg);
+}
+.menu-trigger.active span:nth-of-type(2) {
+  opacity: 0;
+}
+.menu-trigger.active span:nth-of-type(3) {
+  -webkit-transform: translateY(-20px) rotate(45deg);
+  transform: translateY(-20px) rotate(45deg);
 }
