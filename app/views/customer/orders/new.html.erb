@@ -1,14 +1,34 @@
-<h1>購入情報入力</h1>
-    <%= form_for @order, url:purchase_path do |f| %>
-        <h2>支払い方法</h2>
-        <div><%= f.radio_button :transaction_status, 0 %>銀行振り込み</div>
-        <div><%= f.radio_button :transaction_status, 1 %>クレジットカード</div>
-<h2>お届け先</h2>
-        <div>ご自身の住所</div>
-        <div>登録済住所から選択</div>
-        <div>新しいお届け先</div>
-        <div><label></label><%= f.text_field :postal_code %></div>
-        <div><%= f.text_field :address %></div>
-        <div><%= f.text_field :receiver %></div>
-    <%= f.submit "確認画面へ進む"%>
-    <% end %>
+<div class = "container">
+        <div class = "row">
+            <div class = "col-xs-offset-1 col-mx-6">
+            <h1>購入情報入力</h1>
+            <%= form_for @order, url:customer_orders do |f| %>
+            <div>
+            <h2>支払い方法</h2>
+                <div><%= f.radio_button :payment_option, 0 %>銀行振り込み</div>
+                <div><%= f.radio_button :payment_option, 1 %>クレジットカード</div>
+                </div>
+            <h2>お届け先</h2>
+                <div>ご自身の住所</div>
+                <%= @customer %>
+            <div>登録済住所から選択</div>
+
+            <div>新しいお届け先</div>
+            <div>
+                <%= f.label :postal_code, "郵便番号" %>
+                <%= f.text_field :postal_code %>
+            </div>
+            <div>
+                <%= f.label :address, "住所" %>
+                <%= f.text_field :address %>
+            </div>
+            <div>
+            <%= f.label :receiver, "宛名" %>
+            <%= f.text_field :receiver %>
+            </div>
+        <%= f.submit "確認画面へ進む"%>
+        <% end %>
+            </div>
+    </div>
+</div>
+
