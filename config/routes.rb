@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :admins
-  devise_for :customers
+  devise_for :customers, controllers: {
+        sessions: 'customers/sessions',
+        registrations: 'customers/registrations'
+    }
+
     namespace :customer do
         resources :orders, only: [:new, :show, :create, :index]
         resources :customers, only: [:show, :edit, :update,:destroy]
@@ -11,7 +15,7 @@ Rails.application.routes.draw do
     root "products#index"
     get "thanks" => "customers/orders#thanks"
     delete "/destroy_all" => "customer/cart_products#destroy_all"
-    get "/destroy_confirm" => "customer/customers#destroy_confirm"
+    get "/destroy_confirm/:id" => "customer/customers#destroy_confirm",as: "destroy_confirm"
     get "/purchase" => "customer/orders#purchase"
 
 

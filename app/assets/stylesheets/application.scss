@@ -6,17 +6,109 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// ヘッダー
+.background_img {
+  background-attachment: fixed;
+  background-image: url(ajisaiframe.jpg);
+  background-position: center;
+  background-repeat: repeat;
+  background-size: contain;
+  // 高さを与えてjqueryや他商品を表示
+  height: 1500px;
+}
+
+header {
+  width: 100%;
+  height: 110px;
+  background-color: white;
+  // 透過率0.8→0.9に。この方がヘッダーナビが見やすかった
+  opacity: 0.9;
+  background-size: cover;
+  color: black;
+  position: fixed;
+  // ヘッダーを他のどの要素よりも前面に出す
+  // top: 0;
+  z-index: 1000;
+}
+
+header .logo_img {
+  margin-top: 15px;
+}
+
+header .headline {
+  float: left;
+}
+
+header .container {
+  width: 1080px;
+  margin: auto;
+}
+
+.header_top {
+  text-align: right;
+  padding-top: 20px;
+}
+
+.header_top li {
+  display: inline-block;
+}
+
+.headline img {
+  height: 70px;
+  width: auto;
+}
+
+.nav-list {
+  float: right;
+  list-style: none;
+}
+
+.nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 14px;
+  line-height: 40px;
+}
+
+.header_serch {
+  float: right;
+  list-style: none;
+  font-size: 14px;
+  line-height: 40px;
+}
+
+// エラー表示
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+// .field_with_errors {
+//   @extend .control-group;
+//   @extend .error;
+// }
+
 // ボタン設定
 .btn {
   // width: 100px;
-  margin: 10px;
+  margin-top: 10px;
   text-align: center;
 }
 
 // 10.登録情報
-.container {
-  margin: 100px;
-}
+// .container {
+//   margin: 100px;
+// }
 .customer_info {
   display: flex;
   margin: 10px 0 20px;
@@ -48,7 +140,7 @@
   }
 }
 
-td {
+.customer_info td {
   border: 1px black solid;
   border-collapse: collapse;
 
@@ -87,10 +179,83 @@ td {
   margin: 10px 0 20px;
 }
 .edit_save {
-  margin-left: 300px;
+  margin-left: 250px;
 }
 
 // 25.会員一覧
 .customer_table th {
   background-color: lightgray;
+}
+.valid {
+  border: solid 1px black;
+  border-radius: 50px;
+  background-color: cyan;
+  text-align: center;
+}
+.invalid {
+  border: solid 1px black;
+  border-radius: 50px;
+  background-color: red;
+  text-align: center;
+}
+.customer_status {
+  width: 70px;
+  display: inline-block;
+  // 不透明度
+  // flood-opacity: initial;
+}
+// 26.会員詳細
+.admin_show_btn {
+  float: left;
+}
+.order_btn {
+  margin-left: 20px;
+}
+
+// 27.会員編集画面
+.admin_edit_table td {
+  // text-align: center;
+}
+.admin_edit_table　text_field {
+  text-align: center;
+}
+.input_type1 {
+  width: 120px;
+  text-align: center;
+  border-radius: 10px;
+}
+.input_type2 {
+  width: 350px;
+  text-align: center;
+  border-radius: 10px;
+}
+.input_type3 {
+  width: 200px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+
+// jqurey　スライドショー
+#container {
+  height: 300px;
+  width: 100%;
+  margin-top: 120px;
+}
+
+.image1 {
+  background-image: url(cat1.jpg);
+}
+.image2 {
+  background-image: url(cat2.jpg);
+}
+.image3 {
+  background-image: url(cat3.jpg);
+}
+.image4 {
+  background-image: url(cat4.jpg);
+}
+.image5 {
+  background-image: url(cat5.jpg);
+
 }
