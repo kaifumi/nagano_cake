@@ -74,3 +74,6 @@ gem 'paranoia'
 
 # ページネーション機能
 gem 'kaminari'
+
+#railsでjqueryを使うための機能
+gem "jquery-rails"
