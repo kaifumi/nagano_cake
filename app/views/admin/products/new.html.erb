@@ -1,4 +1,4 @@
-<%= render 'layouts/admin_header' %>
+<%#= render 'layouts/admin_header' %>
 <!-- 商品新規登録ページ -->
 <div class="container">
 <div class="row">
@@ -20,6 +20,7 @@
 	    <div class="col-xs-3 col-xs-offset-1">
 	    	<div class="form-group has-icon">
 				<lavel><%= f.attachment_field :image %></lavel>
+				<%= image_tag @products.image, id: :img_prev if @products.image? %>
 				<p><%= f.check_box :remove_image %>画像を削除する</p>
 			</div>
 		</div>
