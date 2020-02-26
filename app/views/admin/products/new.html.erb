@@ -19,8 +19,15 @@
 	    <!-- 商品写真登録 -->
 	    <div class="col-xs-3 col-xs-offset-1">
 	    	<div class="form-group has-icon">
-				<lavel><%= f.attachment_field :image %></lavel>
-				<%= image_tag @products.image, id: :img_prev if @products.image? %>
+
+	    		<lavel><%= f.file_field :image, id: :product_img %></lavel>
+
+				<% if @product_img.present? %>
+					<%= image_tag @product.image, size:"250x250", id: :img_prev %>
+				<% else %>
+					<%= image_tag "noimage.jpg", size:"250x250", id: :img_prev %>
+				<% end %>
+
 				<p><%= f.check_box :remove_image %>画像を削除する</p>
 			</div>
 		</div>

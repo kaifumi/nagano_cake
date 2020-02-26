@@ -52,12 +52,12 @@ $(function() {
      var reader = new FileReader();
 
      reader.onload = function (e) {
-       $('#image_prev').attr('src', e.target.result);
+       $('#img_prev').attr('src', e.target.result);
      }
      reader.readAsDataURL(input.files[0]);
    }
  }
- $("#products_image").change(function(){
+ $("#product_image").change(function(){
    readURL(this);
  });
 });
