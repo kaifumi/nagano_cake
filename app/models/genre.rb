@@ -1,9 +1,9 @@
 class Genre < ApplicationRecord
 
 	validates :type, presence: true
-	enum type:{
+	#enum type:{}←create.update.deleteするもはenumを使わない！！
 
-	}
+
 	validates :sell_activated, inclusion: { in: [true, false] }
 
 	# validates :created_at, presence: true 
