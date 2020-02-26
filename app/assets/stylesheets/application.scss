@@ -94,7 +94,7 @@ header .container{
 // ボタン設定
 .btn {
   // width: 100px;
-  margin: 10px;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -178,6 +178,55 @@ header .container{
 // 25.会員一覧
 .customer_table th {
   background-color: lightgray;
+}
+
+.valid {
+  border: solid 1px black;
+  border-radius: 50px;
+  background-color: cyan;
+  text-align: center;
+}
+.invalid {
+  border: solid 1px black;
+  border-radius: 50px;
+  background-color: red;
+  text-align: center;
+}
+.customer_status {
+  width: 70px;
+  display: inline-block;
+  // 不透明度
+  // flood-opacity: initial;
+}
+// 26.会員詳細
+.admin_show_btn {
+  float: left;
+}
+.order_btn {
+  margin-left: 20px;
+}
+
+// 27.会員編集画面
+.admin_edit_table td {
+  // text-align: center;
+}
+.admin_edit_table　text_field {
+  text-align: center;
+}
+.input_type1 {
+  width: 120px;
+  text-align: center;
+  border-radius: 10px;
+}
+.input_type2 {
+  width: 350px;
+  text-align: center;
+  border-radius: 10px;
+}
+.input_type3 {
+  width: 200px;
+  text-align: center;
+  border-radius: 10px;
 }
 
 // products
