@@ -4,8 +4,8 @@
         <%= form_for @genre,url:admin_genres_path do |f| %>
             <%= f.label "ジャンル" %>
                 <label><%= f.text_field :type %></label>
-                <label><%= f.radio_button :sell_activated, 0 %>有効</label>
-                <label><%= f.radio_button :sell_activated, 1 %>無効</label>
+                <label><%= f.radio_button :sell_activated, true %>有効</label>
+                <label><%= f.radio_button :sell_activated, false %>無効</label>
                 <%= f.submit "追加", class:'btn btn-primary' %>
             <% end %>
 
