@@ -41,7 +41,7 @@
 			<!-- ジャンル選択 -->
 			<div class="form-group">
 				<lavel>ジャンル </lavel><br>
-					<%= f.collection_select :genre_id, Genre.all, :id, class: "col-xs-6" %>
+					<%= f.select :genre_id, Genre.all, class: "col-xs-6" %>
 					<!-- collection_selectのformfor内での使い方 => f.coection_select (:オブジェクト名),:プロパティ,:オブジェクトの配列,:value属性の項目,text --><br>
 			</div>
 
