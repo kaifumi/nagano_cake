@@ -8,8 +8,8 @@ class CreateProducts < ActiveRecord::Migration[5.2]
     	t.string :image_id
     	t.integer :price
     	t.boolean :selling_status, :default => false
-    	t.datetime :created_at
-    	t.datetime :update_at
+    	#t.datetime :created_at
+    	#t.datetime :update_at
 
       
 
