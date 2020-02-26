@@ -1,4 +1,4 @@
-<%= render 'layout/admin_header' %>
+<%# render 'layouts/admin_header' %>
 
 <div class="container">
   <div class="row">
@@ -12,14 +12,18 @@
     <table>
     <tr>
       <th width="180">
-      <%= f.label :メールアドレス => "value",  %><br />
+      <%= f.label :メールアドレス %>
       </th>
+
+      <p></p>
 
       <th>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </th>
     </tr>
-  </table>
+    </table>
+
+    <p></p>
 
     <table>
     <tr>
@@ -31,7 +35,9 @@
       <%= f.password_field :password, autocomplete: "new-password" %>
       </th>
     </tr>
-  </table>
+    </table>
+
+    <p></p>
 
     <table>
     <tr>
@@ -43,14 +49,14 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </th>
     </tr>
-  </table>
+    </table>
 
   <div class="actions">
     <%= f.submit "登録", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
   </div>
 <% end %>
 
-<%= render "admins/shared/links" %>
+<%# render "admins/shared/links" %>
 
     </div>
   </div>

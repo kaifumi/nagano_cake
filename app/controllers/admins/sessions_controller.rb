@@ -18,14 +18,15 @@ class Admins::SessionsController < Devise::SessionsController
     super
   end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   admin_genre_path(resource)
+  # def after_sign_in_path_for(resource)
+  #   admin_customers_path(resource)
   # end
 
-  # def configure_sign_out_params
+  # def after_sign_out_path_for(resource)
   #   new_admin_session_path
   # end
+
 end

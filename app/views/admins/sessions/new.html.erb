@@ -1,4 +1,4 @@
-<%= render 'layout/admin_header' %>
+<%# render 'layouts/admin_header' %>
 
 <div class="container">
   <div class="row">
@@ -6,45 +6,49 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   
+  
+  <div class="col-xs-3"></div>
 
     <table>
     <tr>
       <th width="180">
-      <%= f.label :email %>
+      <%= f.label :メールアドレス %>
       </th>
 
       <th>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </th>
     </tr>
-  </table>
+    </table>
 
     <table>
     <tr>
       <th width="180">
-      <%= f.label :password %>
+      <%= f.label :パスワード %>
       </th>
+
+<p></p>
+
+  <div class="col-xs-3"></div>
 
       <th>
       <%= f.password_field :password, autocomplete: "current-password" %>
       </th>
     </tr>
-  </table>
+    </table>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
+  
+
 
   <div class="actions">
     <%= f.submit "ログイン", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
   </div>
 <% end %>
 
-<%= render "admins/shared/links" %>
+<%# render "admins/shared/links" %>
 
+<!-- ↓ログアウト用 -->
+<%# link_to "logout", destroy_admin_session_path, method: :delete %>
     </div>
   </div>
 </div>
