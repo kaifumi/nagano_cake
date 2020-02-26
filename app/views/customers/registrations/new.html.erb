@@ -1,0 +1,138 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-9">
+
+
+<h3>新規登録画面</h3>
+
+<h1></h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+
+  <table>
+    <tr>
+      <th width="180">
+      <%= f.label :名前（姓・名） %>
+      </th>
+    
+      <th>
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", :size => "5*5" %>
+
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", :size => "5*5" %>
+      </th>
+    </tr>
+  </table>
+
+  <p></p>
+
+  <table>
+    <tr>
+      <th width="180">
+      <%= f.label :名前（カナ姓・カナ名） %>
+      </th>
+
+      <th>
+      <%= f.text_field :kana_last_name, autofocus: true, autocomplete: "kana_first_name", :size => "5*5" %>
+      <%= f.text_field :kana_first_name, autofocus: true, autocomplete: "kana_last_name", :size => "5*5" %>
+      </th>
+    </tr>
+  </table>
+
+  <p></p>
+
+  <table>
+    <tr>
+      <th width="180">
+      <%= f.label :郵便番号 %>
+      </th>
+
+      <th>
+      <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+      </th>
+    </tr>
+  </table>
+
+  <p></p>
+
+  <table>
+    <tr>
+      <th width="180">
+      <%= f.label :住所 %>
+      </th>
+
+      <th>
+      <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+      </th>
+    </tr>
+  </table>
+
+  <p></p>
+
+  <table>
+    <tr>
+      <th width="180">
+      <%= f.label :電話番号 %>
+      </th>
+
+      <th>
+      <%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number" %>
+      </th>
+    </tr>
+  </table>
+
+  <p></p>
+
+  <table>
+    <tr>
+      <th width="180">
+      <%= f.label :メールアドレス %>
+      </th>
+
+      <th>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </th>
+    </tr>
+  </table>
+
+  <p></p>
+
+  <table>
+    <tr>
+      <th width="180">
+      <%= f.label :パスワード %>
+      </th>
+
+      <th>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+      </th>
+    </tr>
+  </table>
+
+  <p></p>
+
+  <table>
+    <tr>
+      <th width="180">
+      <%= f.label :パスワード（確認用） %>
+      </th>
+
+      <th>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </th>
+    </tr>
+  </table>
+
+  <div class="actions">
+    <%= f.submit "送信", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+  </div>
+<% end %>
+
+<!-- <%= render "/customers/shared/links" %> -->
+
+
+    </div>
+  </div>
+</div>
