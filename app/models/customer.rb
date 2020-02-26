@@ -9,14 +9,14 @@ class Customer < ApplicationRecord
 	validates :first_name,
 	presence: true,
 	format: {
-		with: /\A^[ぁ-んァ-ン一-龥]\z/,
+		with: /\A[ぁ-んァ-ン一-龥]/,
 		message: "	アルファベットは使用できません"
 		}
 
 	validates :last_name,
 	presence: true,
 	format: {
-		with: /\A^[ぁ-んァ-ン一-龥]\z/,
+		with: /\A[ぁ-んァ-ン一-龥]/,
 		message: "アルファベットは使用できません"
 		}
 
@@ -41,12 +41,14 @@ class Customer < ApplicationRecord
 		message: "〇〇〇-〇〇〇〇-〇〇〇〇のように入力して下さい"
 		}
 
+
 	validates :postal_code,
 	presence: true,
 	format: {
 		with: /\A[0-9]{3}-[0-9]{4}\z/,
 		message: "〇〇〇-〇〇〇〇のように入力して下さい"
 	}
+
 
 	validates :address, presence: true
 

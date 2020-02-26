@@ -6,8 +6,12 @@
         退会する場合は、「退会する」をクリックしてください。
         </P><br>
         <div class="withdraw_btn">
-            <button class="btn btn-primary">退会しない</button>
-            <button class="btn btn-danger">退会する</button>
+            <%= link_to (edit_customer_customer_path(@customer)) do %>
+                <button class="btn btn-primary">退会しない</button>
+            <% end %>
+            <%= link_to customer_customer_path(@customer), method: :delete do %>
+                <button class="btn btn-danger">退会する</button>
+            <% end %>
         </div>
     </div>
 </div>
