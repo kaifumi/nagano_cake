@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions',
+    registrations: 'admins/registrations'
+    }
   devise_for :customers, controllers: {
-        sessions: 'customers/sessions',
-        registrations: 'customers/registrations'
+    sessions: 'customers/sessions',
+    registrations: 'customers/registrations'
     }
 
     namespace :customer do
