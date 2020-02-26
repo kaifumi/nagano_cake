@@ -1,0 +1,57 @@
+<%= render 'layout/admin_header' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-9">
+
+<h2>新規登録</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+    <table>
+    <tr>
+      <th width="180">
+      <%= f.label :メールアドレス => "value",  %><br />
+      </th>
+
+      <th>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </th>
+    </tr>
+  </table>
+
+    <table>
+    <tr>
+      <th width="180">
+      <%= f.label :パスワード %>
+      </th>
+
+      <th>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+      </th>
+    </tr>
+  </table>
+
+    <table>
+    <tr>
+      <th width="180">
+      <%= f.label :パスワード（確認用） %>
+      </th>
+
+      <th>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </th>
+    </tr>
+  </table>
+
+  <div class="actions">
+    <%= f.submit "登録", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+  </div>
+<% end %>
+
+<%= render "admins/shared/links" %>
+
+    </div>
+  </div>
+</div>
