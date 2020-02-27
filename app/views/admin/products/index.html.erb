@@ -23,8 +23,8 @@
 					<td><%= product.id %></td>
 					<td><%= link_to product.name, admin_product_path(product.id) %></td>
 					<td><%= product.price %></td>
-					<td><%= product.genre %></td>
-					<td><%= product.sell_activated ? "有効" : "無効" %> %></td>
+					<td><%= product.genre_id %></td>
+					<td><%= product.selling_status %></td>
 				</tr>
 			<%end%>
 
