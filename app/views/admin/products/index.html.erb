@@ -1,4 +1,5 @@
 <%= render 'layouts/admin_header' %>
+
 <!-- 商品一覧ページ -->
 <div class="container">
 <div class="row">
@@ -21,10 +22,10 @@
 			<% @products.each do |product| %>
 				<tr>
 					<td><%= product.id %></td>
-					<td><%= link_to products.name, admin_product_path(product.id) %></td>
-					<td><%= products.price %></td>
-					<td><%= products.genre %></td>
-					<td><%= products.selling_status %></td>
+					<td><%= link_to product.name, admin_product_path(product.id) %></td>
+					<td><%= product.price %></td>
+					<td><%= product.genre %></td>
+					<td><%= product.selling_status %></td>
 				</tr>
 			<%end%>
 

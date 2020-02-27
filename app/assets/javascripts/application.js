@@ -44,20 +44,3 @@ $(document).ready(function() {
     hidePrevious: false
   });
 });
-
-//アップロードしたばかりの画像のプレビューを表示する
-$(function() {
- function readURL(input) {
-   if (input.files && input.files[0]) {
-     var reader = new FileReader();
-
-     reader.onload = function (e) {
-       $('#img_prev').attr('src', e.target.result);
-     }
-     reader.readAsDataURL(input.files[0]);
-   }
- }
- $("#product_image").change(function(){
-   readURL(this);
- });
-});
