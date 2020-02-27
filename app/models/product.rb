@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
 	validates :name, presence: true
-	validates :image_id, presence: true
+	#validates :image_id, presence: true
 
 	validates :price,
 	presence: true,
@@ -16,7 +16,7 @@ class Product < ApplicationRecord
 	acts_as_paranoid
 	# 論理削除
 
-	belongs_to :genre
+	belongs_to :genre, optional: true
 	has_many :order_details
 	has_many :cart_products
 
