@@ -1,25 +1,24 @@
-<%= render 'layouts/admin_header' %>
 <!-- 商品詳細ページ -->
 
 <div class="container">
 <div class="row">
 
-	<p class="show_product_head">商品　詳細画面</p>
+	<h2 class="show_product_head">商品　詳細画面</h2>
 
-    <%= attachment_image_tag @product, :image_id, :fill, 100, 100, format: 'jpeg' %>
+    <%= attachment_image_tag @product, :image, :fill, 100, 100 %>
 
-    <p>商品名 <%= products.name, class: show_products %></p>
+    <p>商品名 <%= @product.name %></p>
 
-    <p>商品説明 <%= products.content, class: show_products %></p>
+    <p>商品説明 <%= @product.content %></p>
 
-    <p>ジャンル　<%= products.jenre, class: show_products %></p>
+    <p>ジャンル　<%= @product.genre_id %></p>
 
-    <p>税込み価格　<%= products.price, class: show_products %></p>
+    <p>税込み価格　<%= @product.price %> 円</p>
 
-    <P>販売ステータス　<%= products.selling_status, class: show_products %></P>
+    <P>販売ステータス　<%#= @products.selling_status %></P>
 
     <%= link_to edit_admin_product_path do %>
-    	<p class="col-xs-12 btn btn-default glyphicon glyphicon-wrench"></p>
+    	<p class="col-xs-6 btn btn-default glyphicon glyphicon-wrench"></p>
     <%end%>
 
 </div>
