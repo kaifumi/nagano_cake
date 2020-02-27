@@ -1,0 +1,49 @@
+  <!-- customer用header <%#= render 'layout/customer_header' %> -->
+  <header>
+      <%# ハンバーガーメニュー %>
+      <div id="nav-drawer">
+        <input id="nav-input" type="checkbox" class="nav-unshown">
+        <label id="nav-open" for="nav-input"><span></span></label>
+        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+        <div id="nav-content">
+          <ul>
+            <li><%= link_to "商品一覧",customer_products_path %></li>
+            <li><%= link_to "カート一覧",customer_cart_products_path(id:1) %></li>
+            <li><%= link_to "マイページ",customer_customer_path(id:1) %></li>
+            <li><%= link_to "登録情報編集",edit_customer_customer_path(id:1) %></li>
+            <li><%= link_to "注文履歴",customer_orders_path(id:1) %></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="headline">
+        <%= image_tag "logo_transparent.png", class: "logo_img" %>
+      </div>
+
+      <%#= if customer_sign_in? %>
+        <ul class="header_top">
+          <li class="glyphicon glyphicon-search"></li>
+          <li><p class="head_currentuser_name">ユーザー名：<%#= customer.name %>＊＊＊＊＊</p></li>
+        </ul>
+
+      
+
+        <ul class="nav-list">
+          <li class="nav-list-item"><%= link_to customer_products_path do%>TOP<%end%></li>
+          <li class="nav-list-item"><%= link_to customer_products_path do%>ABOUT<%end%></li>
+          <li class="nav-list-item"><%#= link_to customer_customer_path do%>MY PAGE<%#end%></li>
+          <li class="nav-list-item"><%#= link_to customer_cart_products_path do%>CART<%#end%></li>
+          <li class="nav-list-item"><%= link_to destroy_customer_session_path, method: :delete do%>LOG OUT<%end%></li>
+        </ul>
+
+      <%# else %>
+        <!-- <ul class="nav-list"> -->
+          <!-- <li><%#= link_to customer_products_path do%><p class="nav-list-item">TOP</p><%#end%></li> -->
+          <!-- <li><%#= link_to customer_products_path do%><p class="nav-list-item">ABOUT</p><%#end%></li> -->
+          <!-- <li><%#= link_to new_customer_session_path do%><p class="nav-list-item">LOG IN</p><%#end%></li> -->
+          <!-- <li><%#= link_to new_customer_registration_path do%><p class="nav-list-item">SIGN UP</p><%#end%></li> -->
+        <!-- </ul> -->
+      <%#end%>
+
+  </header>
+ 

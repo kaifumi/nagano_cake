@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>NaganoCake</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
+  <%=render 'layouts/head' %>
   <body>
-<!-- header -->
-    <%= yield %>
+    <div class="background_img">
+
+      <%# adminならadmin_headerを呼ぶ。違うならcustomer_headerを呼ぶ %>
+      <% if current_customer %>
+        <%= render 'layouts/admin_header' %> 
+      <% else %> 
+        <%= render 'layouts/customer_header' %>
+      <% end %> 
+
+        <%# エラー文あれば表示 %>
+        <% flash.each do |message_type,message| %>
+          <%= content_tag(:div,message,class:"alert alert-#{message_type}") %>
+        <% end %>
+        <%= flash[:danger] %>
+      <div class="main_container">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
