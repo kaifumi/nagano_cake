@@ -1,4 +1,3 @@
-<%= render 'layouts/admin_header' %>
 
 <!-- 商品一覧ページ -->
 <div class="container">
@@ -25,7 +24,7 @@
 					<td><%= link_to product.name, admin_product_path(product.id) %></td>
 					<td><%= product.price %></td>
 					<td><%= product.genre %></td>
-					<td><%= product.selling_status %></td>
+					<td><%= product.sell_activated ? "有効" : "無効" %> %></td>
 				</tr>
 			<%end%>
 

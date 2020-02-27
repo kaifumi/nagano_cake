@@ -7,9 +7,13 @@ class Admin::ProductsController < ApplicationController
 
   def create
   	@product = Product.new(products_params)
-  	@product.save
-    flash[:notice] = "商品の登録が完了しました"
-  	redirect_to admin_products_path
+  	if @product.save
+  		flash[:notice] = "商品の登録が完了しました"
+  		redirect_to admin_products_path
+  	else
+      @product = Product.new
+  		render action: :new
+  	end
   end
 
   def index
