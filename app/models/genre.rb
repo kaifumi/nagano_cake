@@ -22,4 +22,5 @@ class Genre < ApplicationRecord
 
 
 
+
 end
