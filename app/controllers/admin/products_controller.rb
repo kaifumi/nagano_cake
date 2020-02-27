@@ -9,7 +9,7 @@ class Admin::ProductsController < ApplicationController
   	@product = Product.new(products_params)
   	if @product.save
   		flash[:notice] = "商品の登録が完了しました"
-  		redirect_to admin_products_path
+  		redirect_to admin_product_path(@product.id)
   	else
       @product = Product.new
   		render action: :new
@@ -17,7 +17,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   def index
-  	@products = Product.all
   	@products = Product.page(params[:page]).per(PER)
   end
 
@@ -31,10 +30,11 @@ class Admin::ProductsController < ApplicationController
 
   def update
   	@product = Product.find(params[:id])
-  	if @product.update(product_params)
+  	if @product.update(products_params)
   		flash[:noticde] = "商品の再登録が完了しました"
-  		redirect_to admin_products_index_path
+      redirect_to admin_product_path(@product.id)
   	else
+      @product = Product.find(params[:id])
   		render action: :edit
   	end
   end
@@ -42,6 +42,6 @@ class Admin::ProductsController < ApplicationController
   private
 
   def products_params
-  	params.require(:product).permit(:name, :content, :image_id, :price, :selling_status, :remove_image)
+  	params.require(:product).permit(:name, :content, :image, :genre, :price, :selling_status)
   end
 end

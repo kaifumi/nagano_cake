@@ -1,23 +1,26 @@
-<%= render 'layouts/admin_header' %>
+<%#= render 'layouts/admin_header' %>
 <!-- 商品編集ページ -->
 <div class="container">
 <div class="row">
 
 	<!-- エラー文 -->
-	<%# if @user.errors.any? %>
+	<% if @product.errors.any? %>
 		<div id="error_explanation">
-		    <!-- <h2><%#= @user.errors.count %>errors prohibited this book from being saved:</h2> -->
-	    	<%# @user.errors.full_messages.each do |msg| %>
-	    	<li><%#= msg %></li>
-	    	<%# end %>
+		    <h2><%= @product.errors.count %>errors prohibited this book from being saved:</h2>
+	    	<% @product.errors.full_messages.each do |msg| %>
+	    	<li><%= msg %></li>
+	    	<% end %>
 	    </div>
-    <%# end %>
+    <% end %>
 
-	<h2 class="col-xs-offset-1 edit_product_head">商品 編集画面</h2>
+	<h2 class="col-xs-offset-1" style="margin-bottom: 20px;">商品 編集画面</h2>
 
-	<%= form_for(@product) do |f| %>
+    <%= form_for [:admin, @product] do |f| %>
+
 	<div class="col-xs-3 col-xs-offset-1">
-    	<%= attachment_image_tag product, :image, :fill, 40, 40, format: 'jpeg' %>
+    	<%#= attachment_image_tag @product, :image, :fill, 200, 200 %>
+    	<!-- ↑↑ (余裕あれば)preview機能つけよう -->
+   		<%= f.attachment_field :image %>
     </div>
 
     <div class="col-xs-8">
@@ -36,25 +39,26 @@
 		<!-- ジャンル選択 -->
 			<div class="form-group">
 				<lavel>ジャンル </lavel><br>
-				<%#= f.collection_select :genre_id, Genre.all, :id, :value属性の項目とは？, class: "col-xs-6" %>
-				<!-- collection_selectのformfor内での使い方 => f.coection_select (:オブジェクト名),:プロパティ,:オブジェクトの配列,:value属性の項目,text --><br>
-			</div>
+				<%= f.select :genre_id, Genre.all.collect {|p| [p.type, p.id]},{},{class: "col-xs-3"} %>
+			</div><br>
 
 		<!-- 税抜価格 -->
 			<div class="form-group">
 				<lavel>税抜価格 </lavel><br>
-				<%= f.text_field :price, class: "col-xs-6" %><p> 円</p><br>
+			<%= f.text_field :price, class: "col-xs-3" %><p> 円</p>
 			</div>
 
 		<!-- 販売ステータス -->
 			<div class="form-group">
 				<lavel>販売ステータス </lavel><br>
-				<%#= f.select :selling_status [["販売中", "true"], ["売切れ", "false"]], class: "col-xs-6" %>
-			</div>
+				<%= f.select :selling_status, [['販売中', true], ['売切れ', false]], {}, {class: "col-xs-3"} %>
+			</div><br>
 
 		<!-- 投稿ボタン -->
-			<%= f.submit "投稿", class:"btn btn-primary"  %>
+			<%= f.submit "更新", class:"btn btn-primary" %>
 	</div>
+
+	<% end %>
 
 
 </div>
