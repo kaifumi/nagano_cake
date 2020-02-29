@@ -13,12 +13,12 @@ Rails.application.routes.draw do
         resources :customers, only: [:new, :show, :edit, :update, :destroy]
         resources :cart_products, only: [:index, :create, :update, :destroy]
         resources :products, only: [:index, :show] do
-            resources :reviews
+        resources :reviews
         end
         resources :deliveries, only: [:index, :create, :edit, :update, :destroy]
-        
+
     end
-    root "products#index"
+    root "products#top"
     get "thanks" => "customers/orders#thanks"
     delete "/destroy_all" => "customer/cart_products#destroy_all"
     get "/destroy_confirm/:id" => "customer/customers#destroy_confirm",as: "destroy_confirm"
@@ -32,7 +32,6 @@ Rails.application.routes.draw do
         resources :orders, only: [:index, :show, :update]
         resources :customers, only: [:index, :show, :edit, :update]
     end
-    
 
 
-end 
+end
