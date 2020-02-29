@@ -10,12 +10,12 @@
 #test
 # coding: utf-8
 
-Product.create!(
-	id: '1',
-	name: 'いちごケーキ',
-	image_id: 'nil',
-	genre_id: '1',
-	content: '美味しいよ',
-	price: '1000',
-	selling_status: 'true',
-	)
+# Product.create!(
+# 	id: '1',
+# 	name: 'いちごケーキ',
+# 	image_id: 'nil',
+# 	genre_id: '1',
+# 	content: '美味しいよ',
+# 	price: '1000',
+# 	selling_status: 'true',
+# 	)
