@@ -24,7 +24,7 @@
 }
 // ヘッダーの下body
 .main_container {
-  padding-top: 160px;
+  padding-top: 120px;
 }
 
 header {
@@ -202,6 +202,7 @@ header .container {
 .customer_table th {
   background-color: lightgray;
 }
+
 .valid {
   border: solid 1px black;
   border-radius: 50px;
@@ -431,4 +432,9 @@ header #nav-drawer {
 .review_btn {
   margin: 0 20px 0px 15px;
   height: 30px;
+}
+
+// products(customer)
+.product_customer_show{
+  display: inline-block;
 }

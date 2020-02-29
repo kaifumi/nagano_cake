@@ -1,0 +1,67 @@
+<!-- 商品新規登録ページ -->
+<div class="container" style="margin: none;">
+<div class="row">
+
+	<!-- エラー文 -->
+	<% if @product.errors.any? %>
+	  <div class="alert alert-warning">
+	    <ul>
+	      <% @product.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+
+	<h2 class="col-xs-offset-1" style="margin-bottom: 20px;">商品　新規登録画面</h2>
+
+    <%= form_for @product, url: admin_products_path do |f| %>
+
+	<div class="col-xs-3 col-xs-offset-1">
+		<!-- 商品写真登録 -->
+		<div class="form-group has-icon">
+			<%= f.attachment_field :image %>
+		</div>
+	</div>
+
+	<div class="col-xs-8">
+
+		<!-- 商品名登録 -->
+		<div class="form-group">
+			<lavel>商品名</lavel><br>
+			<%= f.text_field :name, class: "col-xs-6" %><br>
+		</div>
+
+		<!-- 商品説明登録 -->
+		<div class="form-group">
+			<lavel>商品説明 </lavel><br>
+			<%= f.text_area :content, class: "col-xs-6 rows-5 new_product_contents" %>
+		</div><br><br>
+
+		<!-- ジャンル選択 -->
+		<div class="form-group">
+			<lavel>ジャンル </lavel><br>
+			<%= f.select :genre_id, Genre.all.collect {|p| [p.type, p.id]},{include_blank: "--選択してください--"},{class: "col-xs-3"} %>
+		</div><br>
+
+		<!-- 税抜価格 -->
+		<div class="form-group">
+			<lavel>税抜価格 </lavel><br>
+			<%= f.text_field :price, class: "col-xs-3" %><p> 円</p>
+		</div>
+
+		<!-- 販売ステータス -->
+		<div class="form-group">
+			<lavel>販売ステータス </lavel><br>
+			<%= f.select :selling_status, [['販売中', true], ['販売停止中', false]], {}, {class: "col-xs-3"} %>
+		</div><br>
+
+		<!-- 投稿ボタン -->
+		<%= f.submit "新規投稿", class:"btn btn-primary submit-btn"  %>
+		</div>
+
+	<% end %>
+
+
+</div>
+</div>

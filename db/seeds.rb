@@ -59,7 +59,7 @@ Genre.create!(
 
 Product.create!(
 		[
-			{
+      {
 				genre_id:1,
 				name:"ショートケーキ",
 				content:"ショートなケーキです",
@@ -96,7 +96,7 @@ Product.create!(
 
 	Review.create!(
 		[
-			{
+      {
 				rate:1,
 				product_id:1,
 				customer_id:1,
@@ -160,4 +160,4 @@ Product.create!(
 				content:"同情するレベル"
 			}
 		]
-	)
+)

@@ -1,0 +1,30 @@
+<!-- 商品詳細ページ -->
+
+<div class="container">
+<div class="row">
+
+	<h2 class="show_product_head" style="margin-bottom: 20px;">商品　詳細画面</h2>
+
+    <div class="col-xs-3 col-xs-offset-1">
+        <%= attachment_image_tag @product, :image, size: "200x200" %>
+    </div>
+
+    <div class="col-xs-8">
+        <p>商品名 <%= @product.name %></p>
+
+        <p>商品説明 <%= @product.content %></p>
+
+        <p>ジャンル　<%= @product.genre_id %></p>
+
+        <p>税込み価格　<%= @product.price %> 円</p>
+
+        <P>販売ステータス　<%= @product.selling_status %></P>
+
+        <%= link_to edit_admin_product_path do %>
+        	<p class="col-xs-1 btn btn-default">編集</p>
+        <%end%>
+
+    </div>
+
+</div>
+</div>
