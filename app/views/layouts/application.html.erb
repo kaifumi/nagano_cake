@@ -5,10 +5,10 @@
     <div class="background_img">
 
       <%# adminならadmin_headerを呼ぶ。違うならcustomer_headerを呼ぶ %>
-      <% if current_customer %>
-        <%= render 'layouts/admin_header' %> 
-      <% else %> 
+      <% if current_customer.present? %>
         <%= render 'layouts/customer_header' %>
+      <% else %> 
+        <%= render 'layouts/admin_header' %> 
       <% end %> 
 
         <%# エラー文あれば表示 %>
@@ -20,5 +20,9 @@
         <%= yield %>
       </div>
     </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/skippr.min.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
