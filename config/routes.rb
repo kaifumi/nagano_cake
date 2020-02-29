@@ -13,10 +13,10 @@ Rails.application.routes.draw do
         resources :deliveries, only: [:index, :create, :edit, :update, :destroy]
     end
     root "products#index"
-    get "thanks" => "customers/orders#thanks"
+    get "thanks" => "customer/orders#thanks" #customers sが余計についてました。
     delete "/destroy_all" => "customer/cart_products#destroy_all"
     get "/destroy_confirm/:id" => "customer/customers#destroy_confirm",as: "destroy_confirm"
-    get "/purchase" => "customer/orders#purchase"
+    post "/purchase" => "customer/orders#purchase" #getからpostに変更
 
 
     namespace :admin do

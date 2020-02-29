@@ -77,3 +77,8 @@ gem 'kaminari'
 
 #railsでjqueryを使うための機能
 gem "jquery-rails"
+
+#デバックで使用
+gem "pry-rails"
+#デバックで使用
+gem "pry-byebug"

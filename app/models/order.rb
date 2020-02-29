@@ -15,6 +15,8 @@ class Order < ApplicationRecord
 	"O発送準備中": 3,
 	"発送済み": 4
 	}
+
+	
 	
 	validates :delivery_price, presence: true
 	validates :total_price, presence: true

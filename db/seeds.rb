@@ -7,27 +7,33 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+# Product.create!(
+#     genre_id: 1,
+#     name: "ケーキ",
+#     content: "イチゴのショートケーキです",
+#     price: 500,
+#     selling_status: true
+# )
 
-# 1.times do |n|
-#     name = "pudding"
-#     price = 200
-#     password = "password"
+# CartProduct.create!(
+#     customer_id: 1,
+#     product_id: 1,
+#     amount: 2
+# )
 
-#     Products.create!(name: 'aaa',
-#                  content: egg,
-#                  password: password,
-#                  password_confirmation: password,
-#                  )
-#   end
+# Customer.create!(
+#     email: "drogon@ball",
+#     password: "password",
+#     first_name: "悟空",
+#     last_name: "孫",
+#     kana_first_name: "ゴクウ",
+#     kana_last_name: "ソン",
+#     telephone_number: "000-0000-0000",
+#     postal_code: "000-0000",
+#     address: "地球"
+# )
 
-
-#   100.times do |n|
-#     name = Faker::Pokemon.name
-#     email = Faker::Internet.email
-#     password = "password"
-#     User.create!(name: name,
-#                  content: email,
-#                  password: password,
-#                  password_confirmation: password,
-#                  )
-#   end
+# Genre.create!(
+#     type: "cake",
+#     sell_activated: true
+# )

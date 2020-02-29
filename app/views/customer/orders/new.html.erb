@@ -2,17 +2,15 @@
         <div class = "row">
             <div class = "col-xs-offset-1 col-mx-6">
             <h1>購入情報入力</h1>
-            <%= form_for @order, url:customer_orders do |f| %>
+            <%= form_for @order, url:purchase_path, method: :post do |f| %>
             <div>
             <h2>支払い方法</h2>
-                <div><%= f.radio_button :payment_option, 0 %>銀行振り込み</div>
-                <div><%= f.radio_button :payment_option, 1 %>クレジットカード</div>
+                <div><%= f.radio_button :payment_option, :銀行振込 %>銀行振込</div>
+                <div><%= f.radio_button :payment_option, :クレジットカード %>クレジットカード</div>
                 </div>
             <h2>お届け先</h2>
-                <div>ご自身の住所</div>
-                <%= @customer %>
+                <div><%= @customer.first_name%></div>
             <div>登録済住所から選択</div>
-
             <div>新しいお届け先</div>
             <div>
                 <%= f.label :postal_code, "郵便番号" %>
