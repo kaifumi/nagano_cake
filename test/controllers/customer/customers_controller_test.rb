@@ -12,6 +12,7 @@ class Customer::CustomersControllerTest < ActionDispatch::IntegrationTest
   test "should get customer show" do
     get customer_customer_path(@customer)
     assert_response :success
+    assert_select "title","NaganoCake"
   end
 
   test "should get customer edit" do
