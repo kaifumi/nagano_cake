@@ -1,0 +1,39 @@
+
+  <%# レビュー評価があれば表示 %>
+
+  <% if all_ranks.present? %>  
+    <p>-ランキング-</p>
+      <% i=1%>
+      <div class="col-xs-9">
+      <% all_ranks.each do |id,ave| %>
+          <p>-------------------------</p>
+          <p>第<%=i%>位</p>
+          <%# 商品名 %>
+          <%= link_to products.find(id).name,customer_product_path(id) %>
+          <!--星評価-->
+          <div class="star_review">
+            <div id="star-rate-rank-<%= id %>"></div>
+              <script>
+              $('#star-rate-rank-<%= id %>').raty({
+                size: 36,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                half: true,
+                readOnly: true,
+                score: <%= ave %>,
+              });
+              </script>  
+            <!--/星評価-->
+          </div>  
+          <p><%= ave.round(1)%>/5.0点</p>
+          <p>口コミ数(<%= link_to reviews_all.where(product_id: id).length,customer_product_path(id) %>)</p>
+            
+          
+          <% i+=1 %>
+        
+      <% end %>
+      </div>
+  <%else%>
+    <p>ランキングがありません。</p>
+  <% end %>

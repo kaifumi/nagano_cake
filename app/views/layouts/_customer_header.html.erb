@@ -1,20 +1,7 @@
   <!-- customer用header <%#= render 'layout/customer_header' %> -->
   <header>
       <%# ハンバーガーメニュー %>
-      <div id="nav-drawer">
-        <input id="nav-input" type="checkbox" class="nav-unshown">
-        <label id="nav-open" for="nav-input"><span></span></label>
-        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-        <div id="nav-content">
-          <ul>
-            <li><%= link_to "商品一覧",customer_products_path %></li>
-            <li><%= link_to "カート一覧",customer_cart_products_path(id:1) %></li>
-            <li><%= link_to "マイページ",customer_customer_path(id:1) %></li>
-            <li><%= link_to "登録情報編集",edit_customer_customer_path(id:1) %></li>
-            <li><%= link_to "注文履歴",customer_orders_path(id:1) %></li>
-          </ul>
-        </div>
-      </div>
+      <%= render partial: "shared/menu", locals: {id:current_customer.id} %>
 
       <div class="headline">
         <%= image_tag "logo_transparent.png", class: "logo_img" %>

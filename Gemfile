@@ -77,3 +77,6 @@ gem 'kaminari'
 
 #railsでjqueryを使うための機能
 gem "jquery-rails"
+
+#デバッグ用
+gem 'byebug'

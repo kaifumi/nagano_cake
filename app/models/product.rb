@@ -19,6 +19,9 @@ class Product < ApplicationRecord
 	belongs_to :genre, optional: true
 	has_many :order_details
 	has_many :cart_products
+	
+	#口コミ専用テーブル
+	has_many :reviews
 
 	attachment :image
 
