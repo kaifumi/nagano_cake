@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     namespace :customer do
         resources :orders, only: [:new, :show, :create, :index]
-        resources :customers, only: [:new, :show, :edit, :update, :destroy]
+        resources :customers, only: [:show, :edit, :update, :destroy]
         resources :cart_products, only: [:index, :create, :update, :destroy]
         resources :products, only: [:index, :show] do
         resources :reviews
