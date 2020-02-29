@@ -38,14 +38,6 @@ ActiveRecord::Schema.define(version: 2020_02_26_115834) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "kana_first_name"
-    t.string "kana_last_name"
-    t.string "telephone_number"
-    t.string "postal_code"
-    t.string "address"
-    t.boolean "status", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"

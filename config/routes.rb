@@ -13,10 +13,10 @@ Rails.application.routes.draw do
         resources :customers, only: [:show, :edit, :update,:destroy]
         resources :cart_products, only: [:index, :create, :update, :destroy]
         resources :products, only: [:index, :show] do
-            resources :reviews
+        resources :reviews
         end
         resources :deliveries, only: [:index, :create, :edit, :update, :destroy]
-        
+
     end
     root "products#top"
     get "thanks" => "customers/orders#thanks"
@@ -32,7 +32,6 @@ Rails.application.routes.draw do
         resources :orders, only: [:index, :show, :update]
         resources :customers, only: [:index, :show, :edit, :update]
     end
-    
 
 
-end 
+end
