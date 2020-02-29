@@ -24,21 +24,22 @@
 }
 // ヘッダーの下body
 .main_container {
-  padding-top: 120px;
+  padding-top: 110px;
 }
 
 header {
-  width: 100%;
   height: 110px;
   background-color: white;
-  // 透過率0.8→0.9に。この方がヘッダーナビが見やすかった
-  opacity: 0.9;
+  opacity: 0.85;
   background-size: cover;
   color: black;
-  position: fixed;
   // ヘッダーを他のどの要素よりも前面に出す
   // top: 0;
   z-index: 1000;
+}
+
+.header_item {
+  width: 1300px;
 }
 
 header .logo_img {
