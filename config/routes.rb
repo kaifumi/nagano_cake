@@ -15,7 +15,7 @@ Rails.application.routes.draw do
         resources :products, only: [:index, :show]
         resources :deliveries, only: [:index, :create, :edit, :update, :destroy]
     end
-    root "products#index"
+    root "products#top"
     get "thanks" => "customers/orders#thanks"
     delete "/destroy_all" => "customer/cart_products#destroy_all"
     get "/destroy_confirm/:id" => "customer/customers#destroy_confirm",as: "destroy_confirm"
