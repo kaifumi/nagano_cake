@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="col-xs-offset-1" style="margin-top: 50px;">
 	<div class="col-xs-3">
     	
@@ -30,3 +31,52 @@
 </div>
 
 
+=======
+<h1>Customer::Products#show</h1>
+<p>Find me in app/views/customer/products/show.html.erb</p>
+
+<div class="container">
+  <div class="row">
+   
+
+     <div class="col-xs-4">
+        <%# レビュー評価があれば表示 %>
+        <% if @reviews.present? %>
+          <p>この商品の評価は<%= @reviews.average(:rate).round(1) %>/5.0点です</p>    
+          <p>口コミ数は<%= @reviews.length %>件です</p> 
+          <div class="review_head">
+            <p>-レビュー一覧-</p>
+            <%= link_to "新規レビュー",new_customer_product_review_path(@product.id),class:"btn btn btn-primary review_btn"%>
+          </div>
+          <% @reviews.each do |review| %>
+            <div class="col-xs-9">
+              ----------------------------------------
+              <p>商品ID:<%= review.product_id %>　商品名:<%= link_to review.product.name,customer_product_path(review.product_id)%></p>
+              <p>評価ID:<%= review.id %>  点数:<%= review.rate%>点</p>
+               <!--星評価-->
+                <div id="star-rate-<%= review.id %>"></div>
+                  <script>
+                  $('#star-rate-<%= review.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: <%= review.rate %>,
+                  });
+                  </script>  
+                <!--/星評価-->
+              <p>タイトル:<%= review.title %></p>
+              <p>クチコミ:<%= review.content%></p>
+              <%= link_to "編集",edit_customer_product_review_path(product_id:review.product_id,id:review.id) %>
+              <%= link_to "削除",customer_product_review_path(product_id:review.product_id,id:review.id), method: :delete %>
+            </div>
+          <% end %>
+        <%else%>
+          <%=link_to "この商品のレビューをする",new_customer_product_review_path(product_id:params[:id])%>     
+        <% end %>
+    </div>
+  </div>
+</div>
+>>>>>>> cd231d2a131d9678658708e697ddcd893cb8b4b4
