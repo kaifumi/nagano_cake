@@ -7,7 +7,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     @customer=customers(:syokaturyo)
   end
   
-  test "layout links when not logged in" do
+  test "layout links when logged in" do
     sign_in(@customer)
     get root_path
     assert_template "/"
@@ -16,4 +16,14 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]",customer_cart_products_path
     assert_select "a[href=?]",destroy_customer_session_path
   end
+
+  test "layout links when not logged in" do
+    get root_path
+    assert_template "/"
+    assert_select "a[href=?]",root_path
+    assert_select "a[href=?]",new_customer_session_path
+    assert_select "a[href=?]",new_customer_registration_path
+  end
+
+
 end

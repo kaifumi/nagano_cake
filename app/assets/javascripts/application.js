@@ -11,14 +11,20 @@
 // about supported directives.
 //
 
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
 
 // 上は消してはいけません
+
+$(document).ready(function() {
+  $(".jquery").on("click", function() {
+    $(this).css("color", "red");
+  });
+});
 
 // スライドショー
 $(document).ready(function() {
