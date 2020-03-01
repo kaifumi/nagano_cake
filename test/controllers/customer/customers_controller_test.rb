@@ -66,4 +66,11 @@ class Customer::CustomersControllerTest < ActionDispatch::IntegrationTest
   #   end
   #   assert_redirected_to root_url
   # end
+  # 退会確認画面に飛べるかテスト
+  test "should get customer destroy_confirm" do
+    sign_in(@customer)
+    get destroy_confirm_path(@customer)
+    assert_response :success
+  end
+  
 end

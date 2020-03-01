@@ -82,3 +82,6 @@ gem "jquery-rails"
 
 #デバッグ用
 gem 'byebug'
+
+#コントローラーテスト用
+gem 'rails-controller-testing'
