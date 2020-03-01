@@ -67,6 +67,7 @@
             </div>
           <% end %>
         <%else%>
+          <%# レビュー評価がなければレビューリンクを表示 %>
           <%=link_to "この商品のレビューをする",new_customer_product_review_path(product_id:params[:id])%>     
         <% end %>
     </div>
