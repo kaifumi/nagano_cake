@@ -18,8 +18,7 @@
     <%= form_for [:admin, @product] do |f| %>
 
 	<div class="col-xs-3 col-xs-offset-1">
-    	<%#= attachment_image_tag @product, :image, :fill, 200, 200 %>
-    	<!-- ↑↑ (余裕あれば)preview機能つけよう -->
+    	<!-- 余裕あればpreview機能 -->
    		<%= f.attachment_field :image %>
     </div>
 
