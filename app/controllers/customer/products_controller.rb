@@ -23,6 +23,9 @@ class Customer::ProductsController < ApplicationController
   @genres = Genre.all
  end
 
+ def create
+ end
+
  private
  def products_params
   params.require(:product).permit(:name, :content, :image_id, :price, :selling_status)
