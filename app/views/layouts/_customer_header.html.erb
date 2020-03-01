@@ -1,8 +1,10 @@
   <!-- customer用header <%#= render 'layouts/customer_header' %> -->
   <header>
     <div class="center-block header_item">
-      <%# ハンバーガーメニュー %>
-      <%= render partial: "shared/menu", locals: {id:current_customer.id} %>
+      <% if current_customer.present?%>
+        <%# ハンバーガーメニュー %>
+        <%= render partial: "shared/menu", locals: {id:current_customer.id} %>
+      <% end %>
 
       <div class="headline">
         <%= image_tag "logo_transparent.png", class: "logo_img" %>
@@ -28,10 +30,9 @@
           <li class="nav-list-item"><%= link_to customer_cart_products_path do %>CART<%end%></li>
           <li class="nav-list-item"><%= link_to destroy_customer_session_path, method: :delete do %>LOG OUT<%end%></li>
         </ul>
-
       <%else%>
         <ul class="nav-list">
-          <li><% link_to customer_products_path do%><p class="nav-list-item">TOP</p><%end%></li>
+          <li><%= link_to customer_products_path do%><p class="nav-list-item">TOP</p><%end%></li>
           <li><%= link_to customer_products_path do%><p class="nav-list-item">ABOUT</p><%end%></li>
           <li><%= link_to new_customer_session_path do%><p class="nav-list-item">LOG IN</p><%end%></li>
           <li><%= link_to new_customer_registration_path do%><p class="nav-list-item">SIGN UP</p><%end%></li>
