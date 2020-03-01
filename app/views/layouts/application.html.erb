@@ -5,11 +5,12 @@
     <div class="background_img">
 
       <%# adminならadmin_headerを呼ぶ。違うならcustomer_headerを呼ぶ %>
-      <% if current_customer.present? %>
-        <%= render 'layouts/customer_header' %>
-      <% else %>
+
+      <% if current_admin.present? %>
         <%= render 'layouts/admin_header' %>
-      <% end %>
+      <% else %> 
+        <%= render 'layouts/customer_header' %>
+      <% end %> 
 
         <%# エラー文あれば表示 %>
         <% flash.each do |message_type,message| %>
