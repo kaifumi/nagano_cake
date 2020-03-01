@@ -1,4 +1,4 @@
-  <!-- admin用header <%#= render 'layout/admin_header' %> -->
+  <!-- admin用header <%#= render 'layouts/admin_header' %> -->
   <header>
     <div class="container">
       <div class="headline">
@@ -13,7 +13,11 @@
           <li class="nav-list-item"><%= link_to destroy_admin_session_path, method: :delete do%>LOG OUT<%end%></li>
 
           <ul class="header_seach">
-            <li class="glyphicon glyphicon-search"> kennsaku</li>
+            <li style="margin-right: 40px;">
+              <div class="glyphicon glyphicon-search input-group">
+                <input type="text">
+              </div>
+            </li>
           </ul>
         </ul>
 
