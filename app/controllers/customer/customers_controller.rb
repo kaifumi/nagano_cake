@@ -25,15 +25,9 @@ class Customer::CustomersController < ApplicationController
 	#論理削除を実行
 	def destroy
 		#updateではなくdestroyを使用
-		customer=Customer.find(params[:id])
-		if customer==current_customer
-			customer.destroy
-			flash[:success]="退会しました"
-			redirect_to customer_customer_url
-		else
-			flash[:danger]="退会できませんでした"
-			redirect_to root_url
-		end
+		Customer.find(params[:id]).destroy
+    	flash[:success]="退会しました"
+    	redirect_to new_customer_customer_path
 	end
 
 	def destroy_confirm

@@ -2,8 +2,8 @@ class Customer::ProductsController < ApplicationController
     
 
     def top
-        @products = Product.all
-        @products = Product.page(params[:page]).per(8)
+        # @products = Product.all
+        @products = Product.all.page(params[:page]).per(8)
         @genres = Genre.all
     end
 
@@ -26,6 +26,11 @@ class Customer::ProductsController < ApplicationController
         def products_params
             params.require(:product).permit(:name, :content, :image_id, :price, :selling_status)
         end
-    end
 
+    
+
+<<<<<<< HEAD
+=======
+end
+>>>>>>> fe1a3c30a80121d019d56a5ffeaa8602fe634d96
 
