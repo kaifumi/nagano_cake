@@ -13,7 +13,7 @@ class Customer::CartProductsController < ApplicationController
 		# ↓customer_idとproduct_idが同じ数値のものしかカートに入らない。
 		# @cart_product.product_id = current_customer.id
 		if @cart_product.save
-			flash[:notice] = "You have creatad successfully."
+			flash[:notice] = "カートに商品を追加しました"
 			redirect_to customer_cart_products_path
 		else
 			render action: :index
@@ -33,12 +33,14 @@ class Customer::CartProductsController < ApplicationController
 	def destroy
 		@cart_product = CartProduct.find(params[:id])
 		@cart_product.destroy
+		flash[:notice] = "カートの商品を削除しました"
 		redirect_to customer_cart_products_path
 	end
 
 	def destroy_all
 		@cart_products = CartProduct.where(customer_id: current_customer.id)
 		@cart_products.destroy_all
+		flash[:notice] = "カートの商品を削除しました"
 		redirect_to customer_cart_products_path
 	end
 

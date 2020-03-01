@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     namespace :customer do
         resources :orders, only: [:new, :show, :create, :index]
-        resources :customers, only: [:show, :edit, :update,:destroy]
+        resources :customers, only: [:show, :edit, :update, :destroy]
         resources :cart_products, only: [:index, :create, :update, :destroy]
         resources :products, only: [:index, :show] do
         resources :reviews
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
         resources :deliveries, only: [:index, :create, :edit, :update, :destroy]
 
     end
-    root "products#top"
+    root "customer/products#top"
     get "thanks" => "customers/orders#thanks"
     delete "/destroy_all" => "customer/cart_products#destroy_all"
     get "/destroy_confirm/:id" => "customer/customers#destroy_confirm",as: "destroy_confirm"

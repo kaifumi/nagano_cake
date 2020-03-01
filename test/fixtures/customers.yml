@@ -1,11 +1,21 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+syokaturyo:
+  last_name: "諸葛"
+  first_name: "亮"
+  kana_last_name: "ショカツ"
+  kana_first_name: "リョウ"
+  postal_code: "111-1111"
+  address: "隆中"
+  telephone_number: "111-1111-1111"
+  email: "test1@test.com"
+  encrypted_password: <%= Devise::Encryptor.digest(Customer, 'password') %>
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+kyoui:
+  last_name: "姜"
+  first_name: "維"
+  kana_last_name: "キョウ"
+  kana_first_name: "イ"
+  postal_code: "222-2222"
+  address: "天水"
+  telephone_number: "222-2222-2222"
+  email: "test2@test.com"
+  encrypted_password: <%= Devise::Encryptor.digest(Customer, 'password') %>

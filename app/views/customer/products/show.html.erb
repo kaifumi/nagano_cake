@@ -31,13 +31,13 @@
 
 <div class="container">
   <div class="row">
-   
+
 
      <div class="col-xs-4">
         <%# レビュー評価があれば表示 %>
         <% if @reviews.present? %>
-          <p>この商品の評価は<%= @reviews.average(:rate).round(1) %>/5.0点です</p>    
-          <p>口コミ数は<%= @reviews.length %>件です</p> 
+          <p>この商品の評価は<%= @reviews.average(:rate).round(1) %>/5.0点です</p>
+          <p>口コミ数は<%= @reviews.length %>件です</p>
           <div class="review_head">
             <p>-レビュー一覧-</p>
             <%= link_to "新規レビュー",new_customer_product_review_path(@product.id),class:"btn btn btn-primary review_btn"%>
@@ -58,7 +58,7 @@
                     readOnly: true,
                     score: <%= review.rate %>,
                   });
-                  </script>  
+                  </script>
                 <!--/星評価-->
               <p>タイトル:<%= review.title %></p>
               <p>クチコミ:<%= review.content%></p>
@@ -67,6 +67,7 @@
             </div>
           <% end %>
         <%else%>
+          <%# レビュー評価がなければレビューリンクを表示 %>
           <%=link_to "この商品のレビューをする",new_customer_product_review_path(product_id:params[:id])%>     
         <% end %>
     </div>
