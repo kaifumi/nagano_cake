@@ -20,12 +20,6 @@
 
 // 上は消してはいけません
 
-$(document).ready(function() {
-  $(".jquery").on("click", function() {
-    $(this).css("color", "red");
-  });
-});
-
 // スライドショー
 $(document).ready(function() {
   $("#theTarget").skippr({
