@@ -1,7 +1,7 @@
 /*
 *= require_tree .
-*= require_self
-*/
+  *= require_self
+  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -436,6 +436,6 @@ header #nav-drawer {
 }
 
 // products(customer)
-.product_customer_show{
+.product_customer_show {
   display: inline-block;
 }
