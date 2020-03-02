@@ -1,5 +1,6 @@
 class Customer::CustomersController < ApplicationController
-
+	before_action :logged_in_customer,only:[:show,:edit,:update,:destroy,:destroy_confirm]
+	before_action :correct_customer,   only: [:edit, :update]
 
 	def show
 		 @customer=Customer.find(params[:id])
@@ -26,7 +27,7 @@ class Customer::CustomersController < ApplicationController
 		#updateではなくdestroyを使用
 		Customer.find(params[:id]).destroy
     	flash[:success]="退会しました"
-    	redirect_to customer_customer_url
+    	redirect_to new_customer_customer_path
 	end
 
 	def destroy_confirm
@@ -39,4 +40,8 @@ class Customer::CustomersController < ApplicationController
 							:postal_code,:address,:telephone_number,:email,:deleted_at)
 		end
 
+		def correct_customer
+			@customer = Customer.find(params[:id])
+      		redirect_to(root_url) unless current_customer?(@customer)
+		end
 end

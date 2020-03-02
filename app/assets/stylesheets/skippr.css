@@ -19,7 +19,7 @@
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: 10%;
   min-height: 100%;
 }
 .skippr-nav-container {
@@ -82,4 +82,4 @@
   border-bottom: 2px solid white;
   border-right: 2px solid white;
 }
-/*# sourceMappingURL=skippr.css.map */
+/* # sourceMappingURL=skippr.css.map */

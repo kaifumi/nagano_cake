@@ -20,22 +20,28 @@ class Customer::OrdersController < ApplicationController
     end
 
     def purchase
-        session[:order] = Order.new()
-        # if params[:order][:selected_status] === "1"
-        #     session[:order][:id] = current_customer.id
-        #     session[:order][:postal_code] = current_customer.postal_code
-        #     session[:order][:address] = current_customer.address
-        #     session[:order][:receiver] = current_customer.first_name
+            @order = Order.new
+            @cart_products = CartProduct.where(customer_id: current_customer.id)
+            session[:order] = Order.new()
+            session[:order][:payment_option] = params[:order][:payment_option]
 
-        if params[:order][:selected_status] === "2"
-            binding.pry
-            # session[:order][:id] = 
-            # session[:order][:postal_code] = 
-            # session[:order][:address] = 
-            # session[:order][:receiver] = 
-        end
-        # else @selected_status === "3"
-        #     session[:order] = order_params
+        if params[:order][:selected_status] === "1"
+            session[:order][:postal_code] = current_customer.postal_code
+            session[:order][:address] = current_customer.address
+            session[:order][:receiver] = current_customer.first_name
+
+        elsif params[:order][:selected_status] === "2"
+            address = Delivery.find(params[:order][:delivery].to_i)
+            session[:order][:postal_code] = address.postal_code
+            session[:order][:address] = address.address
+            session[:order][:receiver] = address.receiver
+
+        else params[:order][:selected_status] === "3"
+            session[:order][:postal_code] = params[:order][:postal_code]
+            session[:order][:receiver] = params[:order][:receiver]
+            session[:order][:address] = params[:order][:address]
+    end
+
         
         # session[:order] = Order.new()
         # session[:order][:payment_option] = params[:payment_option] 
@@ -61,7 +67,7 @@ class Customer::OrdersController < ApplicationController
 
     private
     def order_params
-        params.permit(:customer_id, :payment_option, :postal_code, :address, 
+        params.permit(:customer_id, :payment_option, :postal_code, :address, :delivery_price, 
                         :receiver, :selected_status => [ 1, 2, 3 ])
     end
 end

@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h5 class="panel-title">ジャンル検索</h5>
+	</div>
+	<% @genres.each do |genre| %>
+	<div class="panel-body">
+		<%= link_to genre.type %>
+	</div>
+	<%end%>
+</div>
