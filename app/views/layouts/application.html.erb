@@ -5,7 +5,6 @@
     <div class="background_img">
 
       <%# adminならadmin_headerを呼ぶ。違うならcustomer_headerを呼ぶ %>
-
       <% if current_admin.present? %>
         <%= render 'layouts/admin_header' %>
       <% else %> 
@@ -22,11 +21,5 @@
       </div>
     </div>
 
-    <%# <script src="js/jquery.min.js"></script>
-    <script src="js/skippr.min.js"></script>
-    <script src="js/script.js"></script> %>
-    <%# <script src="../../assets/javascripts/jquery-3.4.1.min.js"></script>
-    <script src="../../assets/javascripts/skippr.min.js"></script> %>
-    <%# <script src="../../assets/javascripts/application.js"></script> %> %>
   </body>
 </html>
