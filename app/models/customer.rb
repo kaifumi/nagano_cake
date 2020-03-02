@@ -11,7 +11,7 @@ class Customer < ApplicationRecord
 	format: {
 		with: /\A[ぁ-んァ-ン一-龥]/,
 		allow_blank: true,
-		message: "	アルファベットは使用できません"
+		message: "アルファベットは使用できません"
 		}
 
 	validates :last_name,
