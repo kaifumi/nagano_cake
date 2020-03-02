@@ -1,11 +1,30 @@
-<%= render 'layouts/customer_header' %>
+<!-- <div id="slideshow"> -->
+    <!-- <div id="theTarget"> -->
+        <!-- <div class="image1"><a href="/custmer/products/1"></a></div> -->
+        <!-- <div class="image2"><a href="/custmer/products/2"></a></div> -->
+        <!-- <div class="image3"><a href="/custmer/products/3"></a></div> -->
+        <!-- <div class="image4"><a href="/custmer/products/4"></a></div> -->
+        <!-- <div class="image5"><a href="/custmer/products/5"></a></div> -->
+    <!-- </div> -->
+<!-- </div>   -->
 
-    <div id="container">
-        <div id="theTarget">
-            <div class="image1"><a href="/custmer/products/1"></a></div>
-            <div class="image2"><a href="/custmer/products/2"></a></div>
-            <div class="image3"><a href="/custmer/products/3"></a></div>
-            <div class="image4"><a href="/custmer/products/4"></a></div>
-            <div class="image5"><a href="/custmer/products/5"></a></div>
-        </div>
-    </div>  
+<div class="col-xs-3 col-xs-offset-1">
+	<table>
+		<tbody>
+            <tr>
+			<td>１</td>
+			<td>２</td>
+        </tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="col-xs-8">
+    <h2>商品一覧</h2>
+    <div class="product_customer_show">
+        <% @products.each do |product| %>
+            <div><%= attachment_image_tag @user, :profile_image, :fill, 160, 160, format: 'jpeg', fallback: "noimage.jpg", size: "160x160" %></div>
+            <div><%= link_to product.name, customer_product_path(product.id) %></div>
+        <%end%>
+    </div>
+</div>

@@ -1,4 +1,3 @@
-<%= link_to "logout", destroy_customer_session_path, method: :delete %>
 <%#  カスタマーそれぞれのマイページ %>
 <div class="container">
     <div class="row">
@@ -6,53 +5,57 @@
 
         <div class="col-xs-7 col-xs-offset-1">
         <%# 横並びするためにブロック化 %>
-        <div class="customer_info">
-            <p>登録情報</p>
-            <div class="button_wrapper">
-                <%= link_to "編集する", edit_customer_customer_path, class:"btn btn-primary" %>
+            <div class="customer_info">
+                <p>登録情報</p>
+                <div class="button_wrapper">
+                    <%= link_to "編集する", edit_customer_customer_path, class:"btn btn-primary" %>
+                </div>
+                <button class="btn btn-primary">パスワードを変更する</button>
             </div>
-            <button class="btn btn-primary">パスワードを変更する</button>
-        </div>
 
-        
-        
-        <table class="table table-bordered">
-            <tbody>
-                <tr>
-                    <th width="150">氏名</th>
-                    <td><%= @customer.last_name %> <%=@customer.first_name%></td>
-                </tr>
-                <tr>
-                    <th>カナ</th>
-                    <td><%=@customer.kana_last_name%> <%= @customer.kana_first_name%></td>
-                </tr>
-                <tr>
-                    <th>郵便番号</th>
-                    <td><%=@customer.postal_code%></td>
-                </tr>
-                <tr>
-                    <th>住所</th>
-                    <td><%=@customer.address%></td>
-                </tr>
-                <tr>
-                    <th>電話番号</th>
-                    <td><%=@customer.telephone_number%></td>
-                </tr>
-                <tr>
-                    <th>メールアドレス</th>
-                    <td><%=@customer.email%></td>
-                </tr>
-            </tbody>
-        </table>
+            
+            
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th width="150">氏名</th>
+                        <td><%= @customer.last_name %> <%=@customer.first_name%></td>
+                    </tr>
+                    <tr>
+                        <th>カナ</th>
+                        <td><%=@customer.kana_last_name%> <%= @customer.kana_first_name%></td>
+                    </tr>
+                    <tr>
+                        <th>郵便番号</th>
+                        <td><%=@customer.postal_code%></td>
+                    </tr>
+                    <tr>
+                        <th>住所</th>
+                        <td><%=@customer.address%></td>
+                    </tr>
+                    <tr>
+                        <th>電話番号</th>
+                        <td><%=@customer.telephone_number%></td>
+                    </tr>
+                    <tr>
+                        <th>メールアドレス</th>
+                        <td><%=@customer.email%></td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <div class="delivery_address">
-            <p>配送先　　</p>
-            <%= link_to "一覧を見る", customer_deliveries_path, class:"btn btn-primary" %>
-        </div>
-        <div class="order_history">
-            <p>注文履歴　</p>
-            <%= link_to "一覧を見る", customer_orders_path, class:"btn btn-primary" %>
-        </div>
+            <div class="delivery_address">
+                <p>配送先　　</p>
+                <%= link_to "一覧を見る", customer_deliveries_path, class:"btn btn-primary" %>
+            </div>
+            <div class="order_history">
+                <p>注文履歴　</p>
+                <%= link_to "一覧を見る", customer_orders_path, class:"btn btn-primary" %>
+            </div>
+            <div class="review_index">
+                <p>自分がしたレビュー　</p>
+                <%= link_to "一覧を見る", customer_reviews_path(id:params[:id]), class:"btn btn-primary" %>
+            </div>
         </div>
     </div>
 </div>

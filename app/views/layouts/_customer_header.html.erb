@@ -1,7 +1,8 @@
   <!-- customer用header <%#= render 'layout/customer_header' %> -->
-<body class="background_img">
   <header>
-    <div class="container">
+      <%# ハンバーガーメニュー %>
+      <%= render partial: "shared/menu", locals: {id:current_customer.id} %>
+
       <div class="headline">
         <%= image_tag "logo_transparent.png", class: "logo_img" %>
       </div>
@@ -11,6 +12,8 @@
           <li class="glyphicon glyphicon-search"></li>
           <li><p class="head_currentuser_name">ユーザー名：<%#= customer.name %>＊＊＊＊＊</p></li>
         </ul>
+
+      
 
         <ul class="nav-list">
           <li class="nav-list-item"><%= link_to customer_products_path do%>TOP<%end%></li>
@@ -28,6 +31,6 @@
           <!-- <li><%#= link_to new_customer_registration_path do%><p class="nav-list-item">SIGN UP</p><%#end%></li> -->
         <!-- </ul> -->
       <%#end%>
-    </div>
+
   </header>
-</body>
+ 

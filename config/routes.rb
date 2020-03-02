@@ -1,16 +1,22 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions',
+    registrations: 'admins/registrations'
+    }
   devise_for :customers, controllers: {
-        sessions: 'customers/sessions',
-        registrations: 'customers/registrations'
+    sessions: 'customers/sessions',
+    registrations: 'customers/registrations'
     }
 
     namespace :customer do
         resources :orders, only: [:new, :show, :create, :index]
         resources :customers, only: [:show, :edit, :update,:destroy]
         resources :cart_products, only: [:index, :create, :update, :destroy]
-        resources :products, only: [:index, :show]
+        resources :products, only: [:index, :show] do
+            resources :reviews
+        end
         resources :deliveries, only: [:index, :create, :edit, :update, :destroy]
+        
     end
     root "products#index"
     get "thanks" => "customer/orders#thanks" #customers sが余計についてました。

@@ -2,7 +2,7 @@ class Customer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+		 :recoverable, :rememberable, :validatable
 
 
 # rubyの規約上、正規表現の前後は/\A～\z/で閉じる。
@@ -62,5 +62,8 @@ class Customer < ApplicationRecord
 	has_many :cart_products, dependent: :destroy
 	has_many :orders, dependent: :destroy
 	has_many :deliveries, dependent: :destroy
+
+	#review用
+	has_many :reviews
 
 end
