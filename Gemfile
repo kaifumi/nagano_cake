@@ -85,3 +85,6 @@ gem 'byebug'
 
 #コントローラーテスト用
 gem 'rails-controller-testing'
+
+#エラーメッセージを日本語で表示
+gem 'rails-i18n'
