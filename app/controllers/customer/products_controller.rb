@@ -3,16 +3,18 @@ class Customer::ProductsController < ApplicationController
  def top
   @products = Product.all
   @products = Product.page(params[:page]).per(8)
-  @genres = Genre.all
+
+  # ジャンルが有効のもののみ表示
+  @genres = Genre.all.where(sell_activated: true)
  end
 
  def index
   params[:genres]
-  @products = Product.all.where(genre_id: params[:genres])
+  @products = Product.where(genre_id: params[:genres])
   @products = Product.page(params[:page]).per(8)
 
-  @genres = Genre.all
-
+  # ジャンルが有効のもののみ表示
+  @genres = Genre.all.where(sell_activated: true)
  end
 
  def show
@@ -20,7 +22,9 @@ class Customer::ProductsController < ApplicationController
   @product_new = Product.new
   @cart_product = CartProduct.new
   @reviews=Review.where(product_id:params[:id])
-  @genres = Genre.all
+
+  # ジャンルが有効のもののみ表示
+  @genres = Genre.all.where(sell_activated: true)
  end
 
  private
