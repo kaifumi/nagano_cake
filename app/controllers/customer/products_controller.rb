@@ -15,7 +15,6 @@ class Customer::ProductsController < ApplicationController
   @genre = Genre.find(params[:genre_id])
   else
   @products = Product.all.page(params[:page]).per(8)
-  @genre_select = "false"
   end
 
   # ジャンルが有効のもののみ表示
