@@ -2,9 +2,11 @@
 	<div class="panel-heading">
 		<h5 class="panel-title">ジャンル検索</h5>
 	</div>
-	<% @genres.each do |genre| %>
+	<% i = 1 %>
+	<% genres.each do |genre| %>
 	<div class="panel-body">
-		<%= link_to genre.type %>
+		<%= link_to genre.type, customer_products_path(genre_id: i) %>
 	</div>
+	<% i += 1 %>
 	<%end%>
 </div>
