@@ -6,11 +6,11 @@
 
       <%# adminならadmin_headerを呼ぶ。違うならcustomer_headerを呼ぶ %>
 
-      <% if current_admin.present? %>
-        <%= render 'layouts/admin_header' %>
-      <% else %> 
-        <%= render 'layouts/customer_header' %>
-      <% end %> 
+      <%# if current_admin.present? %>
+        <%#= render 'layouts/admin_header' %>
+      <%# else %>
+        <%#= render 'layouts/customer_header' %>
+      <%#end%>
 
         <%# エラー文あれば表示 %>
         <% flash.each do |message_type,message| %>
