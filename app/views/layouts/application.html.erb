@@ -5,12 +5,11 @@
     <div class="background_img">
 
       <%# adminならadmin_headerを呼ぶ。違うならcustomer_headerを呼ぶ %>
-
       <% if current_admin.present? %>
         <%= render 'layouts/admin_header' %>
-      <% else %> 
+      <% else %>
         <%= render 'layouts/customer_header' %>
-      <% end %> 
+      <% end %>
 
         <%# エラー文あれば表示 %>
         <% flash.each do |message_type,message| %>
@@ -22,8 +21,5 @@
       </div>
     </div>
 
-    <%# <script src="js/jquery.min.js"></script>
-    <script src="js/skippr.min.js"></script>
-    <script src="js/script.js"></script> %>
   </body>
 </html>

@@ -1,7 +1,7 @@
 <% if model.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      The form contains <%=pluralize(model.errors.count,"errors") %>.
+      <p class="number_count">The form contains <%=pluralize(model.errors.count,"errors") %>.</p>
     
     <ul>
     <% model.errors.full_messages.each do |msg| %>
