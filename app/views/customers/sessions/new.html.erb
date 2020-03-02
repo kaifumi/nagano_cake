@@ -6,6 +6,7 @@
 <h4>会員の方はこちらからログイン</h4>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  
 
   <table>
     <tr>
@@ -34,7 +35,7 @@
   </table>
 
   <div class="actions">
-    <%= f.submit "ログイン", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+    <%= f.submit "ログイン", class:"btn btn-primary" %>
   </div>
 <% end %>
 
@@ -44,7 +45,7 @@
   <%= link_to "こちら", new_customer_registration_path %>
   から新規登録を行ってください。</p>
 
-<!-- <%= render "customers/shared/links" %> -->
+<%# render "customers/shared/links" %>
 
     </div>
   </div>

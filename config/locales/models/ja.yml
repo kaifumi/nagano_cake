@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      customer: お客さま情報
+    attributes:
+      customer:
+        first_name: 名前
+        last_name: 苗字
+        kana_first_name: カナ（名前）
+        kana_last_name: カナ（苗字）
+        telephone_number: 電話番号
+        email: メールアドレス
+        postal_code: 郵便番号
+        address: 住所
+        password: パスワード
+        password_confirmation: パスワード（確認用）

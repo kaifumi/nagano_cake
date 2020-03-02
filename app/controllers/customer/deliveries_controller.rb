@@ -18,7 +18,7 @@ class Customer::DeliveriesController < ApplicationController
 		@delivery = Delivery.new(delivery_params)
 		@delivery.customer_id = current_customer.id
 		if @delivery.save
-			flash[:notice] = "You have creatad book successfully."
+			flash[:notice] = "配送先を追加しました。"
 			redirect_to customer_deliveries_path
 		else
 			# @deliveries = Delivery.all
@@ -34,6 +34,7 @@ class Customer::DeliveriesController < ApplicationController
 		@delivery = Delivery.find(params[:id])
 		if
 			@delivery.update(delivery_params)
+			flash[:notice] = "配送先を編集しました。"
 			redirect_to customer_deliveries_path
 		else
 			render action: :edit
@@ -43,6 +44,7 @@ class Customer::DeliveriesController < ApplicationController
 	def destroy
 		@delivery = Delivery.find(params[:id])
 		@delivery.destroy
+		flash[:notice] = "配送先を削除しました。"
 		redirect_to customer_deliveries_path
 	end
 
