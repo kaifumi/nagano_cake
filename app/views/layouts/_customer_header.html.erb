@@ -30,7 +30,6 @@
           <li class="nav-list-item"><%= link_to customer_cart_products_path do %>CART<%end%></li>
           <li class="nav-list-item"><%= link_to destroy_customer_session_path, method: :delete do %>LOG OUT<%end%></li>
         </ul>
-
       <%else%>
         <ul class="nav-list">
           <li><%= link_to customer_products_path do%><p class="nav-list-item">TOP</p><%end%></li>

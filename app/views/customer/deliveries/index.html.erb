@@ -3,45 +3,54 @@
 
 <%= render "shared/error_messages",model: @delivery %>
 
-<div class="col-xs-3">
+<div class="row">
+	<div class="col-xs-4">
+
 <h2>配送先登録/一覧</h2>
 
 <%= form_for(@delivery,url:customer_deliveries_path) do |f| %>
 
-<table class="table table-bordered">
-	<tr>
-		<th width="100">
-		<%= f.label :郵便番号 %>
-		</th>
+<div style="display:inline-flex">
 
-		<th>
-		<%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
-		</th>
-	</tr>
-	<tr>
-		<th width="100">
-		<%= f.label :住所 %>
-		</th>
+	<table class="table table-bordered">
+		<tr>
+			<th width="75">
+			<%= f.label :郵便番号 %>
+			</th>
 
-		<th>
-		<%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-		</th>
-	</tr>
-	<tr>
-		<th width="100">
-		<%= f.label :宛名 %>
-		</th>
+			<th>
+			<%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+			</th>
+		</tr>
+		<tr>
+			<th width="">
+			<%= f.label :住所 %>
+			</th>
 
-		<th>
-		<%= f.text_field :receiver, autofocus: true, autocomplete: "receiver" %>
-		</th>
-	</tr>
-</table>
+			<th>
+			<%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+			</th>
+		</tr>
+		<tr>
+			<th width="">
+			<%= f.label :宛名 %>
+			</th>
 
-<div class="actions">
-  <%= f.submit "登録する" %>
-</div>
+			<th>
+			<%= f.text_field :receiver, autofocus: true, autocomplete: "receiver" %>
+			</th>
+		</tr>
+	</table>
+
+	<div class="actions">
+	  <%= f.submit "登録する", class:"btn btn-primary" %>
+	</div>
 <% end %>
+
+	</div>
+</div>
+
+</div>
 
  <%# if @customer.id == current_customer.id %>
  <%# @customers.each do |customer| %>
@@ -55,13 +64,16 @@
 <!-- ↓カラムにデータがあれば表示してくれる -->
 <%# if @deliveries.present? %>
 
+<div class="col-xs-2"></div>
+<div class="col-xs-6">
+
 	<% @deliveries.each do |delivery| %>
 	<table class="table table-bordered">
 		<tr>
-			<th>郵便番号</th>
+			<th width="80">郵便番号</th>
 			<th>住所</th>
-			<th>宛名</th>
-			<th></th>
+			<th width="150">宛名</th>
+			<th width="185"></th>
 		</tr>
 
 		<tr>
@@ -69,13 +81,14 @@
 			<th><%= delivery.address %></th>
 			<th><%= delivery.receiver %></th>
 			<th>
-				<%= link_to "編集する", edit_customer_delivery_path(delivery) %>
+				<%= link_to "編集する", edit_customer_delivery_path(delivery), class:"btn btn-success" %>
 
-				<%= link_to "削除する", customer_delivery_path(delivery), method: :delete %>
+				<%= link_to "削除する", customer_delivery_path(delivery), method: :delete,class:"btn btn-danger" %>
 			</th>
 		</tr>
 	</table>
 	<% end %>
-<%# end %>
+
 </div>
+<%# end %>
 
