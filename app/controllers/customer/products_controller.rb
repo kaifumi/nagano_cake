@@ -32,8 +32,5 @@ class Customer::ProductsController < ApplicationController
   params.require(:product).permit(:name, :content, :image_id, :price, :selling_status)
  end
 
-<<<<<<< HEAD
-=======
 end
->>>>>>> fe1a3c30a80121d019d56a5ffeaa8602fe634d96
 

@@ -2,7 +2,7 @@ class Customer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-		 :recoverable, :rememberable, :validatable
+		 :recoverable, :rememberable
 
 
 # rubyの規約上、正規表現の前後は/\A～\z/で閉じる。
@@ -10,6 +10,7 @@ class Customer < ApplicationRecord
 	presence: true,
 	format: {
 		with: /\A[ぁ-んァ-ン一-龥]/,
+		allow_blank: true,
 		message: "アルファベットは使用できません"
 		}
 
@@ -17,6 +18,7 @@ class Customer < ApplicationRecord
 	presence: true,
 	format: {
 		with: /\A[ぁ-んァ-ン一-龥]/,
+		allow_blank: true,
 		message: "アルファベットは使用できません"
 		}
 
@@ -24,6 +26,7 @@ class Customer < ApplicationRecord
 	presence: true,
 	format: {
 		with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
+		allow_blank: true,
 		message: "全角カタカナのみで入力して下さい"
 		}
 
@@ -31,6 +34,7 @@ class Customer < ApplicationRecord
 	presence: true,
 	format: {
 		with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
+		allow_blank: true,
 		message: "全角カタカナのみで入力して下さい"
 		}
 
@@ -38,6 +42,7 @@ class Customer < ApplicationRecord
 	presence: true,
 	format: {
 		with: /\A[0-9]{3}-[0-9]{4}-[0-9]{4}\z/,
+		allow_blank: true,
 		message: "〇〇〇-〇〇〇〇-〇〇〇〇のように入力して下さい"
 		}
 
@@ -46,6 +51,7 @@ class Customer < ApplicationRecord
 	presence: true,
 	format: {
 		with: /\A[0-9]{3}-[0-9]{4}\z/,
+		allow_blank: true,
 		message: "〇〇〇-〇〇〇〇のように入力して下さい"
 	}
 
@@ -54,6 +60,8 @@ class Customer < ApplicationRecord
 
 	validates :status,
 	inclusion: { in: [true, false] }
+
+	devise :validatable
 
 
 	acts_as_paranoid
