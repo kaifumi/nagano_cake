@@ -31,11 +31,11 @@
           <li class="nav-list-item"><%= link_to destroy_customer_session_path, method: :delete do %>LOG OUT<%end%></li>
         </ul>
       <%else%>
-        <ul class="nav-list">
-          <li><%= link_to customer_products_path do%><p class="nav-list-item">TOP</p><%end%></li>
-          <li><%= link_to customer_products_path do%><p class="nav-list-item">ABOUT</p><%end%></li>
-          <li><%= link_to new_customer_session_path do%><p class="nav-list-item">LOG IN</p><%end%></li>
-          <li><%= link_to new_customer_registration_path do%><p class="nav-list-item">SIGN UP</p><%end%></li>
+        <ul class="nav-list" style="margin-top: 40px;">
+          <li class="nav-list-item"><%= link_to root_path do%>TOP<%end%></li>
+          <li class="nav-list-item"><%= link_to root_path do%>ABOUT<%end%></li>
+          <li class="nav-list-item"><%= link_to new_customer_session_path do%>LOG IN<%end%></li>
+          <li class="nav-list-item"><%= link_to new_customer_registration_path do%>SIGN UP<%end%></li>
         </ul>
       <%end%>
     </div>
