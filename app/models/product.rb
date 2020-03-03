@@ -9,6 +9,8 @@ class Product < ApplicationRecord
 	presence: true,
 	# allow_blank: true,
 	numericality: { allow_blank: true, only_integer: true }
+
+	#↓なぜか反応しない（integerとstringの違い？）
 	# format: {
 	# 	with: /\A\d+\z/,
 	# 	# allow_blank: true,
