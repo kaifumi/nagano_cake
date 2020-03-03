@@ -3,14 +3,14 @@
 <div class="row">
 
 	<!-- エラー文 -->
-	<% if @product.errors.any? %>
+	<%# if @product.errors.any? %>
 		<div id="error_explanation">
-		    <h2><%= @product.errors.count %>errors prohibited this book from being saved:</h2>
-	    	<% @product.errors.full_messages.each do |msg| %>
-	    	<li><%= msg %></li>
-	    	<% end %>
+		    <!-- <h2><%# @product.errors.count %>errors prohibited this book from being saved:</h2> -->
+	    	<%# @product.errors.full_messages.each do |msg| %>
+	    	<li><%# msg %></li>
+	    	<%# end %>
 	    </div>
-    <% end %>
+    <%# end %>
 
 	<h2 class="col-xs-offset-1" style="margin-bottom: 20px;">商品 編集画面</h2>
 

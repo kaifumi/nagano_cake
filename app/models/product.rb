@@ -7,10 +7,15 @@ class Product < ApplicationRecord
 
 	validates :price,
 	presence: true,
-	format: {allow_blank: true,
-		with: /\A[0-9]+\z/,
-        message: "半角の数字のみ入力して下さい"
-	}
+	# allow_blank: true,
+	numericality: { allow_blank: true, only_integer: true }
+
+	#↓なぜか反応しない（integerとstringの違い？）
+	# format: {
+	# 	with: /\A\d+\z/,
+	# 	# allow_blank: true,
+	#      message: "半角の数字のみ入力して下さい"
+	# }
 	
 	validates :selling_status,
 	inclusion: { in: [true, false] }
