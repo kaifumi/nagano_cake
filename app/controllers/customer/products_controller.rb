@@ -10,13 +10,12 @@ class Customer::ProductsController < ApplicationController
 
  def index
   if params[:genre_id].present?
-  @genre_select = "true"
-  @products = Product.where(genre_id: params[:genre_id]).page(params[:page]).per(8)
-  @genre = Genre.find(params[:genre_id])
+    @genre_select = "true"
+    @products = Product.where(genre_id: params[:genre_id]).page(params[:page]).per(8)
+    @genre = Genre.find(params[:genre_id])
   else
-  @products = Product.all.page(params[:page]).per(8)
+     @products = Product.all.page(params[:page]).per(8)
   end
-
   # ジャンルが有効のもののみ表示
   @genres = Genre.all.where(sell_activated: true)
  end

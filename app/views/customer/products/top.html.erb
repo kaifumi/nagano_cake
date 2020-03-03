@@ -1,16 +1,11 @@
 <%#= render 'layouts/customer_header' %>
 <div id="slideshow" >
     <div id="theTarget" data-turbolinks="false">
-        <%# <div style="background-image: url(images/cat1.jpg)"></div>
-        <div style="background-image: url(images/cat2.jpg)"></div>
-        <div style="background-image: url(images/cat3.jpg)"></div>
-        <div style="background-image: url(images/cat4.jpg)"></div>
-        <div style="background-image: url(images/cat5.jpg)"></div> %>
-        <div class="image1"><a href="/custmer/products/1"></a></div>
-        <div class="image2"><a href="/custmer/products/2"></a></div>
-        <div class="image3"><a href="/custmer/products/3"></a></div>
-        <div class="image4"><a href="/custmer/products/4"></a></div>
-        <div class="image5"><a href="/custmer/products/5"></a></div>
+        <div class="image1"><a href="/customer/products/1"></a></div>
+        <div class="image2"><a href="/customer/products/2"></a></div>
+        <div class="image3"><a href="/customer/products/3"></a></div>
+        <div class="image4"><a href="/customer/products/4"></a></div>
+        <div class="image5"><a href="/customer/products/5"></a></div>
     </div>
 </div>  
 <div class="col-xs-offset-1">
@@ -26,8 +21,8 @@
             <div class="col-xs-3">
                 <%= link_to customer_product_path(product) do %>
                     <%= attachment_image_tag product, :image, size: "160x160", fallback: "noimage.jpg", size: "160x160" %><br>
+                    <%= product.name %>
                 <%end%>
-                <%= link_to product.name %>
                 <p>金額：<%= product.price %>円</p>
             </div>
         <% end %>

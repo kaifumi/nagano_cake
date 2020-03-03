@@ -10,10 +10,12 @@ Rails.application.routes.draw do
 
     namespace :customer do
         resources :orders, only: [:new, :show, :create, :index]
-        resources :customers, only: [:show, :edit, :update, :destroy]
+        resources :customers, only: [:show, :edit, :update, :destroy] do
+          resources :reviews,only: [:index]
+        end
         resources :cart_products, only: [:index, :create, :update, :destroy]
         resources :products, only: [:index, :show] do
-        resources :reviews
+          resources :reviews,only: [:new, :show, :create, :edit, :update, :destroy]
         end
         resources :deliveries, only: [:index, :create, :edit, :update, :destroy]
 
@@ -26,7 +28,8 @@ Rails.application.routes.draw do
 
 
     namespace :admin do
-        root "admin#top"
+        # コントローラーordersでtopを管理
+        root "orders#top"
         resources :products
         resources :genres, only: [:index, :create, :edit, :update, :destroy]
         resources :orders, only: [:index, :show, :update]
