@@ -11,7 +11,8 @@ class Admin::ProductsController < ApplicationController
   		flash[:notice] = "商品の登録が完了しました"
   		redirect_to admin_product_path(@product.id)
   	else
-      @product = Product.new
+      #↓を書くと、@product = Product.new(products_params)のバリデーションで引っかかった記録を上書きしてしまうためエラーメッセージが表示されない。
+      # @product = Product.new
   		render action: :new
   	end
   end
