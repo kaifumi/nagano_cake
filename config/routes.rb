@@ -10,23 +10,26 @@ Rails.application.routes.draw do
 
     namespace :customer do
         resources :orders, only: [:new, :show, :create, :index]
-        resources :customers, only: [:show, :edit, :update, :destroy]
+        resources :customers, only: [:show, :edit, :update, :destroy] do
+          resources :reviews,only: [:index]
+        end
         resources :cart_products, only: [:index, :create, :update, :destroy]
         resources :products, only: [:index, :show] do
-        resources :reviews
+          resources :reviews,only: [:new, :show, :create, :edit, :update, :destroy]
         end
         resources :deliveries, only: [:index, :create, :edit, :update, :destroy]
 
     end
     root "customer/products#top"
-    get "thanks" => "customers/orders#thanks"
+    get "thanks" => "customer/orders#thanks"
     delete "/destroy_all" => "customer/cart_products#destroy_all"
     get "/destroy_confirm/:id" => "customer/customers#destroy_confirm",as: "destroy_confirm"
-    get "/purchase" => "customer/orders#purchase"
-    get "/customer/:id/reviews" => "customer/reviews#review_index",as: "customer_reviews"
+    post "/purchase" => "customer/orders#purchase" #getからpostに変更
+
 
     namespace :admin do
-        root "admin#top"
+        # コントローラーordersでtopを管理
+        root "orders#top"
         resources :products
         resources :genres, only: [:index, :create, :edit, :update, :destroy]
         resources :orders, only: [:index, :show, :update]

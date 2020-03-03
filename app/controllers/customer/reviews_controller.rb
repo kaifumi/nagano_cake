@@ -5,7 +5,7 @@ class Customer::ReviewsController < ApplicationController
         @product=Product.find_by(id:params[:product_id])
     end
 
-    def review_index
+    def index
 		@customer=Customer.find(params[:id])
         @reviews=Review.where(customer_id:@customer.id)
         #商品ごとの評価値を平均化

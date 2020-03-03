@@ -1,0 +1,46 @@
+<h2>注文詳細画面</h2>
+<%# 顧客情報の記載 %>
+<table class="table">
+    <tbody>
+    <tr>
+        <th>購入者</th>
+        <td>@order.customer.name</td>
+    </tr>
+    <tr>
+        <th>配送先</th>
+        <td>@order.address</td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>@order.receiver</td>
+    </tr>
+    <tr>
+        <th>支払い方法</th>
+        <td>@order.payment_option</td>
+    </tr>
+     <tr>
+        <th>注文ステータス</th>
+        <td>@order.payment_option</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>注文個数</th>
+            <th>注文ステータス</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>20200229</td>
+        <td>customer_id</td>
+        <td>amount</td>
+        <td>transaction_status</td>
+    </tr>
+    </tbody>
+</table>

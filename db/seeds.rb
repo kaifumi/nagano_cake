@@ -1,3 +1,53 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+
+# Product.create!(
+#     genre_id: 1,
+#     name: "ケーキ",
+#     content: "イチゴのショートケーキです",
+#     price: 500,
+#     selling_status: true
+# )
+
+# CartProduct.create!(
+#     customer_id: 1,
+#     product_id: 1,
+#     amount: 2
+# )
+
+# Customer.create!(
+#     email: "drogon@ball",
+#     password: "password",
+#     first_name: "悟空",
+#     last_name: "孫",
+#     kana_first_name: "ゴクウ",
+#     kana_last_name: "ソン",
+#     telephone_number: "000-0000-0000",
+#     postal_code: "000-0000",
+#     address: "地球"
+# )
+
+# Genre.create!(
+#     type: "cake",
+#     sell_activated: true
+# )
+
+# Delivery.create!(
+#     customer_id: 1,
+#     order_id: 1,
+#     postal_code: "111-1111",
+#     address: "ナメック星",
+#     receiver: "ピッコロ"
+# )
+
+
+
 Customer.create!(
     [
       {
@@ -35,7 +85,6 @@ Customer.create!(
       }
     ]
   )
- 
 Genre.create!(
 		[
 			{
@@ -161,6 +210,85 @@ Product.create!(
 			}
 		]
 )
+	Review.create!(
+		[
+      {
+				rate:1,
+				product_id:1,
+				customer_id:1,
+				title:"test1",
+				content:"あ、（察し）"
+			},
+			{
+				rate:2.5,
+				product_id:2,
+				customer_id:1,
+				title:"test2",
+				content:"もう買わない",
+			},
+			{
+				rate:3,
+				product_id:3,
+				customer_id:1,
+				title:"test3",
+				content:"ふつーかな"
+			},
+			{
+				rate:4.5,
+				product_id:4,
+				customer_id:2,
+				title:"test4",
+				content:"控えめに言ってウマい"
+			},
+			{
+				rate:5,
+				product_id:1,
+				customer_id:2,
+				title:"test5",
+				content:"神"
+			},
+			{
+				rate:1.5,
+				product_id:1,
+				customer_id:1,
+				title:"test6",
+				content:"同情するレベル"
+			},
+			{
+				rate:2.5,
+				product_id:1,
+				customer_id:1,
+				title:"test7",
+				content:"同情するレベル"
+			},
+			{
+				rate:3.5,
+				product_id:1,
+				customer_id:1,
+				title:"test8",
+				content:"同情するレベル"
+			},
+			{
+				rate:0.5,
+				product_id:1,
+				customer_id:1,
+				title:"test9",
+				content:"同情するレベル"
+			}])
+
+			Order.create!(
+				[
+			  {
+				customer_id: 2,			
+				payment_option:0,
+				transaction_status:0,
+				total_price:1000,
+				postal_code:222-2222,
+				address:"江東",
+				receiver:"陸遜"
+					}
+				]
+		)
 
 # Product.create!(
 # 	id: '1',

@@ -4,6 +4,7 @@ class Product < ApplicationRecord
 	validates :image_id, presence: true
 	validates :genre_id, presence: true
 
+
 	validates :price,
 	presence: true,
 	# allow_blank: true,
@@ -20,7 +21,7 @@ class Product < ApplicationRecord
 	acts_as_paranoid
 	# 論理削除
 
-	belongs_to :genre, optional: true
+	belongs_to :genre,optional: true #seedで外した
 	has_many :order_details
 	has_many :cart_products
 	
