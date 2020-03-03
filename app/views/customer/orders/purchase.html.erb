@@ -1,0 +1,65 @@
+<div class = "container">
+    <h1>注文情報確認</h1>
+        <div class = "row">
+            <div class = "col-xs-6">
+
+            <% sum = 0 %>
+
+                <table class = "table table-bordered">
+                <thead>
+                    <tr>
+                        <th>商品名</th>
+                        <th>単価（税込み）</th>
+                        <th>数量</th>
+                        <th>小計</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% @cart_products.each do |cart_product| %>
+                    <tr>
+                        <td><%= cart_product.product.name %></td>
+                        <td><% sub_total = (cart_product.product.price * 1.1).round.to_i %>
+                            <% sum+=sub_total %>
+                            <%= sub_total %>円</td>
+                        <td><%= cart_product.amount %></td>
+                        <td><% sub_total = (cart_product.product.price * 1.1).round.to_i* cart_product.amount.to_i %>
+                            <% sum+=sub_total %>
+                            <%= sub_total %>円
+                        </td>
+                    </tr>
+                <% end %>
+                </tbody>
+                </table>
+                
+            </div>
+            <div class = "col-xs-6">
+            <table class = "table table-bordered">
+                <tr>
+                    <th>送料</th>
+                    <td><%= @order.delivery_price.to_i %>円</td>
+                </tr>
+                <tr>
+                    <th>商品合計</th>
+                    <td><%= sum+= %>円</td>
+                </tr>
+                <tr>
+                    <th>請求合計</th>
+                    <td><% sum+=@order.delivery_price.to_i %>
+                        <%= sum %>円
+                    </td>
+                </tr>
+                </table>
+            </div>
+        </div>
+
+        <%= form_with(model: @order, url:customer_orders_path, method: :post, local: true) do |f| %>
+        <h3>支払方法</h3>
+        
+        <%= f.label session[:order]["payment_option"] %>
+        <h3>お届け先</h3>
+                <%= f.label session[:order]["postal_code"] %>
+                <%= f.label session[:order]["address"] %>
+                <%= f.label session[:order]["receiver"] %>
+            <%= f.submit "購入を確定する" %>
+        <% end %>
+    </div>

@@ -80,11 +80,15 @@ gem 'kaminari'
 #railsでjqueryを使うための機能
 gem "jquery-rails"
 
+#デバックで使用
+gem "pry-rails"
+#デバックで使用
+gem "pry-byebug"
 #デバッグ用
-gem 'byebug'
+#gem 'byebug'
 
 #コントローラーテスト用
 gem 'rails-controller-testing'
 
-#エラーメッセージを日本語で表示
 gem 'rails-i18n'
+
