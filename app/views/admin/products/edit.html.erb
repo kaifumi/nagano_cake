@@ -15,6 +15,7 @@
 	<h2 class="col-xs-offset-1" style="margin-bottom: 20px;">商品 編集画面</h2>
 
     <%= form_for [:admin, @product] do |f| %>
+    <%= render 'shared/error_messages',model: @product %>
 
 	<div class="col-xs-3 col-xs-offset-1">
     	<!-- 余裕あればpreview機能 -->

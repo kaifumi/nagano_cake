@@ -16,8 +16,10 @@
           <%= content_tag(:div,message,class:"alert alert-#{message_type}") %>
         <% end %>
         <%= flash[:danger] %>
-      <div class="main_container">
-        <%= yield %>
+      <div class="container">
+        <div class="row">
+          <%= yield %>
+        </div>
       </div>
     </div>
 

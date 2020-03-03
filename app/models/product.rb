@@ -1,11 +1,13 @@
 class Product < ApplicationRecord
 
 	validates :name, presence: true
-	# validates :image_id, presence: true #seedで外しただけです
+	validates :image_id, presence: true
+	validates :genre_id, presence: true
+
 
 	validates :price,
 	presence: true,
-	format: {
+	format: {allow_blank: true,
 		with: /\A[0-9]+\z/,
         message: "半角の数字のみ入力して下さい"
 	}

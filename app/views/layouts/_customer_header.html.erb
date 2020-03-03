@@ -6,9 +6,13 @@
         <%= render partial: "shared/menu", locals: {id:current_customer.id} %>
       <% end %>
 
-      <div class="headline">
+      <%# <div class="headline">
         <%= image_tag "logo_transparent.png", class: "logo_img" %>
-      </div>
+      <%# </div>  %>
+      <%# ロゴをリンク化 %>
+      <%= link_to root_path, class:"headline" do %>
+        <%= image_tag "logo_transparent.png", class: "logo_img" %>
+      <% end %>
 
       <% if customer_signed_in? %>
         <ul class="header_top">
