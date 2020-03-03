@@ -11,7 +11,7 @@ class Product < ApplicationRecord
 	# format: {
 	# 	with: /\A\d+\z/,
 	# 	# allow_blank: true,
- #        message: "半角の数字のみ入力して下さい"
+	#      message: "半角の数字のみ入力して下さい"
 	# }
 	
 	validates :selling_status,
