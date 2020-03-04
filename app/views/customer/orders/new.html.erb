@@ -1,39 +1,36 @@
-<div class = "container">
-        <div class = "row">
-            <div class = "col-xs-offset-1 col-mx-6">
-            <h1>購入情報入力</h1>
-            <%= form_with(model: @order, url:purchase_path, method: :post, local: true)do |f| %>
-            <div>
-            <h2>支払い方法</h2>
-                <div><%= f.radio_button :payment_option, :銀行振込 %>銀行振込</div>
-                <div><%= f.radio_button :payment_option, :クレジットカード %>クレジットカード</div>
-                </div>
-            <h2>お届け先</h2>
-                <div><%= f.radio_button :selected_status, :"1" %>ご自身の住所</div>
-                <%= f.label current_customer.postal_code %>
-                <%= f.label current_customer.address %>
-                <%= f.label current_customer.last_name %>
-                <%= f.label current_customer.first_name %>
-                <div><%= f.radio_button :selected_status, :"2" %>登録済住所から選択</div>
-                <%= f.collection_select :delivery, Delivery.all, :id, :postal_code  %>
-
-            <div><%= f.radio_button :selected_status, :"3" %>新しいお届け先</div>
-            <div>
-                <%= f.label :postal_code, "郵便番号" %>
-                <%= f.text_field :postal_code %>
-            </div>
-            <div>
-                <%= f.label :address, "住所" %>
-                <%= f.text_field :address %>
-            </div>
-            <div>
-            <%= f.label :receiver, "宛名" %>
-            <%= f.text_field :receiver %>
-            </div>
-            
-        <%= f.submit "確認画面へ進む"%>
-        <% end %>
-            </div>
+<div class = "col-xs-offset-1 col-mx-6">
+    <h1>購入情報入力</h1>
+        <%= form_with(model: @order, url:purchase_path, method: :post, local: true)do |f| %>
+    <div>
+        <h2>支払い方法</h2>
+        <div><%= f.radio_button :payment_option, :銀行振込 %>銀行振込</div>
+        <div><%= f.radio_button :payment_option, :クレジットカード %>クレジットカード</div>
     </div>
+    <h2>お届け先</h2>
+    <div><%= f.radio_button :selected_status, :"1" %>ご自身の住所</div>
+        <%= f.label current_customer.postal_code %>
+        <%= f.label current_customer.address %>
+        <%= f.label current_customer.last_name %>
+        <%= f.label current_customer.first_name %>
+     <div><%= f.radio_button :selected_status, :"2" %>登録済住所から選択</div>
+        <%= f.collection_select :delivery, Delivery.all, :id, :postal_code  %>
+
+    <div><%= f.radio_button :selected_status, :"3" %>新しいお届け先</div>
+    <div>
+        <%= f.label :postal_code, "郵便番号" %>
+        <%= f.text_field :postal_code %>
+    </div>
+    <div>
+        <%= f.label :address, "住所" %>
+        <%= f.text_field :address %>
+    </div>
+    <div>
+        <%= f.label :receiver, "宛名" %>
+        <%= f.text_field :receiver %>
+    </div>
+    
+    <%= f.submit "確認画面へ進む"%>
+    <% end %>
 </div>
+
 

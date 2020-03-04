@@ -1,2 +1,83 @@
-<h1>注文詳細画面</h1>
-    
+<h2>注文詳細画面</h2>
+<%# 顧客情報の記載 %>
+<%= render 'shared/error_messages', model: @customer %>
+<div class="col-xs-7">
+    <table>
+        <tr>
+            <th>購入者</th>
+            <td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
+        </tr>
+        <tr>
+            <th>配送先</th>
+            <td><%=@order.address%></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td><%=@order.receiver%></td>
+        </tr>
+        <tr>
+            <th>支払い方法</th>
+            <td><%=@order.payment_option%></td>
+        </tr>
+        <tr>
+            <%= form_for @order, url: admin_order_path(@order) do |f| %>
+                <th>注文ステータス</th>
+                <%# options_for_selectの第一引数に配列、第2引数にデフォルト値を使う %>
+                <% transaction_status_arr = [ ['入金待ち', 0], ['入金確認', 1], ['製作中', 2], ['発送準備中', 3], ['発送済み', 4] ] %>
+                <td><%= f.select :transaction_status, options_for_select( transaction_status_arr, transaction_status_arr.map{|unko| unko[0]}.index(@order.transaction_status) ) %></td>            <td><%= f.submit "更新", class:"btn btn-primary submit-btn"%></td>
+            <%end%>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="col-xs-7">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>商品名</th>
+                <th>単価（税込）</th>
+                <th>数量</th>
+                <th>小計</th>
+                <th>製作ステータス</th>
+            </tr>
+        </thead>
+        <% @order_details.each do |order_detail|%>
+            <tbody>
+            <tr>
+                <td><%= order_detail.product.name%></td>
+                <td><%= order_detail.product.price%></td>
+                <td><%= order_detail.amount%></td>
+                <td><%= order_detail.purchase_price%></td>
+                <%= form_for order_detail, url: product_status_update_path(order_detail) do |f| %>
+                    <% product_status_arr=[["着手不可", 0], ["製作待ち", 1],["製作中", 2],["製作完了", 3]]%>
+                    <td><%= f.select :product_status, options_for_select(product_status_arr,product_status_arr.map{|x| x[0]}.index(order_detail.product_status))%></td>
+                    <td><%= f.submit "更新", class:"btn btn-primary submit-btn"%></td>
+                <%end%>
+            </tr>
+            </tbody>
+        <%end%>
+    </table>
+</div>
+<div class="col-xs-5">
+    <table>
+        <tbody>
+            <tr>
+                <% sum=0 %>
+                <% @order_details.each do |order_detail| %>
+                    <% sum += order_detail.purchase_price%>
+                <%end%>
+                <th>商品合計</th>
+                <td><%= sum %>円</td>
+            </tr>
+            <tr>
+                <th>送料</th>
+                <td><%=@order.delivery_price%></td>
+            </tr>
+            <tr>
+                <th>請求額合計</th>
+                <td><%= sum+@order.delivery_price %></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

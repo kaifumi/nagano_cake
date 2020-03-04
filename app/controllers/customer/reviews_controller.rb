@@ -5,7 +5,7 @@ class Customer::ReviewsController < ApplicationController
         @product=Product.find_by(id:params[:product_id])
     end
 
-    def review_index
+    def index
 		@customer=Customer.find(params[:id])
         @reviews=Review.where(customer_id:@customer.id)
         #商品ごとの評価値を平均化
@@ -19,8 +19,14 @@ class Customer::ReviewsController < ApplicationController
 
     def create
         @review=Review.new(review_params)
-        @review.save!
+        if
+        @review.save
+        flash[:succes]="投稿完了です"
         redirect_to customer_product_path(id:@review.product_id)
+        else
+        @product=Product.find_by(id:params[:product_id])
+        render action: :new
+        end
     end
 
     def edit
@@ -34,7 +40,8 @@ class Customer::ReviewsController < ApplicationController
             flash[:succes]="更新完了です"
             redirect_to customer_product_path(id:@review.product_id)
         else
-            render edit_customer_product_review_path
+            @product=Product.find_by(id:params[:product_id])
+            render action: :edit
         end
     end
     
