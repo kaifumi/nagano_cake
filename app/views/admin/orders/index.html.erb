@@ -1,5 +1,5 @@
-<h1>注文一覧表示</h1>
-    <table class="table">
+<h2>注文一覧表示</h2>
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>購入日時</th>
@@ -9,11 +9,20 @@
             </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>20200229</td>
-            <td>customer_id</td>
-            <td>amount</td>
-            <td>transaction_status</td>
-        </tr>
+            <tr>
+                <% @orders.each do |order| %>
+                <% i = 0 %>
+                <td><%= l order.created_at %></td>
+                <td><%= link_to order.customer.full_name, admin_order_path(order) %></td>
+                <td><% order.order_details.each do |order_detail| %>
+                    <% i += order_detail.amount %><%end%>
+                    <%= i %>
+                </td>
+                <td><%= order.transaction_status %></td>
+                <%end%>
+            </tr>
         </tbody>
     </table>
+
+<%= paginate @orders %>
+
