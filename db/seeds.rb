@@ -103,6 +103,10 @@ Genre.create!(
 				type:"キャンディ",
 				sell_activated:true
 			}
+			{
+				type:"パン",
+				sell_activated:false
+			}
 		]
 	)
 
@@ -138,6 +142,14 @@ Product.create!(
 				content:"例のアレ",
 				image_id:4,
 				price:444,
+				selling_status:true
+			},
+			{
+				genre_id:5,
+				name:"フランスパン",
+				content:"かたいやつ",
+				image_id:5,
+				price:555,
 				selling_status:true
 			}
 		]
@@ -280,15 +292,34 @@ Product.create!(
 				[
 			  {
 				customer_id: 2,			
-				payment_option:0,
-				transaction_status:0,
-				total_price:1000,
-				postal_code:222-2222,
+				payment_option: 0,
+				transaction_status: 0,
+				total_price:1100,
+				postal_code:"222-2222",
 				address:"江東",
 				receiver:"陸遜"
 					}
 				]
 		)
+
+		OrderDetail.create!(
+			[
+		  {
+			product_id:1,
+    		order_id:1,
+    		purchase_price:222,
+   			amount:2,
+    		product_status:0
+			},
+			{
+			product_id:2,
+    		order_id:1,
+    		purchase_price:888,
+   			amount:4,
+    		product_status:0
+			}
+			]
+	)
 
 # Product.create!(
 # 	id: '1',

@@ -1,11 +1,21 @@
 class Customer::ProductsController < ApplicationController
 
  def top
-  @products = Product.all
-  @products = Product.page(params[:page]).per(8)
-
-  # ジャンルが有効のもののみ表示
-  @genres = Genre.all.where(sell_activated: true)
+  # ジャンル有効を抽出
+  genres=Genre.where(sell_activated: true)
+  # 空の配列を定義
+  genre_true=[]
+  # 擬似autoincremationを用いる
+  i=0
+  genres.each do |genre|
+    # pushメソッドで配列にジャンルのidのみを挿入
+    genre_true.push(genres[i][:id])
+    i+=1
+  end
+  # ジャンルが有効な商品だけを抽出
+  @products = Product.where(genre_id:genre_true).page(params[:page]).per(8)
+  # ジャンルが有効だけを表示
+  @genres = Genre.where(sell_activated: true)
  end
 
  def index
