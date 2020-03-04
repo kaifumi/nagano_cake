@@ -103,7 +103,7 @@ Genre.create!(
 			{
 				type:"キャンディ",
 				sell_activated:true
-			},
+			}
 			{
 				type:"パン",
 				sell_activated:false
@@ -291,19 +291,19 @@ Product.create!(
 # 			}])
 
 
-			Order.create!(
-				[
-			  {
-				customer_id: 2,
-				payment_option:0,
-				transaction_status:0,
-				total_price:1000,
-				postal_code:"222-2222",
-				address:"江東",
-				receiver:"陸遜"
-					}
-				]
-		)
+# 			Order.create!(
+# 				[
+# 			  {
+# 				customer_id: 2,			
+# 				payment_option:0,
+# 				transaction_status:0,
+# 				total_price:1000,
+# 				postal_code:222-2222,
+# 				address:"江東",
+# 				receiver:"陸遜"
+# 					}
+# 				]
+# 		)
 
 		OrderDetail.create!(
 			[
@@ -322,7 +322,7 @@ Product.create!(
     		product_status:0
 			}
 			]
-		)
+	)
 
 # Product.create!(
 # 	id: '1',
