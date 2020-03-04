@@ -24,7 +24,7 @@ header {
 }
 
 // フッター
-footer{
+footer {
   height: 180px;
   bottom: 0;
   background-attachment: sticky;
@@ -438,4 +438,12 @@ header #nav-drawer {
 
 tr td {
   text-align: center;
+}
+.rank_bar {
+  text-align: left;
+  margin-left: 150px;
+}
+.side_rank {
+  text-align: left;
+  margin-left: 150px;
 }
