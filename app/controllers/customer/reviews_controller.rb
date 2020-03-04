@@ -9,7 +9,7 @@ class Customer::ReviewsController < ApplicationController
         @product=Product.find_by(id:params[:product_id])
     end
 
-    def index
+    def review_index
         @customer=Customer.find(params[:id])
         @reviews=Review.where(customer_id:@customer.id)
         #↑2つか↓1つ？
