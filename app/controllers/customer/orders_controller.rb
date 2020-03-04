@@ -57,6 +57,7 @@ class Customer::OrdersController < ApplicationController
             )
             @order_detail.save
         end
+        cart_products.destroy_all
         redirect_to thanks_path
     end
 
@@ -66,15 +67,14 @@ class Customer::OrdersController < ApplicationController
     
 
     def index #注文履歴一覧画面
-        # @orders = OrderDetail.all
-        # @orders = OrderDetail.all 
-        @order_details = OrderDetail.all.where(customer_id: current_customer.id)
-        
+        #current_customer.orders
+        @orders = Order.where(customer_id: current_customer.id)
+
     end
 
     def show #注文履歴詳細画面
-        # @order_detail = OrderDetail.find
-
+        @order = Order.find(params[:id])
+        # @order_detail = OrderDetail.find(params[:id])
         
     end
 
