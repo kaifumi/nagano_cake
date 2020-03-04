@@ -255,7 +255,7 @@ Product.create!(
 			customer_id: 1,
 			payment_option:0,
 			transaction_status:0,
-			total_price:1000,
+			total_price:999,
 			postal_code:"111-1111",
 			address:"并州五原郡九原県",
 			receiver:"呂布"
@@ -264,7 +264,7 @@ Product.create!(
 			customer_id: 2,
 			payment_option:0,
 			transaction_status:0,
-			total_price:1000,
+			total_price:222,
 			postal_code:"222-2222",
 			address:"江東",
 			receiver:"陸遜"
@@ -273,11 +273,11 @@ Product.create!(
 			customer_id: 3,
 			payment_option:0,
 			transaction_status:0,
-			total_price:1000,
+			total_price:1500,
 			postal_code:"333-3333",
 			address:"東京",
 			receiver:"フジテレビ"
-		},
+		}
 			]
 		)
 
@@ -310,14 +310,14 @@ Product.create!(
     		purchase_price:2300,
    			amount:3,
     		product_status:0
-			},
-			{
-			product_id:14,
-    		order_id:3,
-    		purchase_price:1300,
-   			amount:1,
-    		product_status:0
 			}
+			{
+			# product_id:14,
+   #  		order_id:3,
+   #  		purchase_price:1300,
+   # 			amount:1,
+   #  		product_status:0
+			# }
 			]
 	)
 
