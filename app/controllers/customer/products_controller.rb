@@ -1,6 +1,6 @@
 class Customer::ProductsController < ApplicationController
 
- def to
+ def top
   # ジャンル有効を抽出
   genres=Genre.where(sell_activated: true)
   # 空の配列を定義
