@@ -2,27 +2,13 @@ class Customer::OrdersController < ApplicationController
     def new
         @deliveies = Delivery.all
         @order = Order.new
-        # if  params[:selected_status] === "1"
-            # params[:address] = current_customer.address
-            # session[:order][:address] = params[:address]
-            # order.address = current_customer.address
-            # session[:order][:address] = order.address
-            # session[:order] = order_params
-
-        # elsif params[:selected_status] === "2"
-        #     order.address = deliveie.address
-        #     session[:order] = order_params
-
-        # else params[:selected_status] === "3"
-        #     session[:order] = order_params
-        # end
-        
     end
 
     def purchase
             @order = Order.new
             @cart_products = CartProduct.where(customer_id: current_customer.id)
             session[:order] = Order.new()
+            session[:order][:customer_id] = current_customer.id
             session[:order][:payment_option] = params[:order][:payment_option]
 
         if params[:order][:selected_status] === "1"
@@ -40,34 +26,61 @@ class Customer::OrdersController < ApplicationController
             session[:order][:postal_code] = params[:order][:postal_code]
             session[:order][:receiver] = params[:order][:receiver]
             session[:order][:address] = params[:order][:address]
-    end
-
-        
-        # session[:order] = Order.new()
-        # session[:order][:payment_option] = params[:payment_option] 
-        # session[:order][:postal_code] = params[:pastal_code] 
-        # session[:order][:address] = params[:address] 
-        # session[:order][:receiver] = params[:receiver] p
+        end
     end
 
     def create
         @order = Order.new(session[:order])
-        #@cart_product = CartProdut.where(customer_id: current_customer.id)
+        cart_products = current_customer.cart_products
+
+        sum = 0
+        sub_total = 0
+
+        cart_products.each do |cart_product|
+            (cart_product.product.price * 1.1).round
+            (cart_product.product.price * 1.1).round* cart_product.amount
+            sub_total+=(cart_product.product.price * 1.1).round* cart_product.amount
+            sum+=sub_total
+            sum = sub_total + @order.delivery_price
+        end
+        params[:total_price] = sum
+        @order[:total_price] = params[:total_price]
+        # @cart_product = CartProduct.where(customer_id: current_customer.id)
         @order.save
+
+        current_customer.cart_products.each do |cart_product|
+            @order_detail = OrderDetail.new(
+            order_id: @order.id,
+            product_id: cart_product.product.id,
+            purchase_price: cart_product.product.price,
+            amount: cart_product.amount,
+            )
+            @order_detail.save
+        end
         redirect_to thanks_path
     end
 
     def thanks
         session[:order].clear
     end
+    
 
-    def index
-        @orders = Order.all
+    def index #注文履歴一覧画面
+        # @orders = OrderDetail.all
+        # @orders = OrderDetail.all 
+        @order_details = OrderDetail.all.where(customer_id: current_customer.id)
+        
+    end
+
+    def show #注文履歴詳細画面
+        # @order_detail = OrderDetail.find
+
+        
     end
 
     private
     def order_params
-        params.permit(:customer_id, :payment_option, :postal_code, :address, :delivery_price, 
+        params.permit(:customer_id, :payment_option, :postal_code, :address, :delivery_price, :total_price,
                         :receiver, :selected_status => [ 1, 2, 3 ])
     end
 end
