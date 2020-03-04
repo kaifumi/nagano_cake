@@ -1,21 +1,15 @@
 <!-- 商品新規登録ページ -->
-<div class="container" style="margin: none;">
-<div class="row">
+<h2 class="col-xs-offset-1" style="margin-bottom: 20px;">商品　新規登録画面</h2>
 
-	<!-- エラー文 -->
+<%= form_for @product, url: admin_products_path do |f| %>
 
-	<h2 class="col-xs-offset-1" style="margin-bottom: 20px;">商品　新規登録画面</h2>
-
-    <%= form_for @product, url: admin_products_path do |f| %>
-    <%= render 'shared/error_messages',model: @product %>
+	<%= render 'shared/error_messages',model: @product %>
 
 	<div class="col-xs-3 col-xs-offset-1">
-
 		<!-- 商品写真登録 -->
 		<div class="form-group has-icon">
 			<%= f.attachment_field :image %>
 		</div>
-
 	</div>
 
 	<div class="col-xs-8">
@@ -54,10 +48,6 @@
 
 		<!-- 投稿ボタン -->
 		<%= f.submit "新規投稿", class:"btn btn-primary submit-btn"  %>
-		</div>
+	</div>
 
-	<% end %>
-
-
-</div>
-</div>
+<% end %>

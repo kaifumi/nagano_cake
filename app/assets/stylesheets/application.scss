@@ -20,13 +20,12 @@ header {
   background-repeat: repeat-x;
   background-size: 900px;
   // 高さを与えてjqueryや他商品を表示
-  height: 150px;
+  height: 140px;
 }
 
 // フッター
 footer{
   height: 180px;
-  padding-top: 10px;
   bottom: 0;
   background-attachment: sticky;
   background-image: url(footer.jpg);
@@ -112,9 +111,6 @@ footer{
 }
 
 // 10.登録情報
-// .container {
-//   margin: 100px;
-// }
 .customer_info {
   display: flex;
   margin: 10px 0 20px;
@@ -438,4 +434,8 @@ header #nav-drawer {
 // products(customer)
 .product_customer_show {
   display: inline-block;
+}
+
+tr td {
+  text-align: center;
 }

@@ -1,9 +1,11 @@
-<!-- ジャンルごとの商品一覧 -->
 <div class="col-xs-offset-1">
+
+<!-- サイドバーの表示 -->
 <div class="col-xs-3">
     <%= render 'layouts/sidebar', genres: @genres %>
 </div>
 
+<!-- ジャンルごとの商品一覧 -->
 <div class="col-xs-8">
     <% if @genre_select = true %>
         <h2><%= @genre.type %>一覧</h2>
