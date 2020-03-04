@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
     end
     root "customer/products#top"
+    get "/about" => "customer/products#about"
     get "thanks" => "customer/orders#thanks"
     delete "/destroy_all" => "customer/cart_products#destroy_all"
     get "/destroy_confirm/:id" => "customer/customers#destroy_confirm",as: "destroy_confirm"

@@ -18,6 +18,9 @@ class Customer::ProductsController < ApplicationController
   @genres = Genre.where(sell_activated: true)
  end
 
+ def about
+ end
+
  def index
   if params[:genre_id].present?
     @genre_select = "true"

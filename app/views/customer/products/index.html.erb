@@ -1,16 +1,18 @@
-<!-- ジャンルごとの商品一覧 -->
 <div class="col-xs-offset-1">
+
+<!-- サイドバーの表示 -->
 <div class="col-xs-3">
     <%= render 'layouts/sidebar', genres: @genres %>
 </div>
 
+<!-- ジャンルごとの商品一覧 -->
 <div class="col-xs-8">
     <% if @genre_select = true %>
         <h2><%= @genre.type %>一覧</h2>
 
         <div class="row">
             <% @products.each do |product| %>
-                <div class="col-xs-3">
+                <div class="col-xs-3" style="padding: 10px;">
                 <%= link_to customer_product_path(product) do %>
                     <%= attachment_image_tag product, :image, size: "160x160", fallback: "noimage.jpg", size: "160x160" %><br>
                     <%= product.name %>

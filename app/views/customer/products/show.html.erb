@@ -1,40 +1,47 @@
 <div class="col-xs-offset-1" style="margin-top: 50px;">
+
+<!-- サイドバーの表示 -->
 	<div class="col-xs-3">
     	<%= render 'layouts/sidebar', genres: @genres %>
 	</div>
 
+<!-- 商品詳細ページ -->
+  <!-- 商品詳細（写真） -->
 	<div class="col-xs-3">
-		<!-- 商品詳細（写真） -->
 		<%= attachment_image_tag @product, :image, size: "250x250", fallback: "noimage.jpg", size: "250x250" %>
 	</div>
 
-
-	<div class="col-xs-4" style="">
-		<!-- 商品詳細 -->
+  <!-- 商品詳細 -->
+	<div class="col-xs-4">
     <h2><%= @product.name %></h2>
-    <p>商品説明：<%= @product.content %></p>
-    <p>¥ <%= (@product.price * 1.1).round %> (税込)</p>
+    <p style="font-size: 18px;">商品説明：<br><%= @product.content %></p>
+    <p style="font-size: 18px;">¥ <%= (@product.price * 1.1).round %> (税込)</p>
 
-    <!-- カートに商品を追加する -->
+  <!-- カートに商品を追加する -->
     <%= form_for @cart_product, url: customer_cart_products_path do |f| %>
 		  <%= f.hidden_field :product_id, :value => @product.id %>
-		    <% if @product.selling_status == false %>
-		    <%= f.submit '売り切れ', class: "btn btn-new-register btn-lg", disabled: true %>
-		    <% else %>
-		    <%= f.select :amount, [["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]],{}, {class: "form-control col-xs-2"} %>
-        <!-- f.select :プロパティ名(=カラム名), タグの情報(=セレクトボックス表示に使うデータの配列orハッシュ), {オプション(=セレクトボックスのオプション)}, {HTMLオプション(=id, classなど)}.
-        ▷ 配列 : [[ 選択肢の表示名1, 実際に送信されるデータ1 ],[ 選択肢の表示名2, 実際に送信されるデータ2 ], ...].
-        ▷ ハッシュ : { "選択肢の表示名1" => "実際に送信されるデータ1", "選択肢の表示名2" => "実際に送信されるデータ2", ... } -->
-        <%= f.submit "カートに入れる", class:"btn btn-success btn-new-register btn-lg" %>
-			<% end %>
+      <!-- もしselling_statusがfalseなら -->
+		  <% if @product.selling_status == false %>
+  		  <%= f.submit '売り切れ', class: "btn btn-new-register btn-lg", disabled: true %>
+      <!-- もしcurrent_customerがnil -->
+      <% elsif current_customer == nil %>
+          <%= link_to 'ログインしてください', new_customer_session_path %>
+      <!-- それ以外 -->
+		  <% else %>
+  		  <%= f.select :amount, [["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]],{}, {class: "form-control col-xs-2"} %>
+        <%= f.submit "カートに入れる", class:"btn btn-success btn-new-register btn-sm" %>
+      <% end %>
 		<%end%>
 	</div>
 
 </div>
 
+<!-- select補足: f.select :プロパティ名(=カラム名), タグの情報(=セレクトボックス表示に使うデータの配列orハッシュ), {オプション(=セレクトボックスのオプション)}, {HTMLオプション(=id, classなど)}.
+▷ 配列 : [[ 選択肢の表示名1, 実際に送信されるデータ1 ],[ 選択肢の表示名2, 実際に送信されるデータ2 ], ...].
+▷ ハッシュ : { "選択肢の表示名1" => "実際に送信されるデータ1", "選択肢の表示名2" => "実際に送信されるデータ2", ... } -->
+
 <div class="container">
   <div class="row">
-
 
      <div class="col-xs-4">
         <%# レビュー評価があれば表示 %>
