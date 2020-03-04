@@ -5,9 +5,6 @@
         <%= render partial: "shared/menu", locals: {id:current_customer.id} %>
       <% end %>
 
-      <%# <div class="headline">
-        <%= image_tag "logo_transparent.png", class: "logo_img" %>
-      <%# </div>  %>
       <%# ロゴをリンク化 %>
       <%= link_to root_path, class:"headline" do %>
         <%= image_tag "logo_transparent.png", class: "logo_img" %>
@@ -28,7 +25,7 @@
 
         <ul class="nav-list">
           <li class="nav-list-item"><%= link_to root_path do %>TOP<%end%></li>
-          <li class="nav-list-item"><%= link_to root_path do %>ABOUT<%end%></li>
+          <li class="nav-list-item"><%= link_to about_path do %>ABOUT<%end%></li>
           <li class="nav-list-item"><%= link_to customer_customer_path(current_customer) do %>MY PAGE<%end%></li>
           <li class="nav-list-item"><%= link_to customer_cart_products_path do %>CART<%end%></li>
           <li class="nav-list-item"><%= link_to destroy_customer_session_path, method: :delete do %>LOG OUT<%end%></li>
@@ -36,7 +33,7 @@
       <%else%>
         <ul class="nav-list" style="margin-top: 40px;">
           <li class="nav-list-item"><%= link_to root_path do%>TOP<%end%></li>
-          <li class="nav-list-item"><%= link_to root_path do%>ABOUT<%end%></li>
+          <li class="nav-list-item"><%= link_to about_path do%>ABOUT<%end%></li>
           <li class="nav-list-item"><%= link_to new_customer_session_path do%>LOG IN<%end%></li>
           <li class="nav-list-item"><%= link_to new_customer_registration_path do%>SIGN UP<%end%></li>
         </ul>
