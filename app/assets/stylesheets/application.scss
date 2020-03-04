@@ -13,52 +13,51 @@
 }
 
 // ヘッダー
-.background_img {
-  background-attachment: fixed;
+header {
+  background-attachment: sticky;
   background-image: url(ajisaiframe.jpg);
-  background-position: center;
-  background-repeat: repeat;
-  background-size: contain;
+  background-position: center top;
+  background-repeat: repeat-x;
+  background-size: 900px;
   // 高さを与えてjqueryや他商品を表示
-  height: 1500px;
-}
-// ヘッダーの下body
-.main_container {
-  padding-top: 10px;
+  height: 150px;
 }
 
-header {
+// フッター
+footer{
+  height: 180px;
+  padding-top: 10px;
+  bottom: 0;
+  background-attachment: sticky;
+  background-image: url(footer.jpg);
+  background-position: center bottom;
+  background-repeat: repeat-x;
+  background-size: 900px;
+}
+
+.header_item {
   height: 110px;
   background-color: white;
   opacity: 0.85;
   background-size: cover;
   color: black;
-  // ヘッダーを他のどの要素よりも前面に出す
-  // top: 0;
-  z-index: 1000;
+  width: 100%;
+  position: sticky;
 }
 
-.header_item {
-  width: 1300px;
-}
-
-header .logo_img {
+.logo_img {
   margin-top: 15px;
 }
 
-header .headline {
+.headline {
   float: left;
   margin-left: 20px;
-}
-
-header .container {
-  width: 100%;
-  margin: auto;
 }
 
 .header_top {
   text-align: right;
   padding-top: 20px;
+  margin-right: 20px;
 }
 
 .header_top li {
@@ -73,6 +72,7 @@ header .container {
 .nav-list {
   float: right;
   list-style: none;
+  margin-right: 20px;
 }
 
 .nav-list-item {

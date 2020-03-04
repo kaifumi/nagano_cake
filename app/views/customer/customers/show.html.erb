@@ -10,7 +10,7 @@
                 <div class="button_wrapper">
                     <%= link_to "編集する", edit_customer_customer_path, class:"btn btn-primary" %>
                 </div>
-                <button class="btn btn-primary">パスワードを変更する</button>
+                <%# <button class="btn btn-primary">パスワードを変更する</button> %>
             </div>
 
             
@@ -53,8 +53,10 @@
                 <%= link_to "一覧を見る", customer_orders_path, class:"btn btn-primary" %>
             </div>
             <div class="review_index">
-                <p>自分がしたレビュー　</p>
-                <%= link_to "一覧を見る", customer_reviews_path(id:params[:id]), class:"btn btn-primary" %>
+                <%if @review.present? %>
+                    <p>自分がしたレビュー　</p>
+                    <%= link_to "一覧を見る", customer_product_reviews_path(current_customer.id), class:"btn btn-primary" %>
+                <%end%>
             </div>
         </div>
     </div>

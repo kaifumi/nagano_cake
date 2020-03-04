@@ -2,24 +2,31 @@
 <html>
   <%=render 'layouts/head' %>
   <body>
-    <div class="background_img">
+    <header>
+      <div class="background_img">
 
-      <%# adminならadmin_headerを呼ぶ。違うならcustomer_headerを呼ぶ %>
-      <% if current_admin.present? %>
-        <%= render 'layouts/admin_header' %>
-      <% else %>
-        <%= render 'layouts/customer_header' %>
-      <% end %> 
-
-        <%# エラー文あれば表示 %>
-        <% flash.each do |message_type,message| %>
-          <%= content_tag(:div,message,class:"alert alert-#{message_type}") %>
+        <%# adminならadmin_headerを呼ぶ。違うならcustomer_headerを呼ぶ %>
+        <% if current_admin.present? %>
+          <%= render 'layouts/admin_header' %>
+        <% else %>
+          <%= render 'layouts/customer_header' %>
         <% end %>
-        <%= flash[:danger] %>
-      <div class="main_container">
-        <%= yield %>
+
+          <%# エラー文あれば表示 %>
+          <% flash.each do |message_type,message| %>
+            <%= content_tag(:div,message,class:"alert alert-#{message_type}") %>
+          <% end %>
+          <%= flash[:danger] %>
       </div>
-    </div>
+    </header>
+
+      <div class="container">
+        <div class="row">
+          <%= yield %>
+        </div>
+      </div>
+
+  <footer class="footer_img"></footer>
 
   </body>
 </html>

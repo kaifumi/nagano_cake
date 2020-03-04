@@ -21,7 +21,7 @@ class Customer::DeliveriesController < ApplicationController
 			flash[:notice] = "配送先を追加しました。"
 			redirect_to customer_deliveries_path
 		else
-			# @deliveries = Delivery.all
+			@deliveries = Delivery.where(customer_id: current_customer.id)
 			render action: :index
 		end
 	end
