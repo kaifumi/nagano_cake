@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     delete "/destroy_all" => "customer/cart_products#destroy_all"
     get "/destroy_confirm/:id" => "customer/customers#destroy_confirm",as: "destroy_confirm"
     post "/purchase" => "customer/orders#purchase" #getからpostに変更
+    patch "/product_status/:id" => "admin/orders#product_status_update",as: "product_status_update"
 
 
     namespace :admin do

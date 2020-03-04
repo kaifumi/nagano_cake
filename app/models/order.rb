@@ -8,11 +8,21 @@ class Order < ApplicationRecord
 	"クレジットカード": 1
 	}
 	#任意のキーを指定させる
-	validates :payment_option,
-	inclusion: {
-		in: Order.payment_option.keys,
-		message: "を指定してください"
-	}
+	# validates :payment_option,
+	# inclusion: {
+	# 	in: Order.payment_option.keys,
+	# 	message: "を指定してください"
+	# }
+# 	validates :payment_option,
+#   inclusion: {
+#     in: Order.payment_option.keys, 
+#     message: 'を選択してください'
+#   }
+
+  STATUS_VALUES = ["銀行振込", "クレジットカード"]
+
+
+  validates :payment_option, inclusion: { in: STATUS_VALUES }
 
 	enum transaction_status:{
 	"入金待ち": 0,
