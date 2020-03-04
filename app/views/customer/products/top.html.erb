@@ -17,7 +17,7 @@
     <h2 class="red-border px-3">すべての商品</h2>
 
     <div class="row">
-        <% @product_genre.each do |product| %>
+        <% @products.each do |product| %>
             <div class="col-xs-3">
                 <%= link_to customer_product_path(product) do %>
                     <%= attachment_image_tag product, :image, size: "160x160", fallback: "noimage.jpg", size: "160x160" %><br>
