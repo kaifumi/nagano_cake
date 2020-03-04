@@ -1,3 +1,54 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+
+# Product.create!(
+#     genre_id: 1,
+#     name: "ケーキ",
+#     content: "イチゴのショートケーキです",
+#     price: 500,
+#     selling_status: true
+# )
+
+# CartProduct.create!(
+#     customer_id: 1,
+#     product_id: 1,
+#     amount: 2
+# )
+
+# Customer.create!(
+#     email: "drogon@ball",
+#     password: "password",
+#     first_name: "悟空",
+#     last_name: "孫",
+#     kana_first_name: "ゴクウ",
+#     kana_last_name: "ソン",
+#     telephone_number: "000-0000-0000",
+#     postal_code: "000-0000",
+#     address: "地球"
+# )
+
+# Genre.create!(
+#     type: "cake",
+#     sell_activated: true
+# )
+
+# Delivery.create!(
+#     customer_id: 1,
+#     order_id: 1,
+#     postal_code: "111-1111",
+#     address: "ナメック星",
+#     receiver: "ピッコロ"
+# )
+
+
+
+
 Customer.create!(
     [
       {
@@ -35,7 +86,6 @@ Customer.create!(
       }
     ]
   )
- 
 Genre.create!(
 		[
 			{
@@ -53,6 +103,10 @@ Genre.create!(
 			{
 				type:"キャンディ",
 				sell_activated:true
+			},
+			{
+				type:"パン",
+				sell_activated:false
 			}
 		]
 	)
@@ -63,7 +117,7 @@ Product.create!(
 				genre_id:1,
 				name:"ショートケーキ",
 				content:"ショートなケーキです",
-				image_id:1,
+				image: Rails.root.join("app/assets/images/ケーキ_sample1.jpg").open,
 				price:111,
 				selling_status:true
 			},
@@ -71,7 +125,7 @@ Product.create!(
 				genre_id:2,
 				name:"ばかうけ",
 				content:"めっちゃうけます",
-				image_id:2,
+				image: Rails.root.join("app/assets/images/焼き菓子_sample1.png").open,
 				price:222,
 				selling_status:true,
 			},
@@ -79,7 +133,7 @@ Product.create!(
 				genre_id:3,
 				name:"焼きプリン",
 				content:"こんがりプリンです",
-				image_id:3,
+				image: Rails.root.join("app/assets/images/プリン_sample1.jpg").open,
 				price:333,
 				selling_status:true
 			},
@@ -87,80 +141,208 @@ Product.create!(
 				genre_id:4,
 				name:"チュッパチャップス",
 				content:"例のアレ",
-				image_id:4,
+				image: Rails.root.join("app/assets/images/キャンディ_sample1.jpg").open,
 				price:444,
 				selling_status:true
+			},
+			{
+				genre_id:5,
+				name:"フランスパン",
+				content:"かたいやつ",
+				image: Rails.root.join("app/assets/images/パン_sample1.jpg").open,
+				price:555,
+				selling_status:true
+			},
+			{
+				genre_id:1,
+				name:"チョコケーキ",
+				content:"義理",
+				image: Rails.root.join("app/assets/images/ケーキ_sample2.jpg").open,
+				price:500,
+				selling_status:true
+			},
+			{
+				genre_id:1,
+				name:"チーズケーキ",
+				content:"生焼け",
+				image: Rails.root.join("app/assets/images/ケーキ_sample3.jpg").open,
+				price:500,
+				selling_status:true
+			},
+			{
+				genre_id:1,
+				name:"ウェディングケーキ",
+				content:"空輸不可",
+				image: Rails.root.join("app/assets/images/ケーキ_sample4.jpeg").open,
+				price:500,
+				selling_status:true
+			},
+			{
+				genre_id:2,
+				name:"パイの実",
+				content:"ロッテ",
+				image: Rails.root.join("app/assets/images/焼き菓子_sample2.jpg").open,
+				price:500,
+				selling_status:true
+			},
+			{
+				genre_id:2,
+				name:"RITZ",
+				content:"ナビスコ",
+				image: Rails.root.join("app/assets/images/焼き菓子_sample3.jpg").open,
+				price:500,
+				selling_status:true
+			},
+			{
+				genre_id:2,
+				name:"ぽたぽた焼き",
+				content:"亀田製菓",
+				image: Rails.root.join("app/assets/images/焼き菓子_sample4.jpg").open,
+				price:500,
+				selling_status:true
+			},
+			{
+				genre_id:3,
+				name:"プリン",
+				content:"ふうせんポケモン",
+				image: Rails.root.join("app/assets/images/プリン_sample2.png").open,
+				price:0,
+				selling_status:false
+			},
+			{
+				genre_id:4,
+				name:"パインアメ",
+				content:"パイン",
+				image: Rails.root.join("app/assets/images/キャンディ_sample2.jpg").open,
+				price:200,
+				selling_status:false
+			},
+			{
+				genre_id:4,
+				name:"龍角散",
+				content:"龍角散",
+				image: Rails.root.join("app/assets/images/キャンディ_sample3.jpg").open,
+				price:200,
+				selling_status:false
+			},
+			{
+				genre_id:4,
+				name:"千歳飴",
+				content:"長い",
+				image: Rails.root.join("app/assets/images/キャンディ_sample4.jpg").open,
+				price:200,
+				selling_status:false
 			}
 		]
 	)
 
-	Review.create!(
-		[
-      {
-				rate:1,
-				product_id:1,
-				customer_id:1,
-				title:"test1",
-				content:"あ、（察し）"
+
+## ↓失敗例
+## Product.create!(
+##				genre_id:2,
+## 				name:"ばかうけ",
+## 				content:"めっちゃうけます",
+## 				image_id: File.open("./app/assets/images/焼き菓子_sample1.png"),
+## 				price:222,
+## 				selling_status:true)
+
+		Order.create!(
+			[
+		{
+			customer_id: 1,
+			payment_option:0,
+			transaction_status:0,
+			total_price:999,
+			postal_code:"111-1111",
+			address:"并州五原郡九原県",
+			receiver:"呂布"
+		},
+		{
+			customer_id: 2,
+			payment_option:0,
+			transaction_status:0,
+			total_price:222,
+			postal_code:"222-2222",
+			address:"江東",
+			receiver:"陸遜"
+		},
+		{
+			customer_id: 3,
+			payment_option:0,
+			transaction_status:0,
+			total_price:1500,
+			postal_code:"333-3333",
+			address:"東京",
+			receiver:"フジテレビ"
+		}
+			]
+		)
+
+		OrderDetail.create!(
+			[
+		  {
+			product_id:3,
+    		order_id:1,
+    		purchase_price:1799,
+   			amount:3,
+    		product_status:0
 			},
 			{
-				rate:2.5,
-				product_id:2,
-				customer_id:1,
-				title:"test2",
-				content:"もう買わない",
+			product_id:2,
+    		order_id:2,
+    		purchase_price:1022,
+   			amount:1,
+    		product_status:0
 			},
 			{
-				rate:3,
-				product_id:3,
-				customer_id:1,
-				title:"test3",
-				content:"ふつーかな"
+			product_id:10,
+    		order_id:3,
+    		purchase_price:2800,
+   			amount:4,
+    		product_status:0
 			},
 			{
-				rate:4.5,
-				product_id:4,
-				customer_id:2,
-				title:"test4",
-				content:"控えめに言ってウマい"
-			},
-			{
-				rate:5,
-				product_id:1,
-				customer_id:2,
-				title:"test5",
-				content:"神"
-			},
-			{
-				rate:1.5,
-				product_id:1,
-				customer_id:1,
-				title:"test6",
-				content:"同情するレベル"
-			},
-			{
-				rate:2.5,
-				product_id:1,
-				customer_id:1,
-				title:"test7",
-				content:"同情するレベル"
-			},
-			{
-				rate:3.5,
-				product_id:1,
-				customer_id:1,
-				title:"test8",
-				content:"同情するレベル"
-			},
-			{
-				rate:0.5,
-				product_id:1,
-				customer_id:1,
-				title:"test9",
-				content:"同情するレベル"
+			product_id:15,
+    		order_id:3,
+    		purchase_price:2300,
+   			amount:3,
+    		product_status:0
 			}
-		]
-)
+			]
+	)
+
+
+		Review.create!(
+			[
+				{
+				customer_id:1,
+				product_id:12,
+				title:"かわいい",
+				rate:5,
+				content:"かわいい"
+				},
+				{
+				customer_id:1,
+				product_id:1,
+				title:"あ",
+				rate:1,
+				},
+				{
+				customer_id:3,
+				product_id:12,
+				title:"かわいい",
+				rate:5,
+				content:"かわいい"
+				},
+				{
+				customer_id:1,
+				product_id:15,
+				title:"食べにくい",
+				rate:0.5,
+				content:"もう買わない"
+				},
+			]
+			)
 
 # Product.create!(
 # 	id: '1',

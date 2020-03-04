@@ -25,7 +25,7 @@ ja:
       product:
         genre_id: ジャンル
         name: 商品名
-        image_id: 画像
+        image: 画像
         price: 値段
       delivery:
         postal_code: 郵便番号
@@ -42,3 +42,4 @@ ja:
       review:
         title: タイトル
         rate: 評価
+

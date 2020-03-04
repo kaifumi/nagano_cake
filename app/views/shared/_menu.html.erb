@@ -5,10 +5,10 @@
         <div id="nav-content">
 
             <ul>
-                <li><%= link_to "商品一覧",customer_products_path %></li>
+                <li><%= link_to "商品一覧",root_path %></li>
                 <li><%= link_to "カート一覧",customer_cart_products_path %></li>
-                <li><%= link_to "マイページ",customer_customer_path(id) %></li>
-                <li><%= link_to "登録情報編集",edit_customer_customer_path(id) %></li>
+                <li><%= link_to "マイページ",customer_customer_path(current_customer.id) %></li>
+                <li><%= link_to "登録情報編集",edit_customer_customer_path(current_customer.id) %></li>
                 <li><%= link_to "注文履歴",customer_orders_path %></li>
             </ul>
         </div>

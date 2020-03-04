@@ -1,9 +1,13 @@
   <!-- admin用header <%#= render 'layouts/admin_header' %> -->
   <header>
-    <div class="container">
-      <div class="headline">
+    <div class="header_item">
+      <%# <div class="headline">
         <%= image_tag "logo_transparent.png", class: "logo_img" %>
-      </div>
+      <%# </div> %>
+      <%# ロゴをリンク化 %>
+      <%= link_to admin_root_path, class:"headline" do %>
+        <%= image_tag "logo_transparent.png", class: "logo_img" %>
+      <% end %>
 
         <ul class="header_top">
           <li class="nav-list-item"><%= link_to admin_products_path do%>商品一覧<%end%></li>

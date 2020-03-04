@@ -1,64 +1,49 @@
 <!-- 商品編集ページ -->
-<div class="container">
-<div class="row">
+<h2 class="col-xs-offset-1" style="margin-bottom: 20px;">商品 編集画面</h2>
 
-	<!-- エラー文 -->
-	<% if @product.errors.any? %>
-		<div id="error_explanation">
-		    <h2><%= @product.errors.count %>errors prohibited this book from being saved:</h2>
-	    	<% @product.errors.full_messages.each do |msg| %>
-	    	<li><%= msg %></li>
-	    	<% end %>
-	    </div>
-    <% end %>
+<%= form_for [:admin, @product] do |f| %>
 
-	<h2 class="col-xs-offset-1" style="margin-bottom: 20px;">商品 編集画面</h2>
-
-    <%= form_for [:admin, @product] do |f| %>
+    <%= render 'shared/error_messages',model: @product %>
 
 	<div class="col-xs-3 col-xs-offset-1">
-    	<!-- 余裕あればpreview機能 -->
-   		<%= f.attachment_field :image %>
+	    <!-- 余裕あればpreview機能 -->
+	   	<%= f.attachment_field :image %>
     </div>
 
     <div class="col-xs-8">
 		<!-- 商品名登録 -->
-			<div class="form-group">
-				<lavel>商品名</lavel><br>
-				<%= f.text_field :name, class: "col-xs-6" %><br>
-			</div>
+		<div class="form-group">
+			<lavel>商品名</lavel><br>
+			<%= f.text_field :name, class: "col-xs-6" %><br>
+		</div>
 
 		<!-- 商品説明登録 -->
-			<div class="form-group">
-				<lavel>商品説明 </lavel><br>
-				<%= f.text_area :content, class: "col-xs-6" %><br><br>
-			</div>
+		<div class="form-group">
+			<lavel>商品説明 </lavel><br>
+			<%= f.text_area :content, class: "col-xs-6" %><br><br>
+		</div>
 
 		<!-- ジャンル選択 -->
-			<div class="form-group">
-				<lavel>ジャンル </lavel><br>
-				<%= f.select :genre_id, Genre.all.collect {|p| [p.type, p.id]},{},{class: "col-xs-3"} %>
-			</div><br>
+		<div class="form-group">
+			<lavel>ジャンル </lavel><br>
+			<%= f.select :genre_id, Genre.all.collect {|p| [p.type, p.id]},{},{class: "col-xs-3"} %>
+		</div><br>
 
 		<!-- 税抜価格 -->
-			<div class="form-group">
-				<lavel>税抜価格 </lavel><br>
+		<div class="form-group">
+			<lavel>税抜価格 </lavel><br>
 			<%= f.text_field :price, class: "col-xs-3" %><p> 円</p>
-			</div>
+		</div>
 
 		<!-- 販売ステータス -->
-			<div class="form-group">
-				<lavel>販売ステータス </lavel><br>
-				<%= f.select :selling_status, [['販売中', true], ['売切れ', false]], {}, {class: "col-xs-3"} %>
-			</div><br>
+		<div class="form-group">
+			<lavel>販売ステータス </lavel><br>
+			<%= f.select :selling_status, [['販売中', true], ['売切れ', false]], {}, {class: "col-xs-3"} %>
+		</div><br>
 
 		<!-- 投稿ボタン -->
-			<%= f.submit "更新", class:"btn btn-primary" %>
+		<%= f.submit "更新", class:"btn btn-primary" %>
 	</div>
 
-	<% end %>
-
-
-</div>
-</div>
+<% end %>
 

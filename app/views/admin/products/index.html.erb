@@ -1,27 +1,24 @@
 <!-- 商品一覧ページ -->
-<div class="container">
-<div class="row">
+<h2 class="product_index_head">商品一覧画面</h2>
 
-	<h2 class="product_index_head">商品一覧画面</h2>
-
-	<div style="text-align: right">
-		<%= link_to '新規商品追加', new_admin_product_path %>
-	</div>
+<div style="text-align: right">
+	<%= link_to '新規商品追加', new_admin_product_path %>
+</div>
 
 
-	<table class="table table-hover table-inverse">
-		<thead class="table_fixed">
-			<tr>
-				<th>商品ID</th>
-				<th>商品名</th>
-				<th>税抜価格</th>
-				<th>ジャンル</th>
-				<th>ステータス</th>
-			</tr>
-		</thead>
+<table class="table table-hover table-inverse">
+	<thead class="table_fixed">
+		<tr>
+			<th>商品ID</th>
+			<th>商品名</th>
+			<th>税抜価格</th>
+			<th>ジャンル</th>
+			<th>ステータス</th>
+		</tr>
+	</thead>
 
-		<tbody>
-			<% @products.each do |product| %>
+	<tbody>
+		<% @products.each do |product| %>
 			<tr>
 				<td><%= product.id %></td>
 				<td><%= link_to product.name, admin_product_path(product.id) %></td>
@@ -29,12 +26,9 @@
 				<td><%= product.genre.type %></td>
 				<td><%= product.selling_status ? '販売中' : '売切れ' %></td>
 			</tr>
-			<%end%>
+		<%end%>
 
-			<%= paginate @products %>
+		<%= paginate @products %>
 
-		</tbody>
-	</table>
-
-</div>
-</div>
+	</tbody>
+</table>

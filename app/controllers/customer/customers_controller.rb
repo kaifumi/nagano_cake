@@ -7,6 +7,7 @@ before_action :correct_customer, only: [:show, :edit, :update, :destroy]
 
 	def show
 		 @customer=Customer.find(params[:id])
+		 @review=Review.where(customer_id: @customer.id)
 	end
 
 	
