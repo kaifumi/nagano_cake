@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
 	validates :name, presence: true
-	validates :image_id, presence: true
+	validates :image, presence: true
 	validates :genre_id, presence: true
 
 
