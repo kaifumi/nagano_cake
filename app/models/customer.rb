@@ -74,8 +74,9 @@ class Customer < ApplicationRecord
 	#review用
 	has_many :reviews
 
+	#last_nameとfirst_nameを連結させてfull_nameを作成
 	def full_name
-		last_name + first_name
+		"#{last_name}" + "#{first_name}"
 	end
 
 end
