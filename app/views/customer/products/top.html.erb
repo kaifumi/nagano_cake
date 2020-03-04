@@ -12,7 +12,7 @@
         <div class="image4"><a href="/custmer/products/4"></a></div>
         <div class="image5"><a href="/custmer/products/5"></a></div>
     </div>
-</div>  
+</div>
 <div class="col-xs-offset-1">
 <div class="col-xs-3">
     <%= render 'layouts/sidebar', genres: @genres %>
@@ -22,13 +22,13 @@
     <h2 class="red-border px-3">すべての商品</h2>
 
     <div class="row">
-        <% @products.each do |product| %>
+        <% @product_genre.each do |product| %>
             <div class="col-xs-3">
-                <%= link_to customer_product_path(product) do %>
-                    <%= attachment_image_tag product, :image, size: "160x160", fallback: "noimage.jpg", size: "160x160" %><br>
-                <%end%>
-                <%= link_to product.name %>
-                <p>金額：<%= product.price %>円</p>
+                    <%= link_to customer_product_path(product) do %>
+                        <%= attachment_image_tag product, :image, size: "160x160", fallback: "noimage.jpg", size: "160x160" %><br>
+                    <%end%>
+                    <%= link_to product.name %>
+                    <p>金額：<%= product.price %>円</p>
             </div>
         <% end %>
     </div>

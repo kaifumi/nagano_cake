@@ -1,11 +1,6 @@
 class Customer::ProductsController < ApplicationController
 
  def top
-  @products = Product.all
-  @products = Product.page(params[:page]).per(8)
-
-  # ジャンルが有効のもののみ表示
-  @genres = Genre.all.where(sell_activated: true)
  end
 
  def index
