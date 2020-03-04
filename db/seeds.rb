@@ -298,7 +298,7 @@ Product.create!(
 # 				payment_option:0,
 # 				transaction_status:0,
 # 				total_price:1000,
-# 				postal_code:222-2222,
+# 				postal_code:"222-2222",
 # 				address:"江東",
 # 				receiver:"陸遜"
 # 					}
