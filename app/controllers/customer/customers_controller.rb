@@ -1,6 +1,9 @@
 class Customer::CustomersController < ApplicationController
-	before_action :logged_in_customer,only:[:show,:edit,:update,:destroy,:destroy_confirm]
-	before_action :correct_customer,   only: [:edit, :update]
+	# before_action :logged_in_customer,only:[:show,:edit,:update,:destroy,:destroy_confirm]
+	# before_action :correct_customer,   only: [:edit, :update]
+
+before_action :authenticate_customer!
+before_action :correct_customer, only: [:show, :edit, :update, :destroy]
 
 	def show
 		 @customer=Customer.find(params[:id])
@@ -42,6 +45,9 @@ class Customer::CustomersController < ApplicationController
 
 		def correct_customer
 			@customer = Customer.find(params[:id])
-      		redirect_to(root_url) unless current_customer?(@customer)
+      		# redirect_to(root_url) unless current_customer?(@customer)
+      		if current_customer != @customer
+				redirect_to customer_customer_path(current_customer)
+			end
 		end
 end

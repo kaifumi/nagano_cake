@@ -1,4 +1,10 @@
 class Admin::ProductsController < ApplicationController
+
+# before_action :authenticate_admin!
+# before_action :set_product
+# before_action :if_not_admin
+# before_action :correct_admin, only: [:new, :edit, :update, :destroy]
+
 	PER = 10
 
   def new
@@ -47,4 +53,18 @@ class Admin::ProductsController < ApplicationController
   def products_params
   	params.require(:product).permit(:name, :content, :image, :genre_id, :price, :selling_status)
   end
+
+  # def if_not_admin
+  #   if Customer.all
+  #     redirect_to root_path
+  #   end
+  # end
+
+  # def correct_customer
+  #   @product = Product.find(params[:id])
+  #   if current_admin.id != @product.admin_id
+  #     redirect_to root_path
+  #   end
+  # end
+
 end

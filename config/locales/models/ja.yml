@@ -1,8 +1,16 @@
 ja:
   activerecord:
     models:
+      cart_product: カート
       customer: お客さま情報
+      product: 商品
+      delivery: 配送先
+      genre: ジャンル
+      order: オーダー
+      review:   レビュー
     attributes:
+      cart_product:
+        amount: 個数
       customer:
         first_name: 名前
         last_name: 苗字
@@ -14,3 +22,23 @@ ja:
         address: 住所
         password: パスワード
         password_confirmation: パスワード（確認用）
+      product:
+        genre_id: ジャンル
+        name: 商品名
+        image_id: 画像
+        price: 値段
+      delivery:
+        postal_code: 郵便番号
+        address: 住所
+        receiver: 宛名
+      genre:
+        type: ジャンル名
+      order:
+        payment_option: 支払方法
+        delivery_price: 送料
+        postal_code: 郵便番号
+        address: 住所
+        receiver: 宛名
+      review:
+        title: タイトル
+        rate: 評価

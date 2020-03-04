@@ -1,7 +1,7 @@
 class Customer::DeliveriesController < ApplicationController
 	
-# before_action :authenticate_customer!
-# before_action :correct_customer, only: [:index, :edit, :update, :destroy]
+before_action :authenticate_customer!
+before_action :correct_customer, only: [:edit, :update, :destroy]
 	
 	def index
 		@delivery = Delivery.new
@@ -50,13 +50,14 @@ class Customer::DeliveriesController < ApplicationController
 
 	private
 
-	# def correct_customer
-	# 	@delivery = Delivery.find(params[:id])
-	# 	@customer = @delivery.customer.id
-	# 	if current_customer != @Customer
-	# 		redirect_to customer_deliveries_path
-	# 	end
-	# end
+	def correct_customer
+		@delivery = Delivery.find(params[:id])
+		# current_customer.id == @delivery.customer_id
+		# @customer = @delivery.customer.id
+		if current_customer.id != @delivery.customer_id
+			redirect_to customer_deliveries_path
+		end
+	end
 
 
 	def delivery_params
