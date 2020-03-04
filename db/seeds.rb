@@ -246,9 +246,6 @@ Product.create!(
 ## 				price:222,
 ## 				selling_status:true)
 
-
-
-
 		Order.create!(
 			[
 		{
