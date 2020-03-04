@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
 
 	validates :name, presence: true
+
+	#↓refileの使用上、image_idではなくimageと書く
 	validates :image, presence: true
 	validates :genre_id, presence: true
 
