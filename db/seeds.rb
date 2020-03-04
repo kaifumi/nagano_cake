@@ -248,6 +248,7 @@ Product.create!(
 
 
 
+<<<<<<< HEAD
 
 		Order.create!(
 			[
@@ -280,6 +281,21 @@ Product.create!(
 		}
 			]
 		)
+=======
+# 			Order.create!(
+# 				[
+# 			  {
+# 				customer_id: 2,			
+# 				payment_option:0,
+# 				transaction_status:0,
+# 				total_price:1000,
+# 				postal_code:"222-2222",
+# 				address:"江東",
+# 				receiver:"陸遜"
+# 					}
+# 				]
+# 		)
+>>>>>>> 291806113812a2e17fe74f7a1f3c3691dabd3724
 
 		OrderDetail.create!(
 			[
