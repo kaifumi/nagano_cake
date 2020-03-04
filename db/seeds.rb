@@ -311,13 +311,6 @@ Product.create!(
    			amount:3,
     		product_status:0
 			}
-			{
-			# product_id:14,
-   #  		order_id:3,
-   #  		purchase_price:1300,
-   # 			amount:1,
-   #  		product_status:0
-			# }
 			]
 	)
 
