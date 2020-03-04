@@ -17,11 +17,14 @@ class Admin::ProductsController < ApplicationController
   end
 
   def index
-  	@products = Product.page(params[:page]).per(PER)
+    # genreテーブルの情報も一緒に取得する
+  	@products = Product.all.includes(:genres)
+    @products = Product.page(params[:page]).per(PER)
   end
 
   def show
   	@product = Product.find(params[:id])
+    @genre = Genre.find(@product.genre_id)
   end
 
   def edit

@@ -4,7 +4,6 @@
             <div class = "col-xs-6">
 
             <% sum = 0 %>
-
                 <table class = "table table-bordered">
                 <thead>
                     <tr>
@@ -15,16 +14,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                <% sub_total = 0 %>
                 <% @cart_products.each do |cart_product| %>
                     <tr>
                         <td><%= cart_product.product.name %></td>
-                        <td><% sub_total = (cart_product.product.price * 1.1).round.to_i %>
-                            <% sum+=sub_total %>
-                            <%= sub_total %>円</td>
+                        <td>
+                            <%= (cart_product.product.price * 1.1).round.to_i %>円</td>
                         <td><%= cart_product.amount %></td>
-                        <td><% sub_total = (cart_product.product.price * 1.1).round.to_i* cart_product.amount.to_i %>
-                            <% sum+=sub_total %>
-                            <%= sub_total %>円
+                        <td><%= (cart_product.product.price * 1.1).round.to_i* cart_product.amount.to_i %>円
+                            <% sub_total+=(cart_product.product.price * 1.1).round.to_i* cart_product.amount.to_i %>
                         </td>
                     </tr>
                 <% end %>
@@ -40,12 +38,12 @@
                 </tr>
                 <tr>
                     <th>商品合計</th>
-                    <td><%= sum+= %>円</td>
+                    <td><%=  sum+=sub_total  %>円</td>
                 </tr>
                 <tr>
                     <th>請求合計</th>
-                    <td><% sum+=@order.delivery_price.to_i %>
-                        <%= sum %>円
+                    <td><% sum = sub_total + @order.delivery_price.to_i  %>
+                    <%= sum %>円
                     </td>
                 </tr>
                 </table>
@@ -60,6 +58,7 @@
                 <%= f.label session[:order]["postal_code"] %>
                 <%= f.label session[:order]["address"] %>
                 <%= f.label session[:order]["receiver"] %>
+                <%#= f.hidden_field session[:order][:totall_price] :value => a %>
             <%= f.submit "購入を確定する" %>
         <% end %>
     </div>

@@ -1,5 +1,4 @@
 <!-- 商品詳細ページ -->
-
 <div class="container">
 <div class="row">
 
@@ -10,15 +9,15 @@
     </div>
 
     <div class="col-xs-8">
-        <p>商品名 <%= @product.name %></p>
+        <p>商品名： <%= @product.name %></p>
 
-        <p>商品説明 <%= @product.content %></p>
+        <p>商品説明： <br><%= @product.content %></p>
 
-        <p>ジャンル　<%= @product.genre_id %></p>
+        <p>ジャンル：　<%= @genre.type %></p>
 
-        <p>税込み価格　<%= @product.price %> 円</p>
+        <p>価格：　<%= @product.price %> 円（税込）</p>
 
-        <P>販売ステータス　<%= @product.selling_status %></P>
+        <P>販売ステータス：　<%= @product.selling_status ? '販売中' : '売切れ' %></P>
 
         <%= link_to edit_admin_product_path do %>
         	<p class="col-xs-1 btn btn-default">編集</p>

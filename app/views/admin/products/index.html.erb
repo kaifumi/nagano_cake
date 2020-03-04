@@ -1,6 +1,5 @@
-
 <!-- 商品一覧ページ -->
-<div class="container">
+<div class="container"> 
 <div class="row">
 
 	<h2 class="product_index_head">商品一覧画面</h2>
@@ -27,8 +26,8 @@
 				<td><%= product.id %></td>
 				<td><%= link_to product.name, admin_product_path(product.id) %></td>
 				<td><%= product.price %></td>
-				<td><%= product.genre_id %></td>
-				<td><%= product.selling_status %></td>
+				<td><%= product.genre.type %></td>
+				<td><%= product.selling_status ? '販売中' : '売切れ' %></td>
 			</tr>
 			<%end%>
 
