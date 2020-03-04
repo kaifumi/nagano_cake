@@ -38,7 +38,8 @@ class Admin::ProductsController < ApplicationController
   		flash[:noticde] = "商品の再登録が完了しました"
       redirect_to admin_product_path(@product.id)
   	else
-      @product = Product.find(params[:id])
+      #↓def createに同じ
+      # @product = Product.find(params[:id])
   		render action: :edit
   	end
   end

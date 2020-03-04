@@ -1,8 +1,7 @@
   <!-- customer用header <%#= render 'layouts/customer_header' %> -->
-  <header>
     <div class="center-block header_item">
+      <%# ハンバーガーメニュー %>
       <% if current_customer.present?%>
-        <%# ハンバーガーメニュー %>
         <%= render partial: "shared/menu", locals: {id:current_customer.id} %>
       <% end %>
 
@@ -23,7 +22,7 @@
           </li>
 
           <li>
-            <div class="head_current_customer_name">ユーザー名：<%= current_customer.last_name %></div>
+            <div class="head_current_customer_name">ユーザー名：<%= current_customer.last_name %> 様</div>
           </li>
         </ul>
 
@@ -43,5 +42,3 @@
         </ul>
       <%end%>
     </div>
-  </header>
- 
