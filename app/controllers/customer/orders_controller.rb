@@ -37,16 +37,14 @@ class Customer::OrdersController < ApplicationController
         sub_total = 0
 
         cart_products.each do |cart_product|
-            (cart_product.product.price * 1.1).round.to_i
-            (cart_product.product.price * 1.1).round.to_i* cart_product.amount.to_i
-            sub_total+=(cart_product.product.price * 1.1).round.to_i* cart_product.amount.to_i
+            (cart_product.product.price * 1.1).round
+            (cart_product.product.price * 1.1).round* cart_product.amount
+            sub_total+=(cart_product.product.price * 1.1).round* cart_product.amount
             sum+=sub_total
-            sum = sub_total + @order.delivery_price.to_i
+            sum = sub_total + @order.delivery_price
         end
         params[:total_price] = sum
         @order[:total_price] = params[:total_price]
-        
-        
         # @cart_product = CartProduct.where(customer_id: current_customer.id)
         @order.save
 
@@ -59,7 +57,6 @@ class Customer::OrdersController < ApplicationController
             )
             @order_detail.save
         end
-        binding.pry
         redirect_to thanks_path
     end
 
