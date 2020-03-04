@@ -55,7 +55,7 @@
             <div class="review_index">
                 <%if @review.present? %>
                     <p>自分がしたレビュー　</p>
-                    <%= link_to "一覧を見る", customer_product_reviews_path(current_customer.id), class:"btn btn-primary" %>
+                    <%= link_to "一覧を見る", customer_customer_reviews_path(current_customer.id), class:"btn btn-primary" %>
                 <%end%>
             </div>
         </div>
