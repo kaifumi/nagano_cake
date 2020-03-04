@@ -91,7 +91,4 @@ gem "pry-byebug"
 gem 'rails-controller-testing'
 
 gem 'rails-i18n'
-<<<<<<< HEAD
-=======
 
->>>>>>> 709292c265f981f2d2b06a8a485fafbc17433cfd
