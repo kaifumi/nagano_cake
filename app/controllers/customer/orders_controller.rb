@@ -1,4 +1,8 @@
 class Customer::OrdersController < ApplicationController
+
+before_action :authenticate_customer!
+before_action :correct_customer, only: [:show, :edit, :update, :destroy]
+
     def new
         @deliveies = Delivery.all
         @order = Order.new
@@ -82,5 +86,12 @@ class Customer::OrdersController < ApplicationController
     def order_params
         params.permit(:customer_id, :payment_option, :postal_code, :address, :delivery_price, :total_price,
                         :receiver, :selected_status => [ 1, 2, 3 ])
+    end
+
+    def correct_customer
+        @order = Order.find(params[:id])
+        if current_customer.id != @order.customer_id
+            redirect_to customer_orders_path
+        end
     end
 end
