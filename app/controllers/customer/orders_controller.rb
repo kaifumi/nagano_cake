@@ -22,10 +22,13 @@ class Customer::OrdersController < ApplicationController
             session[:order][:address] = address.address
             session[:order][:receiver] = address.receiver
 
-        else params[:order][:selected_status] === "3"
+        elsif params[:order][:selected_status] === "3"
             session[:order][:postal_code] = params[:order][:postal_code]
             session[:order][:receiver] = params[:order][:receiver]
             session[:order][:address] = params[:order][:address]
+
+        else 
+            redirect_to new_customer_order_path
         end
     end
 
@@ -45,8 +48,7 @@ class Customer::OrdersController < ApplicationController
         end
         params[:total_price] = sum
         @order[:total_price] = params[:total_price]
-        # @cart_product = CartProduct.where(customer_id: current_customer.id)
-        @order.save
+        @order.save 
 
         current_customer.cart_products.each do |cart_product|
             @order_detail = OrderDetail.new(
@@ -56,10 +58,10 @@ class Customer::OrdersController < ApplicationController
             amount: cart_product.amount,
             )
             @order_detail.save
-        end
         cart_products.destroy_all
         redirect_to thanks_path
     end
+end
 
     def thanks
         session[:order].clear

@@ -32,6 +32,8 @@ class Order < ApplicationRecord
 	"発送済み": 4
 	}
 
+
+	validates :payment_option, presence: true
 	
 	
 	validates :delivery_price, presence: true

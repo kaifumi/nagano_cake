@@ -34,6 +34,7 @@
         <td><%= @order.total_price %></td>
     </tr>
 </table>
+
 <table class = "table table-bordered">
     <thead>
         <tr>
@@ -47,7 +48,7 @@
         <tr>
         <% @order.order_details.each do |detail| %>
             <td><%= detail.product.name  %></td>
-            <td><%= detail.purchase_price*1.1.round %></td>
+            <td><%= (detail.purchase_price*1.1).round.to_i %></td>
             <td><%= detail.amount %></td>
             <td><%= (detail.product.price * 1.1).round.to_i * detail.amount.to_i %>円</td>
             <% end %>
