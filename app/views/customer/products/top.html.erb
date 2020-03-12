@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<div class="col-xs-offset-1">
+<div class="">
 <!-- サイドバーの表示 -->
 <div class="col-xs-3">
     <%= render 'layouts/sidebar', genres: @genres %>
@@ -18,18 +18,17 @@
 <div class="col-xs-8">
     <h2 class="red-border px-3">すべての商品</h2>
 
-    <div class="row">
-        <% @products.each do |product| %>
-            <div class="col-xs-3">
-                <%= link_to customer_product_path(product) do %>
-                    <%= attachment_image_tag product, :image, size: "160x160", fallback: "noimage.jpg", size: "160x160" %><br>
-                    <%= product.name %>
-                <%end%>
-                <p>金額：<%= product.price %>円</p>
-            </div>
-        <% end %>
+    <% @products.each do |product| %>
+        <div class="col-xs-3">
+            <%= link_to customer_product_path(product) do %>
+                <%= attachment_image_tag product, :image, size: "170x170", fallback: "noimage.jpg", size: "170x170" %><br>
+                <%= product.name %>
+            <%end%>
+            <p>金額：<%= product.price %>円</p>
+        </div>
+    <% end %>
+    <div class="pager">
+        <%= paginate @products %>
     </div>
-
-    <%= paginate @products %>
 </div>
 </div>
