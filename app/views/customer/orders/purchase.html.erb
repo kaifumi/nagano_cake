@@ -52,13 +52,12 @@
 
         <%= form_with(model: @order, url:customer_orders_path, method: :post, local: true) do |f| %>
         <h3>支払方法</h3>
-        
-        <%= f.label session[:order]["payment_option"] %>
+            <%= f.label session[:order]["payment_option"] %>
         <h3>お届け先</h3>
-                <%= f.label session[:order]["postal_code"] %>
-                <%= f.label session[:order]["address"] %>
-                <%= f.label session[:order]["receiver"] %>
-                <%#= f.hidden_field session[:order][:totall_price] :value => a %>
+            <%= f.label session[:order]["postal_code"] %>
+            <%= f.label session[:order]["address"] %>
+            <%= f.label session[:order]["receiver"] %>
+            <%#= f.hidden_field session[:order][:totall_price] :value => a %>
             <%= f.submit "購入を確定する" %>
         <% end %>
     </div>

@@ -12,8 +12,10 @@
         <%= f.label current_customer.address %>
         <%= f.label current_customer.last_name %>
         <%= f.label current_customer.first_name %>
-     <div><%= f.radio_button :selected_status, :"2" %>登録済住所から選択</div>
+        
+    <div><%= f.radio_button :selected_status, :"2" %>登録済住所から選択</div>
         <%= f.collection_select :delivery, Delivery.all, :id, :postal_code  %>
+        <%#= f.collection_select :delivery_id, Delivery.all, :id, :postal_code, :address, :receiver => "-----選択してください-----"%>
 
     <div><%= f.radio_button :selected_status, :"3" %>新しいお届け先</div>
     <div>
@@ -28,7 +30,7 @@
         <%= f.label :receiver, "宛名" %>
         <%= f.text_field :receiver %>
     </div>
-    
+        
     <%= f.submit "確認画面へ進む"%>
     <% end %>
 </div>

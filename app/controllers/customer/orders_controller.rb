@@ -46,19 +46,24 @@ class Customer::OrdersController < ApplicationController
         params[:total_price] = sum
         @order[:total_price] = params[:total_price]
         # @cart_product = CartProduct.where(customer_id: current_customer.id)
-        @order.save
-
-        current_customer.cart_products.each do |cart_product|
-            @order_detail = OrderDetail.new(
-            order_id: @order.id,
-            product_id: cart_product.product.id,
-            purchase_price: cart_product.product.price,
-            amount: cart_product.amount,
-            )
-            @order_detail.save
+        if @order.save
+            current_customer.cart_products.each do |cart_product|
+                @order_detail = OrderDetail.new(
+                order_id: @order.id,
+                product_id: cart_product.product.id,
+                purchase_price: cart_product.product.price,
+                amount: cart_product.amount,
+                )
+                @order_detail.save
+            end
+            cart_products.destroy_all
+            redirect_to thanks_path
+        # else 
+        #     @order = session[:order]
+        #     cart_products = current_customer.cart_products
+        #     render 'new'
         end
-        cart_products.destroy_all
-        redirect_to thanks_path
+        
     end
 
     def thanks
