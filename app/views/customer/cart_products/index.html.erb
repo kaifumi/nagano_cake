@@ -62,14 +62,20 @@
 </table>
 </div>
 
-<%= link_to "買い物を続ける", customer_products_path,class:"btn btn-primary" %>
+<%= link_to "買い物を続ける", root_path,class:"btn btn-primary" %>
 
 <%= link_to "購入", new_customer_order_path, class:"btn btn-success" %>
 
+<% else %>
+
+<h3>カートに商品はありません<h3>
 
 
 <%# f.submit "購入" %>
 
 <% end %>
+
+
+
 
 </div>

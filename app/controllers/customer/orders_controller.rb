@@ -1,4 +1,8 @@
 class Customer::OrdersController < ApplicationController
+
+before_action :authenticate_customer!
+before_action :correct_customer, only: [:show, :edit, :update, :destroy]
+
     def new
         @deliveies = Delivery.all
         @order = Order.new
@@ -22,10 +26,13 @@ class Customer::OrdersController < ApplicationController
             session[:order][:address] = address.address
             session[:order][:receiver] = address.receiver
 
-        else params[:order][:selected_status] === "3"
+        elsif params[:order][:selected_status] === "3"
             session[:order][:postal_code] = params[:order][:postal_code]
             session[:order][:receiver] = params[:order][:receiver]
             session[:order][:address] = params[:order][:address]
+
+        else 
+            redirect_to new_customer_order_path
         end
     end
 
@@ -43,27 +50,23 @@ class Customer::OrdersController < ApplicationController
             sum+=sub_total
             sum = sub_total + @order.delivery_price
         end
-        params[:total_price] = sum
-        @order[:total_price] = params[:total_price]
-        # @cart_product = CartProduct.where(customer_id: current_customer.id)
-        if @order.save
-            current_customer.cart_products.each do |cart_product|
-                @order_detail = OrderDetail.new(
-                order_id: @order.id,
-                product_id: cart_product.product.id,
-                purchase_price: cart_product.product.price,
-                amount: cart_product.amount,
-                )
-                @order_detail.save
-            end
-            cart_products.destroy_all
-            redirect_to thanks_path
-        # else 
-        #     @order = session[:order]
-        #     cart_products = current_customer.cart_products
-        #     render 'new'
+        # params[:total_price] = sum
+        # @order[:total_price] = params[:total_price]
+        @order.total_price = sum
+        @order.save!
+
+        current_customer.cart_products.each do |cart_product|
+            @order_detail = OrderDetail.new(
+            order_id: @order.id,
+            product_id: cart_product.product.id,
+            purchase_price: cart_product.product.price,
+            amount: cart_product.amount,
+            )
+            @order_detail.save!
         end
         
+        cart_products.destroy_all
+        redirect_to thanks_path
     end
 
     def thanks
@@ -74,10 +77,12 @@ class Customer::OrdersController < ApplicationController
     def index #注文履歴一覧画面
         #current_customer.orders
         @orders = Order.where(customer_id: current_customer.id)
+        # binding.pry
 
     end
 
     def show #注文履歴詳細画面
+    
         @order = Order.find(params[:id])
         # @order_detail = OrderDetail.find(params[:id])
         
@@ -87,5 +92,12 @@ class Customer::OrdersController < ApplicationController
     def order_params
         params.permit(:customer_id, :payment_option, :postal_code, :address, :delivery_price, :total_price,
                         :receiver, :selected_status => [ 1, 2, 3 ])
+    end
+
+    def correct_customer
+        @order = Order.find(params[:id])
+        if current_customer.id != @order.customer_id
+            redirect_to customer_orders_path
+        end
     end
 end

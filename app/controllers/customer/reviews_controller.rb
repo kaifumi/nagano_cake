@@ -1,4 +1,8 @@
 class Customer::ReviewsController < ApplicationController
+    
+before_action :authenticate_customer!
+before_action :correct_customer, only: [:edit, :update, :destroy]
+
     def new
         @review=Review.new
         # @product=Product.find(1)
@@ -6,8 +10,10 @@ class Customer::ReviewsController < ApplicationController
     end
 
     def index
-		@customer=Customer.find(params[:id])
+
+		@customer=Customer.find(params[:customer_id])
         @reviews=Review.where(customer_id:@customer.id)
+
         #商品ごとの評価値を平均化
         #変数化しないとできなかった
         review_ave=Review.group(:product_id).average(:rate)
@@ -15,10 +21,11 @@ class Customer::ReviewsController < ApplicationController
         @all_ranks=review_ave.sort_by { |i,v| v}.reverse[0..3]
         @products=Product.all
         @reviews_all=Review.all
-	end
+    end
 
     def create
         @review=Review.new(review_params)
+        @review.customer_id = current_customer.id
         if
         @review.save
         flash[:succes]="投稿完了です"
@@ -55,5 +62,12 @@ class Customer::ReviewsController < ApplicationController
     private
     def review_params
         params.require(:review).permit(:id,:rate,:product_id,:customer_id,:title,:content)
+    end
+
+    def correct_customer
+        @review = Review.find(params[:id])
+        if current_customer.id != @review.customer_id
+            redirect_to customer_customer_reviews_path(current_customer.id)
+        end
     end
 end
