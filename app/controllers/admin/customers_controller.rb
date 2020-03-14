@@ -1,6 +1,6 @@
 class Admin::CustomersController < ApplicationController
-	before_action :logged_in_admin,only:[:index,:show,:edit,:update]
-	before_action :correct_admin,   only: [:edit, :update]
+	# before_action :logged_in_admin,only:[:index,:show,:edit,:update]
+	# before_action :correct_admin,   only: [:edit, :update]
 	
 	def index
 		# 会員情報のインスタンスを生成
@@ -32,8 +32,8 @@ class Admin::CustomersController < ApplicationController
 							:password,:password_confirmation)
 		end
 
-		def correct_admin
-			@admin = Admin.find(params[:id])
-			redirect_to(root_url) unless current_admin?(@admin)
-		end
+		# def correct_admin
+		# 	@admin = Admin.find(params[:id])
+		# 	redirect_to(root_url) unless current_admin?(@admin)
+		# end
 end
