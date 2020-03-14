@@ -1,29 +1,23 @@
 <!-- 商品詳細ページ -->
-<div class="container">
-<div class="row">
+<h2 class="show_product_head" style="margin-bottom: 20px;">商品　詳細画面</h2>
 
-	<h2 class="show_product_head" style="margin-bottom: 20px;">商品　詳細画面</h2>
-
-    <div class="col-xs-3 col-xs-offset-1">
-        <%= attachment_image_tag @product, :image, size: "200x200" %>
-    </div>
-
-    <div class="col-xs-8">
-        <p>商品名： <%= @product.name %></p>
-
-        <p>商品説明： <br><%= @product.content %></p>
-
-        <p>ジャンル：　<%= @genre.type %></p>
-
-        <p>価格：　<%= @product.price %> 円（税込）</p>
-
-        <P>販売ステータス：　<%= @product.selling_status ? '販売中' : '売切れ' %></P>
-
-        <%= link_to edit_admin_product_path do %>
-        	<p class="col-xs-1 btn btn-default">編集</p>
-        <%end%>
-
-    </div>
-
+<div class="col-xs-3 col-xs-offset-1">
+    <%= attachment_image_tag @product, :image, size: "200x200" %>
 </div>
+
+<div class="col-xs-8">
+    <p>商品名： <%= @product.name %></p>
+
+    <p>商品説明： <br><%= @product.content %></p>
+
+    <p>ジャンル：　<%= @genre.type %></p>
+
+    <p>価格：　<%= @product.price %> 円（税込）</p>
+
+    <P>販売ステータス：　<%= @product.selling_status ? '販売中' : '売切れ' %></P>
+
+    <%= link_to edit_admin_product_path do %>
+        <p class="col-xs-1 btn btn-default">編集</p>
+    <%end%>
+
 </div>
