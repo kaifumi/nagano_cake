@@ -1,4 +1,8 @@
 class Customer::OrdersController < ApplicationController
+
+before_action :authenticate_customer!
+before_action :correct_customer, only: [:show, :edit, :update, :destroy]
+
     def new
         @deliveies = Delivery.all
         @order = Order.new
@@ -22,10 +26,13 @@ class Customer::OrdersController < ApplicationController
             session[:order][:address] = address.address
             session[:order][:receiver] = address.receiver
 
-        else params[:order][:selected_status] === "3"
+        elsif params[:order][:selected_status] === "3"
             session[:order][:postal_code] = params[:order][:postal_code]
             session[:order][:receiver] = params[:order][:receiver]
             session[:order][:address] = params[:order][:address]
+
+        else 
+            redirect_to new_customer_order_path
         end
     end
 
@@ -45,8 +52,7 @@ class Customer::OrdersController < ApplicationController
         end
         params[:total_price] = sum
         @order[:total_price] = params[:total_price]
-        # @cart_product = CartProduct.where(customer_id: current_customer.id)
-        @order.save
+        @order.save 
 
         current_customer.cart_products.each do |cart_product|
             @order_detail = OrderDetail.new(
@@ -56,9 +62,10 @@ class Customer::OrdersController < ApplicationController
             amount: cart_product.amount,
             )
             @order_detail.save
-        end
+        cart_products.destroy_all
         redirect_to thanks_path
     end
+end
 
     def thanks
         session[:order].clear
@@ -66,15 +73,14 @@ class Customer::OrdersController < ApplicationController
     
 
     def index #注文履歴一覧画面
-        # @orders = OrderDetail.all
-        # @orders = OrderDetail.all 
-        @order_details = OrderDetail.all.where(customer_id: current_customer.id)
-        
+        #current_customer.orders
+        @orders = Order.where(customer_id: current_customer.id)
+
     end
 
     def show #注文履歴詳細画面
-        # @order_detail = OrderDetail.find
-
+        @order = Order.find(params[:id])
+        # @order_detail = OrderDetail.find(params[:id])
         
     end
 
@@ -82,5 +88,12 @@ class Customer::OrdersController < ApplicationController
     def order_params
         params.permit(:customer_id, :payment_option, :postal_code, :address, :delivery_price, :total_price,
                         :receiver, :selected_status => [ 1, 2, 3 ])
+    end
+
+    def correct_customer
+        @order = Order.find(params[:id])
+        if current_customer.id != @order.customer_id
+            redirect_to customer_orders_path
+        end
     end
 end

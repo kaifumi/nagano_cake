@@ -1,0 +1,57 @@
+<h1>注文履歴詳細</h1>
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <th width="150">注文日</th>
+            <td width="200"><%= @order.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+        </tr>
+        <tr>
+            <th>配送先</th>
+            <td><%= @order.address %></td>
+        </tr>
+        <tr>
+            <th>支払い方法</th>
+            <td><%= @order.payment_option %></td>
+        </tr>
+        <tr>
+            <th>ステータス</th>
+            <td><%= @order.transaction_status %></td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table table-bordered">
+    <tr>
+        <th width="100">商品合計</th>
+        <td width="100"><%= @order.total_price-@order.delivery_price %></td>
+    </tr>
+    <tr>
+        <th>配送料</th>
+        <td><%= @order.delivery_price %></td>
+    </tr>
+    <tr>
+        <th>ご請求金額</th>
+        <td><%= @order.total_price %></td>
+    </tr>
+</table>
+
+<table class = "table table-bordered">
+    <thead>
+        <tr>
+        <th>商品</th>
+        <th>単価（税込み）</th>
+        <th>個数</th>
+        <th>小計</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <% @order.order_details.each do |detail| %>
+            <td><%= detail.product.name  %></td>
+            <td><%= (detail.purchase_price*1.1).round.to_i %></td>
+            <td><%= detail.amount %></td>
+            <td><%= (detail.product.price * 1.1).round.to_i * detail.amount.to_i %>円</td>
+            <% end %>
+        </tr>
+    </tbody>
+</table>

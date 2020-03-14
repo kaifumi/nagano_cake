@@ -1,5 +1,8 @@
 class Customer::CartProductsController < ApplicationController
 
+before_action :authenticate_customer!
+before_action :correct_customer, only: [:update, :destroy, :destroy_all]
+
 	def index
 		@cart_products = CartProduct.where(customer_id: current_customer.id)
 		# @product = CartProduct.where(product_id: current_customer.id)
@@ -50,6 +53,13 @@ class Customer::CartProductsController < ApplicationController
 	def cart_product_params
 		params.require(:cart_product).permit(:customer_id, :product_id, :amount)
 		# params.require(:cart_product).permit(:amount)
+	end
+
+	def correct_customer
+		@cart_product = CartProduct.find(params[:id])
+		if current_customer.id != @cart_product.customer_id
+			redirect_to customer_cart_products_path
+		end
 	end
 
 end
