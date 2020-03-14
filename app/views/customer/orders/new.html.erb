@@ -1,4 +1,11 @@
 <div class="row">
+<% if @order.errors %>
+    <ul>
+        <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
     <div class = "col-xs-offset-1 col-mx-6">
         <h1>購入情報入力</h1>
             <%= form_with(model: @order, url:purchase_path, method: :post, local: true)do |f| %>
@@ -16,7 +23,7 @@
             
         <div><%= f.radio_button :selected_status, :"2" %>登録済住所から選択</div>
             <%= f.collection_select :delivery, Delivery.all, :id, :receiver  %>
-
+            
         <div><%= f.radio_button :selected_status, :"3" %>新しいお届け先</div>
         <div>
             <%= f.label :postal_code, "郵便番号" %>
@@ -30,7 +37,7 @@
             <%= f.label :receiver, "宛名" %>
             <%= f.text_field :receiver %>
         </div>
-        <%= f.submit "確認画面へ進む"%>
+        <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
         <% end %>
     </div>
 </div>

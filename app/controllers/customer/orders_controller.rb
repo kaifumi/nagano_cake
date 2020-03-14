@@ -50,9 +50,10 @@ before_action :correct_customer, only: [:show, :edit, :update, :destroy]
             sum+=sub_total
             sum = sub_total + @order.delivery_price
         end
-        params[:total_price] = sum
-        @order[:total_price] = params[:total_price]
-        @order.save 
+        # params[:total_price] = sum
+        # @order[:total_price] = params[:total_price]
+        @order.total_price = sum
+        @order.save!
 
         current_customer.cart_products.each do |cart_product|
             @order_detail = OrderDetail.new(
@@ -61,11 +62,12 @@ before_action :correct_customer, only: [:show, :edit, :update, :destroy]
             purchase_price: cart_product.product.price,
             amount: cart_product.amount,
             )
-            @order_detail.save
+            @order_detail.save!
+        end
+        
         cart_products.destroy_all
         redirect_to thanks_path
     end
-end
 
     def thanks
         session[:order].clear
@@ -75,10 +77,12 @@ end
     def index #注文履歴一覧画面
         #current_customer.orders
         @orders = Order.where(customer_id: current_customer.id)
+        # binding.pry
 
     end
 
     def show #注文履歴詳細画面
+    
         @order = Order.find(params[:id])
         # @order_detail = OrderDetail.find(params[:id])
         

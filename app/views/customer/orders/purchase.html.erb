@@ -48,13 +48,11 @@
                 </div>
         </div>
 
-        <%= form_with(model: @order, url:customer_orders_path, method: :post, local: true) do |f| %>
-            <h3>支払方法</h3>
-                <%= f.label session[:order]["payment_option"] %>
-            <h3>お届け先</h3>
-                <%= f.label session[:order]["postal_code"] %>
-                <%= f.label session[:order]["address"] %>
-                <%= f.label session[:order]["receiver"] %>
-                <%= f.submit "購入を確定する" %>
-        <% end %>
+        <h3>支払い方法</h3>
+        <p><%= session[:order]["payment_option"]%></p>
+        <h3>お届け先</h3>
+        <p><%= session[:order]["postal_code"]%></p>
+        <p><%= session[:order]["address"]%></p>
+        <p><%= session[:order]["receiver"]%></p>
+        <%= button_to "購入を確定する", customer_orders_path, method: :post, class: "btn btn-primary" %>
 </div>
