@@ -54,6 +54,7 @@
           </div>
           <% @reviews.each do |review| %>
             <div class="col-xs-9">
+              <p>-----------------------------------------</p>
               <p>商品ID:<%= review.product_id %>　商品名:<%= link_to review.product.name,customer_product_path(review.product_id)%></p>
               <p>評価ID:<%= review.id %>  点数:<%= review.rate%>点</p>
                <!--星評価-->
