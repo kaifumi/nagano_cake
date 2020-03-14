@@ -515,12 +515,7 @@ Product.create!(
 ## 				selling_status:true)
 
 
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 563c2cb083ceb6a75334c8550bfacdd2744323d6
 		Order.create!(
 			[
 		{
@@ -552,8 +547,7 @@ Product.create!(
 		}
 			]
 		)
-<<<<<<< HEAD
-=======
+
 # 			Order.create!(
 # 				[
 # 			  {
@@ -567,9 +561,7 @@ Product.create!(
 # 					}
 # 				]
 # 		)
->>>>>>> 291806113812a2e17fe74f7a1f3c3691dabd3724
-=======
->>>>>>> 563c2cb083ceb6a75334c8550bfacdd2744323d6
+
 
 		OrderDetail.create!(
 			[
