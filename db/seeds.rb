@@ -364,7 +364,138 @@ Product.create!(
 		]
 	)
 
-
+	Review.create!(
+		[
+      {
+				rate:1,
+				product_id:1,
+				customer_id:1,
+				title:"test1",
+				content:"あ、（察し）"
+			},
+			{
+				rate:2.5,
+				product_id:2,
+				customer_id:1,
+				title:"test2",
+				content:"もう買わない",
+			},
+			{
+				rate:3,
+				product_id:3,
+				customer_id:1,
+				title:"test3",
+				content:"ふつーかな"
+			},
+			{
+				rate:4.5,
+				product_id:4,
+				customer_id:2,
+				title:"test4",
+				content:"控えめに言ってウマい"
+			},
+			{
+				rate:5,
+				product_id:1,
+				customer_id:2,
+				title:"test5",
+				content:"神"
+			},
+			{
+				rate:1.5,
+				product_id:1,
+				customer_id:1,
+				title:"test6",
+				content:"同情するレベル"
+			},
+			{
+				rate:2.5,
+				product_id:1,
+				customer_id:1,
+				title:"test7",
+				content:"同情するレベル"
+			},
+			{
+				rate:3.5,
+				product_id:1,
+				customer_id:1,
+				title:"test8",
+				content:"同情するレベル"
+			},
+			{
+				rate:0.5,
+				product_id:1,
+				customer_id:1,
+				title:"test9",
+				content:"同情するレベル"
+			}
+		]
+)
+	Review.create!(
+		[
+      {
+				rate:1,
+				product_id:1,
+				customer_id:1,
+				title:"test1",
+				content:"あ、（察し）"
+			},
+			{
+				rate:2.5,
+				product_id:2,
+				customer_id:1,
+				title:"test2",
+				content:"もう買わない",
+			},
+			{
+				rate:3,
+				product_id:3,
+				customer_id:1,
+				title:"test3",
+				content:"ふつーかな"
+			},
+			{
+				rate:4.5,
+				product_id:4,
+				customer_id:2,
+				title:"test4",
+				content:"控えめに言ってウマい"
+			},
+			{
+				rate:5,
+				product_id:1,
+				customer_id:2,
+				title:"test5",
+				content:"神"
+			},
+			{
+				rate:1.5,
+				product_id:1,
+				customer_id:1,
+				title:"test6",
+				content:"同情するレベル"
+			},
+			{
+				rate:2.5,
+				product_id:1,
+				customer_id:1,
+				title:"test7",
+				content:"同情するレベル"
+			},
+			{
+				rate:3.5,
+				product_id:1,
+				customer_id:1,
+				title:"test8",
+				content:"同情するレベル"
+			},
+			{
+				rate:0.5,
+				product_id:1,
+				customer_id:1,
+				title:"test9",
+				content:"同情するレベル"
+			}])
 ## ↓失敗例
 ## Product.create!(
 ##				genre_id:2,
@@ -373,6 +504,7 @@ Product.create!(
 ## 				image_id: File.open("./app/assets/images/焼き菓子_sample1.png"),
 ## 				price:222,
 ## 				selling_status:true)
+
 
 		Order.create!(
 			[
@@ -471,6 +603,7 @@ Product.create!(
 				},
 			]
 			)
+
 
 # Product.create!(
 # 	id: '1',

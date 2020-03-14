@@ -10,10 +10,10 @@ before_action :correct_customer, only: [:edit, :update, :destroy]
     end
 
     def index
-		# @customer=Customer.find(params[:id])
-  #       @reviews=Review.where(customer_id:@customer.id)
-        #↑2つか↓1つ？
-        @reviews=Review.where(customer_id: current_customer.id)
+
+		@customer=Customer.find(params[:customer_id])
+        @reviews=Review.where(customer_id:@customer.id)
+
         #商品ごとの評価値を平均化
         #変数化しないとできなかった
         review_ave=Review.group(:product_id).average(:rate)

@@ -24,7 +24,7 @@ header {
 }
 
 // フッター
-footer{
+footer {
   height: 180px;
   bottom: 0;
   background-attachment: sticky;
@@ -438,4 +438,28 @@ header #nav-drawer {
 
 tr td {
   text-align: center;
+}
+
+.rank_bar {
+  text-align: left;
+  margin-left: 150px;
+}
+.side_rank {
+  text-align: left;
+  margin-left: 150px;
+
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;    /*角を丸くする*/
 }
