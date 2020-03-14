@@ -46,6 +46,15 @@
 #     receiver: "ピッコロ"
 # )
 
+Admin.create!(
+    [
+      {
+        email:"aa@aa.aa",
+        password:"aaaaaa"
+      }
+    ]
+  )
+
 
 
 
